@@ -1,52 +1,27 @@
-.container-fluid,
-.fb-navbar .col-md-4{
-    padding: 0px;
-}
-.fb-navbar .row{
-    background: #a1a1a1;
-}
-.fb-navbar .navbar-left{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    height: 60px;
-    padding-left: 10px;
-    color: white;
-}
-.fb-navbar .navbar-center{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    color: white;
-}
-.fb-navbar .navbar-right{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    height: 60px;
-    padding-right: 10px;
-    color: white;
-}
+.container-fluid{
+    padding: 0px;}
 .icon{
     width: 40px;
     height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
 }
 :root{
-    --margin-right: 10px;
+    --margin-right: 0px;
 }
+/*CSS for navbar-left*/
 .fb_logo{
     background: red;
     margin-left: 15px;
 }
-/*CSS for navbar-right*/
-.search_icon{
-    background: yellow;
-    margin-left: 10px;
+.search-button{
+    display: flex;
+    justify-content: center;
 }
+/*CSS for navbar-right*/
+
 .account{
     background: red;
     margin-right: 15px;
@@ -62,4 +37,50 @@
 .menu{
     background: yellow;
     margin-right: var(--margin-right);
+}
+
+/**CSS for navbar-center*/
+.home{
+    background: yellow;
+}
+.watch{
+    background: red;
+}
+.marketplace{
+    background: yellow;
+}
+.groups{
+    background: red;
+}
+.games{
+    background: yellow;
+}
+.navbar-center-list{
+    margin-right: 0px !important;
+}
+.navbar-center{
+    justify-content: center;
+}
+.home-icon,
+.watch-icon,
+.marketplace-icon,
+.groups-icon,
+.games-icon{
+    font-size: 33px;
+}
+/*CSS for navbar-right*/
+.navbar-right{
+    flex-direction: row;
+}
+.menu-icon{
+    font-size: 30px;
+}
+.notifications-icon{
+    font-size: 28px;
+}
+.account-icon{
+    font-size: 40px;
+}
+.messages-icon{
+    font-size: 25px;
 }
