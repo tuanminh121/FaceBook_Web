@@ -4,17 +4,25 @@
     width: 40px;
     height: 40px;
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+}
+.fb-navbar{
+    height: 60px;
 }
 :root{
     --margin-right: 0px;
 }
 /*CSS for navbar-left*/
 .fb_logo{
-    background: red;
+    background-image: linear-gradient(0, #273cfa, #13cae2);
     margin-left: 15px;
+    border-radius: 50%;
+    align-items: flex-end;
+}
+.fb-icon{
+    font-size: 32px;
+    color: rgba(255, 255, 255,1);
 }
 .search-button{
     display: flex;
@@ -39,21 +47,27 @@
     margin-right: var(--margin-right);
 }
 
-/**CSS for navbar-center*/
+/*CSS for navbar-center*/
 .home{
     background: yellow;
+    color: #1877F2;
 }
 .watch{
     background: red;
+    color: #1877F2;
+
 }
 .marketplace{
     background: yellow;
+    color: #1877F2;
 }
 .groups{
     background: red;
+    color: #1877F2;
 }
 .games{
     background: yellow;
+    color: #1877F2;
 }
 .navbar-center-list{
     margin-right: 0px !important;
@@ -74,13 +88,17 @@
 }
 .menu-icon{
     font-size: 30px;
+    color: #1877F2;
 }
 .notifications-icon{
-    font-size: 28px;
+    font-size: 25px;
+    color: #1877F2;
 }
 .account-icon{
     font-size: 40px;
+    color: #1877F2;
 }
 .messages-icon{
-    font-size: 25px;
+    font-size: 23px;
+    color: #1877F2;
 }
