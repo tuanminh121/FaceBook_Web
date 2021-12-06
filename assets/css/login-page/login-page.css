@@ -126,3 +126,24 @@
   color: #737373;
   font-size: 11px;
 }
+
+@media screen and (max-width: 995px){
+  #body-row {
+    padding-top: 0px;
+    padding-bottom: 100px;
+  }
+  #img-wrapper {
+    margin-top: 0;
+  }
+  #body-left-bottom {
+    max-width: 410px;
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  #body-left-bottom > h1 {
+    font-size: 24px;
+  }
+  #footer-wrapper {
+    padding: 0;
+  }
+}
