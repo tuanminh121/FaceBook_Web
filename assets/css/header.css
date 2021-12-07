@@ -9,20 +9,28 @@
 }
 .fb-navbar{
     padding: 0px !important;
-    height: 60px;
+    height: 55px;
     align-items: center;
     justify-content: center;
     background-color: rgb(255, 255, 255) !important;
     box-shadow: 0px 3px rgba(187, 179, 179, 0.2);
 }
 .inner-fb-navbar{
-    height: 60px;
+    height: 55px;
 }
 :root{
     --margin-right: 0px;
 }
 /*CSS for navbar-left*/
+.navbar-left{
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 .fb_logo{
+    margin: 10px 0px;
     width: 40px !important;
     height: 40px !important;
     border: 0px !important;
@@ -36,8 +44,9 @@
     color: rgba(255, 255, 255,1);
 }
 .search-button{
-    width: 40px;
-    height: 40px;
+    margin: 10px 0px !important;
+    width: 40px !important;
+    height: 40px !important;
     display: flex;
     justify-content: center;
     align-items: center ;
@@ -45,6 +54,23 @@
     border: 0px solid white;
     background-color: rgb(233, 233, 233);
 }
+.navbar-left .button{
+    margin: 10px 0px;
+    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 0px solid white;
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+}
+.sidebar-menu-icon{
+    font-size: 30px;
+}
+
 @media screen and (max-width:1259px) {
     .search-input{
         display: none;
@@ -54,8 +80,14 @@
         justify-content: center;
     }
 }
-@media screen and (max-width:991px){
+
+@media screen and (max-width:951px){
     .navbar-center{
+        display: none;
+    }
+}
+@media screen and  (min-width:1100px){
+    .navbar-left .sidebar-menu{
         display: none;
     }
 }
@@ -63,16 +95,19 @@
     font-size: 28px;
 }
 .search-input{
-    border-radius: 18px;
+    margin: 10px 0px;
+    height: 40px;
+    border-radius: 20px;
 }
 
 /*CSS for navbar-center*/
 .navbar-center-list .icon{
-    color: #1877F2;
-    width: 100px;
-    height: 50px;
+    /*color: #1877F2;
+    border-bottom: 3.5px solid #1877F2; */
+    color: black;
+    width: 80px;
+    height: 45px;
     border-radius: 5px;
-    border-bottom: 3.5px solid #1877F2;
 }
 .navbar-center-list{
     margin-right: 0px !important;
@@ -115,6 +150,9 @@
 }
 .account{
     margin-right: 15px !important;
+}
+.navbar-right .menu{
+    margin-left: 0px;
 }
 .navbar-right .button:hover{
     background-color: rgb(212, 208, 208);
