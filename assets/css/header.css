@@ -109,6 +109,17 @@
     height: 45px;
     border-radius: 5px;
 }
+.navbar-center-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.navbar-center .underline{
+    width: 100%;
+    height: 5px;
+    background-color: #1877F2;
+}
 .navbar-center-list{
     margin-right: 0px !important;
     margin: 0px !important;
@@ -129,7 +140,7 @@
     font-size: 33px;
 }
 .navbar-center-list .icon:hover{
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(240, 238, 238);
 }
 /*CSS for navbar-right*/
 .navbar-right{
