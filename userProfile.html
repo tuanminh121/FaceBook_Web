@@ -9,7 +9,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>User profile</title>
     <!-- FB icon -->
-    <link rel="icon" href="images_d/facebook.png" type="image/x-icon" />
+    <link rel="icon" href="images_dev/facebook.png" type="image/x-icon" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -23,14 +23,14 @@
     <!-- MDB -->
     <link rel="stylesheet" href="css_mdb/mdb.min.css" />
   </head>
-  <body>
+  <body class="bg-light">
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <!-- left -->
           <div>
             <a class="navbar-brand" href="#">
-                <i class="fab fa-facebook-f fb-icon"></i>
+              <i class="fab fa-facebook-f fb-icon"></i>
             </a>
           </div>
           <!-- left -->
@@ -48,17 +48,14 @@
 
     <main>
       <!-- Section: white bg -->
-      <section class="bg-white">
+      <section class="bg-white mb-4 shadow-2">
         <div class="container">
           <!-- Section: images -->
           <section class="mb-10">
             <!-- Background image -->
             <div
               class="p-5 text-center bg-image shadow-1-strong rounded-bottom"
-              style="
-                background-image: url('https://mdbootstrap.com/img/new/slides/041.jpg');
-                height: 400px;
-              "
+              style="background-image: url('images_dev/sky.jpg'); height: 400px"
             ></div>
 
             <div class="d-flex justify-content-center">
@@ -147,13 +144,27 @@
                   <li><a class="dropdown-item" href="#">Giải trí</a></li>
                 </ul>
               </div>
-
             </div>
             <!-- left -->
 
             <!-- right -->
             <div>
-              
+              <button
+                type="button"
+                class="btn btn-light bg-light mr-2"
+                data-mdb-ripple-color="dark"
+              >
+                <i class="far fa-edit me-2"></i>Chỉnh
+                sửa trang cá nhân
+              </button>
+              <button
+                type="button"
+                class="btn btn-light bg-light mr-2"
+                data-mdb-ripple-color="dark"
+              >
+                <i class="fas fa-search me-2"></i>Tìm
+                kiếm
+              </button>
             </div>
             <!-- right -->
           </section>
@@ -161,6 +172,36 @@
         </div>
       </section>
       <!-- Section: white bg -->
+
+      <!-- Section grey bg -->
+      <section>
+        <div class="container">
+          <div class="row">
+            <!-- left -->
+            <div class="col-md-5 mb-4 mb-md-0">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><strong>Giới thiệu</strong></h5>
+                  <ul class="list-unstyled text-muted">
+                    <li><i class="fas fa-house-damage me-2"></i>Sống tại <a href="https://vi.wikipedia.org/wiki/H%C3%A0_N%E1%BB%99i"><strong>Hà Nội</strong></a></li>
+                    <li><i class="fas fa-map-marker-alt me-2"></i>Đến từ <a href="https://vi.wikipedia.org/wiki/H%C3%A0_N%E1%BB%99i"><strong>Hà Nội</strong></a></li>
+                    <li><i class="fab fa-github me-2"></i><a href="https://github.com/vantranthao">https://github.com/vantranthao</a></li>
+                    <li><i class="fas fa-school me-2"></i><a href="http://c3chuongmya.edu.vn/">THPT Chương Mỹ A</a></li>
+                  </ul>
+
+                  <button type="button" class="btn btn-primary">Button</button>
+                </div>
+              </div>
+            </div>
+            <!-- left -->
+
+            <!-- right -->
+            <div class="col-md-7 mb-4 mb-md-0">Lorem ipsum dolor sit amet.</div>
+            <!-- right -->
+          </div>
+        </div>
+      </section>
+      <!-- Section grey bg -->
     </main>
 
     <script type="text/javascript" src="js_mdb/mdb.min.js"></script>
