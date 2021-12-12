@@ -127,6 +127,48 @@
   font-size: 11px;
 }
 
+.signup-modal {
+  margin-top: 100px;
+}
+
+.modal-title-custom {
+  font-family: 'SF Pro Display Bold';
+}
+
+.modal-title-description {
+  font-family: 'SF Pro Display Regular';
+  font-size: 15px;
+  color: #606770;
+  margin: 0;
+}
+
+.form-control-input {
+  font-size: 15px;
+  font-family: "SF Pro Display Regular"
+}
+
+.form-description {
+  color: #606770;
+  font-family: "SF Pro Display Medium", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.gender-checkbox {
+  flex: 1;
+}
+
+#success-btn {
+  font-family: "SF Pro Display Bold", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: #fff;
+  background-color: rgb(0, 164, 0);
+}
+
+#success-btn:hover {
+  background: linear-gradient(#79bc64, #578843);
+}
+
 @media screen and (max-width: 995px){
   #body-row {
     padding-top: 0px;
@@ -147,3 +189,5 @@
     padding: 0;
   }
 }
+
+
