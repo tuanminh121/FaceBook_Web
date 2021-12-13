@@ -4,7 +4,9 @@
 }
 .container-fluid{
     padding: 0 8px;
-    background-color: #F2F3F5 !important;
+}
+body{
+    background-color: #F2F3F5;
 }
 #sidebar{
     padding: 0px !important;
@@ -15,12 +17,26 @@
 .icon{
     width: 36px;
     height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon-expand{
+    width: 36px;
+    height: 36px;
     background-color: rgb(233, 233, 233);
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     border: 0px solid white;
+}
+.img{
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 .text{
     font-size: 14px;
@@ -38,17 +54,28 @@ h5{
     align-items: center;
     padding: 0 8px;
     border-radius: 8px;
+    cursor: pointer;
 }
 .sidebar-item:hover{
-    background-color: rgb(240, 238, 238);
+    background-color: rgb(231, 229, 229);
 }
 .sidebar-item:active{
-    background-color: rgb(226, 224, 224);
+    background-color: rgb(216, 213, 213);
 }
-.expand-more-icon{
+.expand-icon{
     font-size: 28px;
     color: black;
 }
-.expand-item{
-
+#footer-text{
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+}
+footer ul{
+    display: flex;
+    font-size: 14px;
+}
+.footer-link:hover{
+    text-decoration-line: underline !important;
 }
