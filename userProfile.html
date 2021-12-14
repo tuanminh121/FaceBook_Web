@@ -9,7 +9,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>User profile</title>
     <!-- FB icon -->
-    <link rel="icon" href="images_dev/facebook.png" type="image/x-icon" />
+    <link rel="icon" href="assets/images_dev/facebook.png" type="image/x-icon" />
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -21,7 +21,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
     <!-- MDB -->
-    <link rel="stylesheet" href="css_mdb/mdb.min.css" />
+    <link rel="stylesheet" href="assets/css_mdb/mdb.min.css" />
   </head>
   <body class="bg-light">
     <header>
@@ -55,12 +55,12 @@
             <!-- Background image -->
             <div
               class="p-5 text-center bg-image shadow-1-strong rounded-bottom"
-              style="background-image: url('images_dev/sky.jpg'); height: 400px"
+              style="background-image: url('assets/images_dev/sky.jpg'); height: 400px"
             ></div>
 
             <div class="d-flex justify-content-center">
               <img
-                src="images_dev/totoro.webp"
+                src="assets/images_dev/totoro.webp"
                 alt=""
                 class="
                   rounded-circle
@@ -179,17 +179,181 @@
           <div class="row">
             <!-- left -->
             <div class="col-md-5 mb-4 mb-md-0">
-              <div class="card">
+              <div class="card mb-3">
                 <div class="card-body">
-                  <h5 class="card-title"><strong>Giới thiệu</strong></h5>
-                  <ul class="list-unstyled text-muted">
-                    <li><i class="fas fa-house-damage me-2"></i>Sống tại <a href="https://vi.wikipedia.org/wiki/H%C3%A0_N%E1%BB%99i"><strong>Hà Nội</strong></a></li>
-                    <li><i class="fas fa-map-marker-alt me-2"></i>Đến từ <a href="https://vi.wikipedia.org/wiki/H%C3%A0_N%E1%BB%99i"><strong>Hà Nội</strong></a></li>
-                    <li><i class="fab fa-github me-2"></i><a href="https://github.com/vantranthao">https://github.com/vantranthao</a></li>
-                    <li><i class="fas fa-school me-2"></i><a href="http://c3chuongmya.edu.vn/">THPT Chương Mỹ A</a></li>
+                  <h5 class="card-title mt"><strong>Giới thiệu</strong></h5>
+                  <button type="button" class="btn mt-3 btn-light bg-light btn-block">
+                    <strong> Thêm tiểu sử</strong>
+                  </button>
+                  <ul class="list-unstyled text-muted mt-3">
+                    <li><i class="fas fa-house-damage me-2 mt-3"></i>Sống tại <a href="https://vi.wikipedia.org/wiki/H%C3%A0_N%E1%BB%99i"><strong>Hà Nội</strong></a></li>
+                    <li><i class="fas fa-map-marker-alt me-2 mt-3"></i>Đến từ <a href="https://vi.wikipedia.org/wiki/H%C3%A0_N%E1%BB%99i"><strong>Hà Nội</strong></a></li>
+                    <li><i class="fab fa-github me-2 mt-3"></i><a href="https://github.com/vantranthao">https://github.com/vantranthao</a></li>
+                    <li><i class="fas fa-school me-2 mt-3"></i><a href="http://c3chuongmya.edu.vn/">THPT Chương Mỹ A</a></li>
                   </ul>
 
-                  <button type="button" class="btn btn-primary">Button</button>
+                  <button type="button" class="btn btn-light bg-light btn-block mt-3">
+                    <strong> Chỉnh sửa chi tiết</strong>
+                
+                  </button>
+                  <button type="button" class="btn btn-light bg-light btn-block mt-3" >
+                    <strong>Thêm sở thích</strong>
+                  </button>
+
+                  <div class="lightbox mt-4">
+                    <div class="row gx-2">
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_01.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_02.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_03.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_02.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_03.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_01.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="button" class="btn btn-light bg-light btn-block" >
+                    <strong>Chỉnh sửa</strong>
+                  </button>
+                </div>
+              </div>
+
+              <div class="card mb-3">
+                <div class="card-body">
+                  <a href="" class="text-reset d-inline-block"><h5 class="card-title mt"><strong>Ảnh</strong></h5></a>
+                  <a href="" class="btn btn-link d-inline-block py-1 px-3" style="float: right;">Xem tất cả ảnh</a>
+                  <div class="lightbox mt-4">
+                    <div class="row gx-2">
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_01.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_02.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_03.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_02.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_03.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_01.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_01.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_02.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_03.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card mb-3">
+                <div class="card-body">
+                  
+                  <div class="card_left d-inline-block">
+                    <a href="" class="text-reset "><h5 class="card-title mt"><strong>Bạn bè</strong></h5></a>
+                    <p class="friend_numbers">1420 người bạn</p>
+                  </div>
+                  <div class="card_right d-inline-block" style="float: right;"><a href="" class="btn btn-link py-1 px-3">Xem tất cả bạn bè</a></div>
+                  
+                  <div class="lightbox mt-3">
+                    <div class="row gx-2">
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_01.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_02.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_03.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_02.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_03.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_01.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_01.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_02.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_03.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card mb-3">
+                <div class="card-body">
+                  <a href="" class="text-reset d-inline-block"><h5 class="card-title mt"><strong>Sự kiện trong đời</strong></h5></a>
+                  
+                  <a href="" class="btn btn-link d-inline-block py-1 px-3" style="float: right;">Xem tất cả</a>
+                  <div class="lightbox mt-4">
+                    <div class="row gx-2">
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_01.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_02.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_03.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_02.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_03.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_01.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_01.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_02.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                      <div class="col-lg-4 mb-3">
+                        <img src="assets/images_dev/aot_03.jpg" alt="" class='w-100 shadow-1-strong rounded'>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -204,7 +368,7 @@
       <!-- Section grey bg -->
     </main>
 
-    <script type="text/javascript" src="js_mdb/mdb.min.js"></script>
+    <script type="text/javascript" src="assets/js_mdb/mdb.min.js"></script>
     <!-- Custom scripts -->
     <script type="text/javascript"></script>
   </body>
