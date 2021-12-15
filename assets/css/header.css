@@ -28,6 +28,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    position: fixed;
 }
 .fb_logo{
     margin: 10px 0px;
@@ -145,6 +146,8 @@
 /*CSS for navbar-right*/
 .navbar-right{
     flex-direction: row;
+    position: fixed;
+    right: 0;
 }
 .navbar-right .button{
     margin: 10px;

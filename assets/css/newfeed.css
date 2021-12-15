@@ -1,0 +1,28 @@
+#left-side-bar{
+    overflow: scroll;
+}
+main{
+    padding-top: 70px;
+    display: flex;
+    flex-direction: row;
+}
+#main-new-feed{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 32px;
+}
+.news{
+    border-radius: 10px;
+    padding: 0px 32;
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    margin: 10px;
+}
+@media screen and (max-width:1099px) {
+    #left-side-bar{
+        display: none;
+    }
+}
