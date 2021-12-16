@@ -8,6 +8,7 @@
     <script src="https://kit.fontawesome.com/f15068147b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/sidebar.css">
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/newfeed.css">
@@ -16,7 +17,7 @@
 <body>
 <!--HEADER-->
     <header class="container-fluid">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top fb-navbar">
+    <nav class="navbar navbar-light bg-light fixed-top fb-navbar">
         <div class="container-fluid inner-fb-navbar">
             <div class="navbar-left">
           <a class="navbar-brand" href="#">
@@ -126,7 +127,7 @@
 <!--MAIN-->  
     <main>
 <!--LEFT-SIDE-BAR-->
-    <div class="col-md-3" id="left-side-bar">
+    <div id="left-side-bar">
         <div class="container-fluid">
             <div class="row">
             <div class="col-md-12 sidebar-item">
@@ -406,7 +407,7 @@
             </div>
             <div><hr></div>
             <div class="row">
-            <h5>Lối tắt của bạn</h5>
+            <h6>Lối tắt của bạn</h6>
             <div class="col-md-12 sidebar-item">
                 <div class="icon"></div>
                 <div class="text">
@@ -478,7 +479,68 @@
         </footer>
     </div>
 <!--MAIN-NEW-FEED-->
-    <div class="col-md-6" id="main-new-feed">
+    <div id="main-news-feed">
+        <div class="news">
+            <div class="row">
+                <div class="heading">
+                    <div class="user-ava"></div>
+                    <div class="user-name-time">
+                        <b class="user-name">User Name</b>
+                        <h6 class="time">Hôm qua lúc 19:00</h6>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <div class="content-caption">
+                        Hello World!
+                    </div>
+                    <div class="content-images">
+
+                    </div>
+                </div>
+                <div class="action-comment">
+                    <div class="action-comment-above">
+                        <div class="action-index">
+                            <span class="material-icons-round">
+                                emoji_emotions
+                            </span>
+                        </div>
+                        <div class="comment-index">
+                            100 bình luận 100 lượt chia sẻ
+                        </div>
+                    </div>
+                    <div class="action-comment-under">
+                        <div class="action-comment-under-item">
+                            <div class="action-icon">
+                                <span class="material-icons-outlined like-icon">
+                                    thumb_up
+                                </span>
+                            </div>
+                            <div class="action-name">
+                                <h6>Thích</h6>
+                            </div>
+                        </div>
+                        <div class="action-comment-under-item">
+                            <div class="action-icon">
+                                <span class="material-icons-outlined comment-icon">
+                                    chat_bubble_outline
+                                </span>
+                            </div>
+                            <div class="action-name">
+                                <h6>Bình luận</h6>
+                            </div>
+                        </div>
+                        <div class="action-comment-under-item">
+                            <div class="action-icon">
+                                <i class="far fa-share-square share-icon"></i>
+                            </div>
+                            <div class="action-name">
+                                <h6>Chia sẻ</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="news"></div>
         <div class="news"></div>
         <div class="news"></div>
@@ -486,6 +548,57 @@
         <div class="news"></div>
     </div>
 <!--RIGHT-SIDE-BAR-->
+    <div id="right-side-bar">
+        <div class="row">
+            <h6>Người liên hệ</h6>
+        </div>
+        <div class="row">
+            <div class="sidebar-item">
+                <div class="icon"></div>
+                <div class="text">
+                    <b>User Name</b>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar-item">
+                <div class="icon"></div>
+                <div class="text">
+                    <b>User Name</b>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar-item">
+                <div class="icon"></div>
+                <div class="text">
+                    <b>User Name</b>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar-item">
+                <div class="icon"></div>
+                <div class="text">
+                    <b>User Name</b>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sidebar-item">
+                <div class="icon"></div>
+                <div class="text">
+                    <b>User Name</b>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <hr>    
+        </div>
+        <div class="row">
+            <h6>Cuộc trò chuyện nhóm</h6>
+        </div>
+    </div>
     </main>
 <!--Thư viên Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

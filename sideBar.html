@@ -9,10 +9,121 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
     <link rel="stylesheet" href="assets/css/sidebar.css">
+    <link rel="stylesheet" href="assets/css/header.css">
     <title>SideBar</title>
     </head>
     <body>
-       <div class="container-fluid">
+    <!--HEADER-->
+        <header class="container-fluid">
+        <nav class="navbar navbar-light bg-light fixed-top fb-navbar">
+            <div class="container-fluid inner-fb-navbar">
+                <div class="navbar-left">
+              <a class="navbar-brand" href="#">
+                <div class="fb_logo icon">
+                    <i class="fab fa-facebook-f fb-icon"></i>
+                </div>
+              </a>
+              <form class="d-flex">
+                <input class="form-control me-2 search-input" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+                <button class="search-button" type="submit">
+                    <span class="material-icons-round search-icon">
+                        search
+                    </span>
+                </button>
+              </form>
+              <button class="sidebar-menu button">
+                <span class="material-icons-round sidebar-menu-icon">
+                    menu
+                </span>
+              </button>
+              </div>
+              <div class="col-md 4 navbar-center">
+                <div class="navbar-center-list">
+                <div class="nav-item">
+                    <a class="nav-link active navbar-center-item" aria-current="page" href="#">
+                        <div class="home icon" title="Home">
+                            <span class="material-icons-round home-icon">
+                                home
+                            </span>
+                        </div>
+                        <div class="underline"> </div>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link navbar-center-item" href="#">
+                        <div class="watch icon" title="Watch">
+                            <span class="material-icons-round watch-icon">
+                                ondemand_video
+                            </span>
+                        </div>
+                        <div class="underline"> </div>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link navbar-center-item" href="#">
+                        <div class="marketplace icon" title="Marketplace">
+                            <span class="material-icons marketplace-icon">
+                                storefront
+                            </span>
+                        </div>
+                        <div class="underline"> </div>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link navbar-center-item" href="#">
+                        <div class="groups icon" title="Groups">
+                            <span class="material-icons-round groups-icon">
+                                groups
+                            </span>
+                        </div>
+                        <div class="underline"> </div>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link navbar-center-item" href="#">
+                        <div class="games icon" title="Games">
+                            <span class="material-icons-round games-icon">
+                                gamepad
+                            </span>
+                        </div>
+                        <div class="underline"> </div>
+                    </a>
+                </div>
+                </div>
+              </div>
+              <div class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
+                <div class="nav-item">
+                        <button class="menu button" title="Menu">
+                            <span class="material-icons-round menu-icon">
+                                apps
+                            </span>
+                        </button>
+                </div>
+                <div class="nav-item">
+                        <button class="messages button" title="Messenger">
+                            <i class="fab fa-facebook-messenger messages-icon"></i>
+                        </button>
+                </div>
+                <div class="nav-item">
+                        <button class="notifications button" title="Notifications">
+                            <span class="material-icons-round notifications-icon">
+                                notifications
+                            </span>
+                        </button>
+                </div>
+                <div class="nav-item">
+                        <button class="account button" title="Account">
+                            <span class="material-icons-round account-icon">
+                                arrow_drop_down
+                            </span>
+                        </button>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </header>
+    <!--MAIN-->
+       <div class="container-fluid" id="SideBar">
         <div class="row">
         <div class="col-md-12 sidebar-item">
             <div class="icon"></div>
@@ -291,7 +402,7 @@
         </div>
         <div><hr></div>
         <div class="row">
-        <h5>Lối tắt của bạn</h5>
+        <h6>Lối tắt của bạn</h6>
         <div class="col-md-12 sidebar-item">
             <div class="icon"></div>
             <div class="text">
@@ -332,7 +443,8 @@
         </div>
         </div>
         </div>
-    <footer class="mt-5">
+    <!--FOOTER-->
+        <footer class="mt-5">
         <div class="row">
         <div class="col-md-12">
         <ul class="list-unstyled">
@@ -360,7 +472,7 @@
         </ul>
         </div>  
         </div>
-    </footer>
+        </footer>
 <!--Thư viên Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

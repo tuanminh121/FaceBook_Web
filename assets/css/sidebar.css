@@ -1,6 +1,7 @@
 #sidebar{
     width: 100%;
     height: 100%;
+    padding: 0px !important
 }
 .container-fluid{
     padding: 0 8px;
@@ -8,8 +9,8 @@
 body{
     background-color: #F2F3F5;
 }
-#sidebar{
-    padding: 0px !important;
+#SideBar{
+    padding-top: 70px;
 }
 .row{
     padding: 0 14px !important;
@@ -43,7 +44,7 @@ body{
     padding: 6px 12px;
     border: 0px;
 }
-h5{
+h6{ 
     color: rgb(117, 117, 117);
 }
 .sidebar-item{
@@ -66,15 +67,19 @@ h5{
     font-size: 28px;
     color: black;
 }
+/*FOOTER*/
 #footer-text{
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0px;
     padding: 0px;
     font-size: 12px;
 }
 footer ul{
     display: flex;
-    font-size: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
 }
 .footer-link:hover{
     text-decoration-line: underline !important;

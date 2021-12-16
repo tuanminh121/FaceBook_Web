@@ -1,25 +1,147 @@
+main{
+    margin-top: 70px !important;
+    overflow-x:hidden;
+}
 #left-side-bar{
     overflow: scroll;
+    width: 25%;
+    height: 90%;
+    position: fixed ;
+    overflow-x: hidden;
 }
-main{
-    padding-top: 70px;
-    display: flex;
-    flex-direction: row;
-}
-#main-new-feed{
+/*MAIN NEWS FEED*/
+#main-news-feed{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0px 32px;
+    width: 50%;
+    margin-left: 25%;
 }
 .news{
     border-radius: 10px;
     padding: 0px 32;
     height: 500px;
-    width: 500px;
+    width: 80%;
     background-color: white;
-    margin: 10px;
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+}
+.heading{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding: 12px 16px 0px 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+.user-ava{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 0px solid white;
+    background-color: rgb(233, 233, 233);
+}
+.user-name-time{
+    font-size: 14px;
+    padding-left: 12px;
+    border: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.user-name{
+    margin-top: 5px;
+}
+.time{
+    font-size: 12px;
+    margin: 5px 0px; 
+}
+.news-content{
+    padding: 0px;
+}
+.content-caption{
+    padding: 4px 16px 16px 16px;
+}
+.content-images{
+    width: 100%;
+    height: 300px;
+    background-color: tomato;
+}
+.action-comment{
+    padding: 0px;
+    width: 100%;
+    height: 83px;
+}
+.action-comment-above{
+    display: flex;
+    margin: 0px 12px;
+    padding: 10px 0px;
+    border-bottom: 1px solid black;
+}
+.action-index{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.comment-index{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.action-comment-under{
+    display: flex;
+    padding-top: 7px;
+    margin: 0px 12px;
+}
+.action-name{
+    padding-left: 7px;
+    padding-top: 4px;
+    justify-content: center;
+    align-items: center;
+}
+.action-icon{
+    justify-content: center;
+    align-items: center;
+}
+.action-comment-under-item{
+    border-radius: 5px;
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+.like-icon, .comment-icon{
+    font-size: 25px;
+    color: gray;
+    padding-top: 5px;
+}
+.share-icon{
+    font-size: 21px;
+    color: gray;
+}
+.action-comment-under-item:hover{
+    background-color: rgb(231, 229, 229);
+}
+.action-comment-under-item:active{
+    background-color: rgb(216, 213, 213);
+}
+/*RIGHT SIDE BAR*/
+#right-side-bar{
+    top: 70px;
+    width: 25%;
+    height: 90%;
+    margin-left: 75%;
+    position: fixed;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 @media screen and (max-width:1099px) {
     #left-side-bar{
