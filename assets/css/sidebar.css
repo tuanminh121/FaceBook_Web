@@ -10,7 +10,7 @@ body{
     background-color: #F2F3F5;
 }
 #SideBar{
-    padding-top: 70px;
+    padding-top: 0px !important;
 }
 .row{
     padding: 0 14px !important;
@@ -43,6 +43,7 @@ body{
     font-size: 14px;
     padding: 6px 12px;
     border: 0px;
+    color: black;
 }
 h6{ 
     color: rgb(117, 117, 117);
@@ -66,6 +67,13 @@ h6{
 .expand-icon{
     font-size: 28px;
     color: black;
+}
+/*USER-LINK*/
+.icon .user-img{
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 /*FOOTER*/
 #footer-text{
