@@ -11,18 +11,66 @@
     </div>
 <!--MAIN-NEW-FEED-->
     <div id="main-news-feed">
+<!--THINKING POST-->
+        <div class="card mb-4 thinking-post">
+            <div class="card-body">
+                <div class="d-flex">
+                    <a id="thinking-user" href="userProfile.html">
+                        <img src="assets/images/content-img.jpeg" alt="" class="rounded-circle border"/>
+                    </a>
+                    <button
+                      class="btn btn-light btn-block btn-rounded bg-light" data-mdb-toggle="modal" data-mdb-target="#buttonModalUserPost">
+                      Bạn đang nghĩ gì?
+                    </button>
+                </div>
+                  <hr>
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-link btn-lg"><i class="fas fa-video"></i> Video trực tiếp</button>
+                    <button class="btn btn-link btn-lg"><i class="fas fa-images"></i> Ảnh/Video</button>
+                    <button class="btn btn-link btn-lg"><i class="far fa-grin-wink"></i> Cảm xúc</button>
+                </div>
+            </div>
+        </div>
+<!--News-->
         <div class="news">
             <div class="row">
                 <div class="heading">
-                    <div class="user-ava"></div>
+                    <a class="user-ava" href="userProfile.html">
+                        <img class="user-img" src="assets/images/content-img.jpeg" alt="">
+                    </a>
                     <div class="user-name-time">
-                        <b class="user-name">User Name</b>
+                        <a href="userProfile.html" class="user-name text-decoration-none link-dark">
+                            <b>User Name</b>
+                        </a>
                         <h6 class="time">Hôm qua lúc 19:00</h6>
+                    </div>
+                    <div class="option ms-auto">
+                        <div class="option-icon"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <span class="material-icons-outlined" style="position: absolute;">
+                                more_horiz
+                            </span>
+                        </div>
+                        <div class="collapse" id="collapseExample">
+                            <div class="option-item">
+                                <div class="col-md-12 items">
+                                <span class="material-icons-outlined">history</span>
+                                    <b>Xem lịch sử chỉnh sửa</b>
+                                </div>
+                                <div class="col-md-12 items">
+                                    <span class="material-icons-outlined">report</span>
+                                    <b>Lưu bài viết</b>
+                                </div>
+                                <div class="col-md-12 items">
+                                <span class="material-icons-outlined">bookmarks</span>
+                                    <b>Báo cáo bài viết</b>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="news-content">
                     <div class="content-caption">
-                        Hello World!
+                        Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!
                     </div>
                     <div class="content-images">
                         <img src="assets/images/content-img.jpeg" alt="">
@@ -36,7 +84,7 @@
                             </span>
                         </div>
                         <div class="comment-index">
-                            <div class="comment-index-item">
+                            <div class="comment-index-item" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
                                 100 bình luận 
                             </div>
                             <div class="share-index-item">
@@ -61,7 +109,7 @@
                                     chat_bubble_outline
                                 </span>
                             </div>
-                            <div class="action-name">
+                            <div class="action-name" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
                                 <h6>Bình luận</h6>
                             </div>
                         </div>
@@ -75,25 +123,63 @@
                         </div>
                     </div>
                 </div>
+<!--COMMENT INPUT-->
                 <div class="row">
-                    <hr>
-                </div>
-                <div class="d-flex mb-2 comment-input">
-                    <a href="">
-                        <img src="assets/images/content-img.jpeg" alt="" class="rounded-circle border"/>
-                    </a>
-                    <div class="form-outline w-100">
-                      <input type="text" id="formControlLg" class="form-control form-control-lg"/>
-                      <label class="form-label" for="formControlLg">Viết bình luận...</label>
+                    <div class="col-md-12 comment-input-form">
+                        <a class="icon"  href="userProfile.html">
+                            <img class="user-img" src="assets/images/content-img.jpeg" alt="">
+                        </a>
+                        <div class="comment-input">
+                            <input type="text" placeholder=" Viết bình luận" class="form-control">
+                        </div>
                     </div>
+                </div>
+<!--COMMENTS-->
+    <ul class="collapse collapse-horizontal comments" id="collapseWidthExample">
+        <li class="comment-item">
+            <a class="icon" href="userProfile.html">
+                <img class="user-img" src="assets/images/content-img.jpeg" alt="">
+            </a>
+            <div class="commentator-name">
+                <a href="userProfile.html" class="user-name text-decoration-none link-dark">
+                    <b>User Name</b>
+                </a>
+                    <p class="comment-content">đây là commentđây là commentđây là commentđây là comment
+                    đây là commentđây là commentđây là commentđây là comment
+                    đây là commentđây là commentđây là commentđây là comment
+                    đây là commentđây là commentđây là commentđây là comment
+                    đây là commentđây là commentđây là commentđây là comment
+                    đây là commentđây là commentđây là commentđây là comment
+                    đây là commentđây là commentđây là commentđây là comment
+                    </p>
+            </div>
+        </li>
+    </ul>
+            </div>
+        </div>
+<!--THINKING POST-->
+        <div class="col-md-9 mb-4 mb-md-0 thinking-post">
+        <div class="modal fade" id="buttonModalUserPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        <strong>Tạo bài viết</strong>
+                      </h5>
+                      <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">...</div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                        Đóng
+                      </button>
+                      <button type="button" class="btn btn-primary">
+                        Lưu
+                      </button>
                 </div>
             </div>
         </div>
-        <div class="news"></div>
-        <div class="news"></div>
-        <div class="news"></div>
-        <div class="news"></div>
-        <div class="news"></div>
+        </div>
     </div>
 <!--RIGHT-SIDE-BAR-->
     <div id="right-side-bar">

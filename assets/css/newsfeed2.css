@@ -21,6 +21,29 @@ main{
     width: 50%;
     margin-left: 25%;
 }
+.thinking-post{
+    border-radius: 10px;
+    box-shadow: 0px 3px rgba(187, 179, 179, 0.2);
+    padding: 0px 32;
+    height: auto;
+    width: 80%;
+    background-color: white;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+}
+#thinking-user{
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+}
+#thinking-user img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
 .news{
     border-radius: 10px;
     box-shadow: 0px 3px rgba(187, 179, 179, 0.2);
@@ -56,6 +79,12 @@ main{
     border: 0px solid white;
     background-color: rgb(233, 233, 233);
 }
+.user-ava img{
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 50%
+}
 .user-name-time{
     font-size: 14px;
     padding-left: 12px;
@@ -75,6 +104,54 @@ main{
 }
 .user-name:hover, .time:hover{
     text-decoration-line: underline !important;
+}
+.option{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.option-icon{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.option-icon:hover{
+    background-color: rgb(240, 238, 238);
+}   
+.option-item{
+    margin-left: -150px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgb(180, 180, 180);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.option-item b{
+    padding-left: 5px;
+}
+.items{
+    height: 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 5px;
+}
+.items:hover{
+    background-color: rgb(240, 238, 238);
 }
 .news-content{
     padding: 0px;
@@ -96,8 +173,10 @@ img{
 .action-comment{
     padding: 0px;
     width: 100%;
-    height: 83px;
+    height: auto;
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
 }
 .action-comment-above{
     color: rgb(95, 95, 95);
@@ -131,8 +210,9 @@ img{
 }
 .action-comment-under{
     display: flex;
-    padding-top: 7px;
+    padding: 7px 0px;
     margin: 0px 12px;
+    border-bottom: 1px solid gray;
 }
 .action-name{
     padding-left: 7px;
@@ -168,10 +248,59 @@ img{
 .action-comment-under-item:active{
     background-color: rgb(216, 213, 213);
 }
-.comment-input img{
-    width: 40px;
-    height: 40px;
-    margin-right: 8px;
+.news-under{
+    display: flex;
+    flex-direction: column;
+}
+.news .text{
+    width: 100% !important;
+}
+.comment-input-form{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding: 0 8px;
+    margin-top: 10px;
+}
+.comment-input input{
+    width:100%;
+    height: 38px;
+    border:0px;
+    border-radius:20px;
+    background-color:#F2F3F5;
+}
+.comment-input{
+    width:100%;
+    font-size: 14px;
+    padding: 0px 12px;
+    border: 0px;
+}
+.comments{
+    margin-top: 10px;
+}
+.comment-item{
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content:flex-start;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+.commentator-name{
+    font-size: 14px;
+    margin-left: 12px;
+    padding-left: 7px;
+    border: 0px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color:#F2F3F5;
+}
+.commentator-name .comment-content{
+    height: auto;
+    padding-right: 7px;
 }
 /*RIGHT SIDE BAR*/
 #right-side-bar{
@@ -201,8 +330,10 @@ img{
 }
 @media screen and (max-width:504px) {
     .news{
-        min-width: none;
-        width: 80%
+        min-width: 400px;
+    }
+    .thinking-post{
+        min-width: 400px;
     }
 }
 #right-side-bar::-webkit-scrollbar,

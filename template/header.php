@@ -19,7 +19,7 @@
 <!--CSS FOR SIDEBAR-->
     <link rel="stylesheet" href="assets/css/sidebar.css">
 <!--CSS FOR NEWSFEED-->
-    <link rel="stylesheet" href="assets/css/newsfeed.css">
+    <link rel="stylesheet" href="assets/css/newsfeed2.css">
 <!--FaceBook LOGO-->
     <link rel="icon" href="assets\images\Facebook_logo\Facebook_logo.ico" type="image/x-icon"/>
     <title>Facebook</title>
@@ -43,16 +43,16 @@
                 </span>
             </button>
           </form>
-          <button class="sidebar-menu button">
+          <a class="sidebar-menu button link-dark" href="bookmarks.php">
             <span class="material-icons-round sidebar-menu-icon">
                 menu
             </span>
-          </button>
+          </a>
           </div>
           <div class="col-md 4 navbar-center">
             <div class="navbar-center-list">
             <div class="nav-item">
-                <a class="nav-link active navbar-center-item" aria-current="page" href="NewsFeed.php">
+                <a class="nav-link active navbar-center-item" aria-current="page" href="newsfeed.php">
                     <div class="home icon" title="Home">
                         <span class="material-icons-round home-icon">
                             home
