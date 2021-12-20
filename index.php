@@ -72,12 +72,15 @@
                       class="form-control login-form-input"
                       type="text"
                       placeholder="Email address or phone number"
+                      autofocus
+                      required
                     />
                     <input
                       id="login-form-input-password"
                       class="form-control login-form-input"
                       type="text"
                       placeholder="Password"
+                      required
                     />
                   </div>
                   <div>
@@ -539,7 +542,7 @@
             <form>
               <div class="mb-3">
                 <div class="firstRow d-flex align-items-center justify-content-center">
-                  <input type="text" class="form-control me-2 p-2 form-control-input" id="recipient-first-name" placeholder="First name" required>
+                  <input type="text" class="form-control me-2 p-2 form-control-input" id="recipient-first-name" placeholder="First name" required autofocus>
                   <input type="text" class="form-control p-2 form-control-input" id="recipient-sur-name" placeholder="Surname" required>
                 </div>
                 <input type="text" class="form-control mt-2 p-2 form-control-input" id="recipient-mobile-mail" placeholder="Mobile number or email address" required>
@@ -633,20 +636,20 @@
               <div class="mb-3">
                 <span class="form-description">Gender</span>
                 <div class="date-of-birth-wrapper d-flex align-items-center justify-content-around">
-                  <div class="btn btn-outline-secondary gender-checkbox">
-                    <label class="form-check-label" for="flexRadioDefault1" required>
+                  <div class="btn btn-outline-dark gender-checkbox">
+                    <label class="form-check-label" role="button" for="flexRadioDefault1" required>
                       Female
                     </label>
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                   </div>
                   <div class="btn btn-outline-dark gender-checkbox ms-2">
-                    <label class="form-check-label" for="flexRadioDefault2" required>
+                    <label class="form-check-label" role="button" for="flexRadioDefault2" required>
                     Male
                     </label>
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
                   </div>
-                  <div class="btn btn-outline-secondary gender-checkbox ms-2">
-                    <label class="form-check-label" for="flexRadioDefault3" required>
+                  <div class="btn btn-outline-dark gender-checkbox ms-2">
+                    <label class="form-check-label" role="button" for="flexRadioDefault3" required>
                     Custom
                     </label>
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
@@ -663,6 +666,6 @@
       </div>
     </div> 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./src/login.js" charset="utf-8"></script> 
+    <script src="./assets/src/login.js" charset="utf-8"></script> 
   </body>
 </html>
