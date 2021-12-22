@@ -1,55 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>User profile</title>
-    <!-- FB icon -->
-    <link
-      rel="icon"
-      href="assets/images_dev/facebook.png"
-      type="image/x-icon"
-    />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
-    />
-    <!-- Google Fonts Roboto -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
-    />
-    <!-- MDB -->
-    <link rel="stylesheet" href="assets/css_mdb/mdb.min.css" />
-  </head>
-  <body class="bg-light">
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <!-- left -->
-          <div>
-            <a class="navbar-brand" href="#">
-              <i class="fab fa-facebook-f fb-icon"></i>
-            </a>
-          </div>
-          <!-- left -->
-
-          <!-- center -->
-          <div>Lorem ipsum dolor sit.</div>
-          <!-- center -->
-
-          <!-- right -->
-          <div>Lorem, ipsum dolor.</div>
-          <!-- right -->
-        </div>
-      </nav>
-    </header>
-
+<?php
+    include "template/header.php"
+?>
     <main>
       <!-- Section: white bg -->
       <section class="bg-white mb-4 shadow-2">
@@ -468,10 +419,9 @@
               </div>
               <!-- friends -->
               <!-- footer -->
-              <div class="footer">
-                <a href="" class="text-muted">Quyền riêng tư</a>
-                <a href="" class="text-muted">Hỗ trợ</a>
-              </div>
+              <?php
+    include "template/footer_link.php"
+?>
               <!-- footer -->
             </div>
             <!-- left -->
