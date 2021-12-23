@@ -469,7 +469,7 @@
               <div class="card mb-4">
                 <div class="card-body">
                   <div class="d-flex">
-                    <a href=""
+                    <a style="margin-right: 0.5rem;" href=""
                       ><img
                         src="assets/images_dev/totoro.webp"
                         alt=""
@@ -515,7 +515,7 @@
                   <img src="assets/images_dev/anh.jpg" class="w-100" alt="">
                 </a>
 
-                <div class="card-body">
+                <!-- <div class="card-body">
                   <div class="d-flex justify-content-between mb-1">
                     <a href="">
                       <i class="fas fa-thumbs-up text-primary"></i>
@@ -548,8 +548,65 @@
                     </div>
                   </div>
 
+                </div> -->
+                <div class="action-comment">
+                    <div class="action-comment-above">
+                        <div class="action-index">
+                            <span class="material-icons-round">
+                                emoji_emotions
+                            </span>
+                        </div>
+                        <div class="comment-index">
+                            <div class="comment-index-item" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                                100 bình luận 
+                            </div>
+                            <div class="share-index-item">
+                                100 lượt chia sẻ
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-comment-under">
+                        <div class="action-comment-under-item">
+                            <div class="action-icon">
+                                <span class="material-icons-outlined like-icon">
+                                    thumb_up
+                                </span>
+                            </div>
+                            <div class="action-name">
+                                <h6>Thích</h6>
+                            </div>
+                        </div>
+                        <div class="action-comment-under-item">
+                            <div class="action-icon">
+                                <span class="material-icons-outlined comment-icon">
+                                    chat_bubble_outline
+                                </span>
+                            </div>
+                            <div class="action-name" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                                <h6>Bình luận</h6>
+                            </div>
+                        </div>
+                        <div class="action-comment-under-item">
+                            <div class="action-icon">
+                                <i class="far fa-share-square share-icon"></i>
+                            </div>
+                            <div class="action-name">
+                                <h6>Chia sẻ</h6>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
+<!--COMMENT INPUT-->
+                <div class="row">
+                    <div class="col-md-12 comment-input-form">
+                        <a class="icon"  href="userProfile.html">
+                            <img class="user-img" src="assets/images_dev/totoro.webp" alt="">
+                        </a>
+                        <div class="comment-input">
+                            <input type="text" placeholder=" Viết bình luận" class="form-control">
+                        </div>
+                    </div>
+                </div>
 
 
               </div>
