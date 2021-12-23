@@ -195,7 +195,7 @@
 
 ?>
 <!--THINKING POST-->
-        <div class="col-md-9 mb-4 mb-md-0 thinking-post">
+    <div class="col-md-9 mb-4 mb-md-0 thinking-post">
         <div class="modal fade" id="buttonModalUserPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -205,23 +205,23 @@
                       </h5>
                       <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">...</div>
+                    <textarea id="post-writing" cols="50" rows="5" class="modal-body" placeholder="Hãy viết gì đó..."></textarea>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-                        Đóng
-                      </button>
-                      <button type="button" class="btn btn-primary">
-                        Lưu
-                      </button>
+                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                            Đóng
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Lưu
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 <!--RIGHT-SIDE-BAR-->
     <div id="right-side-bar">
         <div class="row">
-            <h6>Người liên hệ</h6>
+            <h6>Người liên hệ</h6>  
         </div>
 <?php
     $sql_friend = "SELECT *

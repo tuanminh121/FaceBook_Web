@@ -344,6 +344,7 @@ img{
         min-width: 400px;
     }
 }
+#post-writing::-webkit-scrollbar,
 #right-side-bar::-webkit-scrollbar,
 #left-side-bar::-webkit-scrollbar{
     width: 10px;
@@ -354,4 +355,14 @@ img{
 }
 ::-webkit-scrollbar-thumb:hover{
     background: #90959c;
+}
+/*POST WRITING AREA*/
+#post-writing{
+    resize: none;
+    height: 150px;
+    overflow-y: scroll;
+    border: none;
+}
+#post-writing:focus{
+    outline: none;
 }
