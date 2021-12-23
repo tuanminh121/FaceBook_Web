@@ -105,7 +105,7 @@
           </div>
           <div class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
             <div class="nav-item">
-                <a id="user" class="text-decoration-none link-dark" href="userProfile.html">
+                <a id="user" class="text-decoration-none link-dark" href="userProfile.php">
                     <div id="user-ava">
                         <img src="assets/images/content-img.jpeg" alt="">
                     </div>

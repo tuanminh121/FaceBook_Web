@@ -15,7 +15,7 @@
         <div class="card mb-4 thinking-post">
             <div class="card-body">
                 <div class="d-flex">
-                    <a id="thinking-user" href="userProfile.html">
+                    <a id="thinking-user" href="userProfile.php">
                         <img src="assets/images/content-img.jpeg" alt="" class="rounded-circle border"/>
                     </a>
                     <button
@@ -32,17 +32,37 @@
             </div>
         </div>
 <!--News-->
+<?php
+    //KẾT NỐI SQL
+        $conn = mysqli_connect('localhost','root','','facebook');
+        if(!$conn){
+            die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+        }
+    //TRUY VẤN POST, POST_USER
+        $sql = "SELECT PostID, UserID, UserName, PostCaption, PostTime
+                from
+                    (SELECT *
+                    FROM friend_ship INNER JOIN view_post
+                    on UserID = User1ID or UserID = User2ID
+                    WHERE User1ID = 2 or User2ID = 2) as Bang
+                WHERE UserID != 2";
+        $result_news = mysqli_query($conn, $sql);
+        if(mysqli_num_rows($result_news) > 0){ 
+            while($row_news = mysqli_fetch_assoc($result_news)){
+?>
         <div class="news">
             <div class="row">
                 <div class="heading">
-                    <a class="user-ava" href="userProfile.html">
+                    <a class="user-ava" href="userProfile.php">
                         <img class="user-img" src="assets/images/content-img.jpeg" alt="">
                     </a>
                     <div class="user-name-time">
-                        <a href="userProfile.html" class="user-name text-decoration-none link-dark">
-                            <b>User Name</b>
+                        <a href="userProfile.php" class="user-name text-decoration-none link-dark">
+                            <b><?php echo $row_news['UserName']?></b>
                         </a>
-                        <h6 class="time">Hôm qua lúc 19:00</h6>
+                        <h6 class="time">
+                            <?php echo $row_news['PostTime'] ?>
+                        </h6>
                     </div>
                     <div class="option ms-auto">
                         <div class="option-icon"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -57,11 +77,11 @@
                                     <b>Xem lịch sử chỉnh sửa</b>
                                 </div>
                                 <div class="col-md-12 items">
-                                    <span class="material-icons-outlined">report</span>
+                                    <span class="material-icons-outlined">bookmarks</span>
                                     <b>Lưu bài viết</b>
                                 </div>
                                 <div class="col-md-12 items">
-                                <span class="material-icons-outlined">bookmarks</span>
+                                <span class="material-icons-outlined">report</span>
                                     <b>Báo cáo bài viết</b>
                                 </div>
                             </div>
@@ -70,7 +90,7 @@
                 </div>
                 <div class="news-content">
                     <div class="content-caption">
-                        Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!Hello World!
+                        <?php echo $row_news['PostCaption'] ?>
                     </div>
                     <div class="content-images">
                         <img src="assets/images/content-img.jpeg" alt="">
@@ -83,9 +103,15 @@
                                 emoji_emotions
                             </span>
                         </div>
+<?php
+//ĐẾM LƯỢT BÌNH LUÂN
+    $sql_count_comment = "SELECT count(CommentID) FROM comment where PostID=" .$row_news['PostID'];
+    $result_count_comment = mysqli_query($conn, $sql_count_comment);
+    $row_count_comment = mysqli_fetch_assoc($result_count_comment);
+?>
                         <div class="comment-index">
                             <div class="comment-index-item" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-                                100 bình luận 
+                                <?php echo $row_count_comment['count(CommentID)'];?> bình luận 
                             </div>
                             <div class="share-index-item">
                                 100 lượt chia sẻ
@@ -136,27 +162,38 @@
                 </div>
 <!--COMMENTS-->
     <ul class="collapse collapse-horizontal comments" id="collapseWidthExample">
+<?php
+//TRUY VẤN COMMENT, COMMENT_USET
+            $sql_comment = "SELECT * from view_comment WHERE PostID =" .$row_news['PostID'];
+            $result_comment = mysqli_query($conn, $sql_comment);
+            if(mysqli_num_rows($result_comment) > 0){
+                while ($row_comment = mysqli_fetch_assoc($result_comment)){
+?>
         <li class="comment-item">
-            <a class="icon" href="userProfile.html">
+            <a class="icon" href="userProfile.php">
                 <img class="user-img" src="assets/images/content-img.jpeg" alt="">
             </a>
             <div class="commentator-name">
-                <a href="userProfile.html" class="user-name text-decoration-none link-dark">
-                    <b>User Name</b>
+                <a href="userProfile.php" class="user-name text-decoration-none link-dark">
+                    <b><?php echo $row_comment['UserName'];?></b>
                 </a>
-                    <p class="comment-content">đây là commentđây là commentđây là commentđây là comment
-                    đây là commentđây là commentđây là commentđây là comment
-                    đây là commentđây là commentđây là commentđây là comment
-                    đây là commentđây là commentđây là commentđây là comment
-                    đây là commentđây là commentđây là commentđây là comment
-                    đây là commentđây là commentđây là commentđây là comment
-                    đây là commentđây là commentđây là commentđây là comment
+                    <p class="comment-content">
+                        <?php echo $row_comment['CommentContent'];?>
                     </p>
             </div>
         </li>
+<?php
+                    }   
+                }
+?>
     </ul>
             </div>
         </div>
+<?php
+            }
+        }
+
+?>
 <!--THINKING POST-->
         <div class="col-md-9 mb-4 mb-md-0 thinking-post">
         <div class="modal fade" id="buttonModalUserPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -186,46 +223,32 @@
         <div class="row">
             <h6>Người liên hệ</h6>
         </div>
+<?php
+    $sql_friend = "SELECT *
+                    FROM(SELECT UserID, CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva
+                        FROM friend_ship INNER JOIN user_profile
+                        on UserID = User1ID or UserID = User2ID
+                        WHERE User1ID = 1 or User2ID = 1) as Bang
+                    WHERE UserID != 1";
+    $result_friend = mysqli_query($conn, $sql_friend);
+    if(mysqli_num_rows($result_friend) > 0){
+        while($row_friend = mysqli_fetch_assoc($result_friend)){
+
+?>
         <div class="row">
             <div class="sidebar-item">
                 <div class="icon"></div>
                 <div class="text">
-                    <b>User Name</b>
+                    <b><?php  echo $row_friend['UserName'];?></b>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="sidebar-item">
-                <div class="icon"></div>
-                <div class="text">
-                    <b>User Name</b>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="sidebar-item">
-                <div class="icon"></div>
-                <div class="text">
-                    <b>User Name</b>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="sidebar-item">
-                <div class="icon"></div>
-                <div class="text">
-                    <b>User Name</b>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="sidebar-item">
-                <div class="icon"></div>
-                <div class="text">
-                    <b>User Name</b>
-                </div>
-            </div>
-        </div>
+<?php
+        }
+    }
+
+?>
+
         <div class="row">
             <hr>    
         </div>

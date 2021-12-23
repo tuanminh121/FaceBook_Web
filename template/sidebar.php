@@ -1,6 +1,6 @@
 <div class="container-fluid" id="SideBar">
     <div class="row">
-    <a class="col-md-12 text-decoration-none link-dark sidebar-item" href="userProfile.html">
+    <a class="col-md-12 text-decoration-none link-dark sidebar-item" href="userProfile.php">
         <div class="icon">
             <img class="user-img" src="assets/images/content-img.jpeg" alt="">
         </div>

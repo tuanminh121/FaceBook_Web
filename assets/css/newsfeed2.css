@@ -288,6 +288,14 @@ img{
     border-radius: 8px;
     margin-bottom: 12px;
 }
+.comment-item b{
+    font-size: 12px;
+    padding-right: 5px;
+}
+.comment-item p{
+    color: rgb(65, 62, 62);
+    font-family:Arial, Helvetica, sans-serif;
+}
 .commentator-name{
     font-size: 14px;
     margin-left: 12px;
