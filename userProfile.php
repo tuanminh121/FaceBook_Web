@@ -437,32 +437,23 @@
                 aria-hidden="true"
               >
                 <div class="modal-dialog">
-                  <div class="modal-content">
+                <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">
                         <strong>Tạo bài viết</strong>
                       </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-mdb-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
+                      <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">...</div>
+                    <textarea id="post-writing" cols="50" rows="5" class="modal-body" placeholder="Hãy viết gì đó..."></textarea>
                     <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-mdb-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button type="button" class="btn btn-primary">
-                        Save changes
-                      </button>
+                        <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                            Đóng
+                        </button>
+                        <button type="button" class="btn btn-primary">
+                            Lưu
+                        </button>
                     </div>
-                  </div>
+                </div>
                 </div>
               </div>
 
