@@ -539,19 +539,19 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="process-signup.php" method="post">
+            <form action="src/process-signup.php" method="post">
               <div class="mb-3">
                 <div class="firstRow d-flex align-items-center justify-content-center">
-                  <input type="text" class="form-control me-2 p-2 form-control-input" id="recipient-first-name" placeholder="First name" required autofocus>
-                  <input type="text" class="form-control p-2 form-control-input" id="recipient-sur-name" placeholder="Surname" required>
+                  <input name="firstnameSignUp" type="text" class="form-control me-2 p-2 form-control-input" id="recipient-first-name" placeholder="First name" required autofocus>
+                  <input name="lastnameSignUp" type="text" class="form-control p-2 form-control-input" id="recipient-sur-name" placeholder="Last name" required>
                 </div>
-                <input type="text" class="form-control mt-2 p-2 form-control-input" id="recipient-mobile-mail" placeholder="Mobile number or email address" required>
-                <input type="text" class="form-control mt-2 p-2 form-control-input" id="recipient-password" placeholder="New password" required>
+                <input name="emailSignUp" type="email" class="form-control mt-2 p-2 form-control-input" id="recipient-mobile-mail" placeholder="Email address" required>
+                <input name="pwSignUp" type="text" class="form-control mt-2 p-2 form-control-input" id="recipient-password" placeholder="New password" required>
               </div>
               <div class="mb-3">
                 <span class="form-description">Date of birth</span>
                 <div class="date-of-birth-wrapper d-flex align-items-center justify-content-center">
-                  <select class="form-select" id="" required>
+                  <select name="dayOfBirth" class="form-select" id="" required>
                     <option value="1" selected>1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -584,7 +584,7 @@
                     <option value="30">30</option>
                     <option value="31">31</option>
                   </select>
-                  <select class="form-select ms-2" id="" required>
+                  <select name="monthOfBirth" class="form-select ms-2" id="" required>
                     <option value="1" selected>Jan</option>
                     <option value="2">Feb</option>
                     <option value="3">Mar</option>
@@ -598,7 +598,7 @@
                     <option value="11">Nov</option>
                     <option value="12">Dec</option>
                   </select>
-                  <select class="form-select ms-2" id="" required>
+                  <select name="yearOfBirth" class="form-select ms-2" id="" required>
                     <option value="2021" selected>2021</option>
                     <option value="2020">2020</option>
                     <option value="2019">2019</option>
@@ -637,30 +637,24 @@
                 <span class="form-description">Gender</span>
                 <div class="date-of-birth-wrapper d-flex align-items-center justify-content-around">
                   <div class="btn btn-outline-dark gender-checkbox">
-                    <label class="form-check-label" role="button" for="flexRadioDefault1" required>
+                    <label class="form-check-label" role="button" for="flexRadioDefault1">
                       Female
                     </label>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="genderSignUp" id="flexRadioDefault1" value=1 required>
                   </div>
                   <div class="btn btn-outline-dark gender-checkbox ms-2">
-                    <label class="form-check-label" role="button" for="flexRadioDefault2" required>
+                    <label class="form-check-label" role="button" for="flexRadioDefault2">
                     Male
                     </label>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                  </div>
-                  <div class="btn btn-outline-dark gender-checkbox ms-2">
-                    <label class="form-check-label" role="button" for="flexRadioDefault3" required>
-                    Custom
-                    </label>
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                    <input class="form-check-input" type="radio" name="genderSignUp" id="flexRadioDefault2" value=0 required>
                   </div>
                 </div>
               </div>
+              <p class="form-description">By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications from us and can opt out at any time.</p>
+              <div class="modal-footer d-flex justify-content-center">
+                <button name="btnSignUp" type="submit" class="btn btn-success d-grid gap-2 col-6 mx-auto" id="success-btn">Sign Up</button>
+              </div>
             </form>
-            <p class="form-description">By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications from us and can opt out at any time.</p>
-          </div>
-          <div class="modal-footer d-flex justify-content-center">
-            <button type="button" class="btn btn-success d-grid gap-2 col-6 mx-auto" id="success-btn">Sign Up</button>
           </div>
         </div>
       </div>
