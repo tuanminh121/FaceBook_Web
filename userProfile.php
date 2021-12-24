@@ -187,47 +187,59 @@
                   <div class="lightbox mt-4">
                     <div class="row gx-2">
                       <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_01.jpg"
-                          alt=""
-                          class="w-100 shadow-1-strong rounded"
-                        />
+                        <a href="assets/images_dev/aot_01.jpg" target="_blank">
+                          <img
+                            src="assets/images_dev/aot_01.jpg"
+                            alt=""
+                            class="w-100 shadow-1-strong rounded"
+                          />
+                        </a>
                       </div>
                       <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_02.jpg"
-                          alt=""
-                          class="w-100 shadow-1-strong rounded"
-                        />
+                      <a href="assets/images_dev/aot_01.jpg" target="_blank">
+                          <img
+                            src="assets/images_dev/aot_01.jpg"
+                            alt=""
+                            class="w-100 shadow-1-strong rounded"
+                          />
+                        </a>
                       </div>
                       <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_03.jpg"
-                          alt=""
-                          class="w-100 shadow-1-strong rounded"
-                        />
+                      <a href="assets/images_dev/aot_01.jpg" target="_blank">
+                          <img
+                            src="assets/images_dev/aot_01.jpg"
+                            alt=""
+                            class="w-100 shadow-1-strong rounded"
+                          />
+                        </a>
                       </div>
 
                       <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_02.jpg"
-                          alt=""
-                          class="w-100 shadow-1-strong rounded"
-                        />
+                      <a href="assets/images_dev/aot_01.jpg" target="_blank">
+                          <img
+                            src="assets/images_dev/aot_01.jpg"
+                            alt=""
+                            class="w-100 shadow-1-strong rounded"
+                          />
+                        </a>
                       </div>
                       <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_03.jpg"
-                          alt=""
-                          class="w-100 shadow-1-strong rounded"
-                        />
+                      <a href="assets/images_dev/aot_01.jpg" target="_blank">
+                          <img
+                            src="assets/images_dev/aot_01.jpg"
+                            alt=""
+                            class="w-100 shadow-1-strong rounded"
+                          />
+                        </a>
                       </div>
                       <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_01.jpg"
-                          alt=""
-                          class="w-100 shadow-1-strong rounded"
-                        />
+                      <a href="assets/images_dev/aot_01.jpg" target="_blank">
+                          <img
+                            src="assets/images_dev/aot_01.jpg"
+                            alt=""
+                            class="w-100 shadow-1-strong rounded"
+                          />
+                        </a>
                       </div>
                     </div>
                   </div>
