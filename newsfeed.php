@@ -151,15 +151,26 @@
                 </div>
 <!--COMMENT INPUT-->
                 <div class="row">
-                    <div class="col-md-12 comment-input-form">
-                        <a class="icon"  href="userProfile.html">
-                            <img class="user-img" src="assets/images/content-img.jpeg" alt="">
-                        </a>
-                        <div class="comment-input">
-                            <input type="text" placeholder=" Viết bình luận" class="form-control">
+                    <form id="comment-form" action="process_add_comment.php" method="post" autocomplete="off">
+                        <div class="col-md-12 comment-input-form">
+                            <a class="icon"  href="userProfile.php">
+                                <img class="user-img" src="assets/images/content-img.jpeg" alt="">
+                            </a>
+                            <input class="ID" type="text" value="<?php echo $row_news['PostID'];?>" name="PostID">
+                            <input class="ID" type="text" value="2" name="UserID">
+                            <div class="comment-input">
+                                <input id="comment-input" name="txt-comment" type="text" placeholder=" Viết bình luận" class="form-control">
+                            </div>
+                            <button id="send-comment" name="btn-comment" type="submit">
+                                <span class="material-icons-round send-icon">
+                                    reply
+                                </span>
+                            </button>
                         </div>
-                    </div>
+                    </form>
                 </div>
+<!--ADD COMMENT -->
+
 <!--COMMENTS-->
     <ul class="collapse collapse-horizontal comments" id="collapseWidthExample">
 <?php
@@ -169,7 +180,7 @@
             if(mysqli_num_rows($result_comment) > 0){
                 while ($row_comment = mysqli_fetch_assoc($result_comment)){
 ?>
-        <li class="comment-item">
+        <li class="comment-item myDIV">
             <a class="icon" href="userProfile.php">
                 <img class="user-img" src="assets/images/content-img.jpeg" alt="">
             </a>
@@ -180,6 +191,17 @@
                     <p class="comment-content">
                         <?php echo $row_comment['CommentContent'];?>
                     </p>
+            </div>
+            <div id="edit-comment" class="hide">
+                <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
+                    edit
+                </span>
+                <a href="process_delete_comment.php?CommentID=<?php echo $row_comment['CommentID'];?>
+                        &&CommentUserID=<?php echo $row_comment['UserID']?>&&UserID=2" class="link-dark">
+                <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
+                    delete_forever
+                </span>
+                </a>
             </div>
         </li>
 <?php
