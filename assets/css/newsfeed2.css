@@ -126,8 +126,12 @@ main{
 }
 .option-icon:hover{
     background-color: rgb(240, 238, 238);
-}   
+}
+.option-icon:active{
+    background-color: rgb(185, 184, 184);
+}
 .option-item{
+    z-index: 1000;
     margin-left: -150px;
     width: auto;
     height: auto;
@@ -276,6 +280,27 @@ img{
     font-size: 14px;
     padding: 0px 12px;
     border: 0px;
+    padding-right: 0px;
+}
+#send-comment{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+}
+.send-icon{
+    color: rgb(110, 108, 108);
+}
+.send-icon:hover{
+    color: rgb(7, 156, 243);
+}
+.send-icon:active{
+    color: rgb(9, 135, 207);
 }
 .comments{
     margin-top: 10px;
@@ -305,6 +330,7 @@ img{
     display: flex;
     flex-direction: column;
     background-color:#F2F3F5;
+    max-width: 80%;
 }
 .commentator-name .comment-content{
     height: auto;
@@ -366,3 +392,30 @@ img{
 #post-writing:focus{
     outline: none;
 }
+.ID{
+    display: none;
+}
+#option-comment-item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80px;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgb(180, 180, 180);
+}
+#option-comment-item b{
+    padding: 0px 8px;
+}
+#edit-comment{
+    display: flex;
+    flex-direction: row;
+}
+.hide {
+    opacity: 1;
+}
+
+.myDIV:hover > .hide {
+   opacity: 1;
+  }
