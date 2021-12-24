@@ -15,10 +15,21 @@
                 height: 400px;
               "
             ></div>
-
+<?php
+    //KẾT NỐI SQL
+        $conn = mysqli_connect('localhost','root','','facebook');
+        if(!$conn){
+            die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+        }
+        $sql_ava = "SELECT UserAva from user_profile where UserID=1";
+        $result_ava = mysqli_query($conn, $sql_ava);
+        if(mysqli_num_rows($result_ava) > 0) {
+          while($row_ava = mysqli_fetch_assoc($result_ava)) {
+            global $row_ava;
+?>
             <div class="d-flex justify-content-center">
               <img
-                src="assets/images_dev/totoro.webp"
+                src=" <?php echo $row_ava['UserAva'] ?>"
                 alt=""
                 class="
                   rounded-circle
@@ -28,24 +39,39 @@
                 "
                 style="width: 168px; margin-top: -60px"
               />
+<?php
+          }
+        }
+        mysqli_close($conn);
+?>
             </div>
             <!-- Background image -->
           </section>
           <!-- Section: images -->
 
           <!-- Section: user data -->
+<?php
+    //KẾT NỐI SQL
+        $conn = mysqli_connect('localhost','root','','facebook');
+        if(!$conn){
+            die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+        }
+        $sql_info = "SELECT * from user_profile where UserID=1";
+        $result_info = mysqli_query($conn, $sql_info);
+        if(mysqli_num_rows($result_info) > 0) {
+          while($row_info = mysqli_fetch_assoc($result_info)) {
+            global $row_info;
+?>
           <section class="text-center border-bottom">
             <div class="row d-flex justify-content-center">
               <div class="col-md-6">
-                <h2><strong>Thao Van</strong></h2>
+                <h2><strong> <?php echo $row_info['UserFirstName'] . " " . $row_info['UserLastName'] ?> </strong></h2>
                 <p class="text-muted">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                  magni quas iure?
+                  <?php echo $row_info['Description'] ?>
                 </p>
               </div>
             </div>
           </section>
-          <!-- Section: user data -->
 
           <!-- Section buttons -->
           <section class="py-2 d-flex justify-content-between">
@@ -149,14 +175,14 @@
                       <i class="fas fa-house-damage me-2 mt-3"></i>Sống tại
                       <a
                         href="https://vi.wikipedia.org/wiki/H%C3%A0_N%E1%BB%99i"
-                        ><strong>Hà Nội</strong></a
+                        ><strong> <?php echo $row_info['UserAddress'] ?> </strong></a
                       >
                     </li>
                     <li>
                       <i class="fas fa-map-marker-alt me-2 mt-3"></i>Đến từ
                       <a
                         href="https://vi.wikipedia.org/wiki/H%C3%A0_N%E1%BB%99i"
-                        ><strong>Hà Nội</strong></a
+                        ><strong> <?php echo $row_info['UserAddress'] ?> </strong></a
                       >
                     </li>
                     <li>
@@ -183,59 +209,32 @@
                   >
                     <strong>Thêm sở thích</strong>
                   </button>
-
+<?php
+      }
+    }
+    mysqli_close($conn);
+?>
+<?php
+    //KẾT NỐI SQL
+        $conn = mysqli_connect('localhost','root','','facebook');
+        if(!$conn){
+            die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+        }
+        $sql_img = "SELECT * from images, post, user_profile where images.PostID = post.PostID and post.UserID = user_profile.UserID 
+        and user_profile.UserID = 1";
+        $result_img = mysqli_query($conn, $sql_img);
+        if(mysqli_num_rows($result_img) > 0) {
+          while($row_img = mysqli_fetch_assoc($result_img)) {
+            global $row_img;
+?>
                   <div class="lightbox mt-4">
                     <div class="row gx-2">
-                      <div class="col-lg-4 mb-3">
-                        <a href="assets/images_dev/aot_01.jpg" target="_blank">
-                          <img
-                            src="assets/images_dev/aot_01.jpg"
-                            alt=""
-                            class="w-100 shadow-1-strong rounded"
-                          />
-                        </a>
-                      </div>
-                      <div class="col-lg-4 mb-3">
-                      <a href="assets/images_dev/aot_01.jpg" target="_blank">
-                          <img
-                            src="assets/images_dev/aot_01.jpg"
-                            alt=""
-                            class="w-100 shadow-1-strong rounded"
-                          />
-                        </a>
-                      </div>
-                      <div class="col-lg-4 mb-3">
-                      <a href="assets/images_dev/aot_01.jpg" target="_blank">
-                          <img
-                            src="assets/images_dev/aot_01.jpg"
-                            alt=""
-                            class="w-100 shadow-1-strong rounded"
-                          />
-                        </a>
-                      </div>
+<!-- ảnh đang sửa ở đây -->
 
                       <div class="col-lg-4 mb-3">
-                      <a href="assets/images_dev/aot_01.jpg" target="_blank">
+                        <a href="<?php echo $row_img['images'] ?>" target="_blank">
                           <img
-                            src="assets/images_dev/aot_01.jpg"
-                            alt=""
-                            class="w-100 shadow-1-strong rounded"
-                          />
-                        </a>
-                      </div>
-                      <div class="col-lg-4 mb-3">
-                      <a href="assets/images_dev/aot_01.jpg" target="_blank">
-                          <img
-                            src="assets/images_dev/aot_01.jpg"
-                            alt=""
-                            class="w-100 shadow-1-strong rounded"
-                          />
-                        </a>
-                      </div>
-                      <div class="col-lg-4 mb-3">
-                      <a href="assets/images_dev/aot_01.jpg" target="_blank">
-                          <img
-                            src="assets/images_dev/aot_01.jpg"
+                            src="<?php echo $row_img['images'] ?>"
                             alt=""
                             class="w-100 shadow-1-strong rounded"
                           />
@@ -243,7 +242,11 @@
                       </div>
                     </div>
                   </div>
-
+<?php
+      }
+    }
+    mysqli_close($conn);
+?>
                   <button
                     type="button"
                     class="btn btn-light bg-light btn-block"
@@ -252,6 +255,7 @@
                   </button>
                 </div>
               </div>
+<!-- chưa làm được phần ả`nh này!!!! -->
               <!-- ảnh feature -->
               <div class="card mb-3">
                 <div class="card-body">
@@ -273,68 +277,12 @@
                           class="w-100 h-100 shadow-1-strong rounded"
                         />
                       </div>
-                      <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_02.jpg"
-                          alt=""
-                          class="w-100 h-100 shadow-1-strong rounded"
-                        />
-                      </div>
-                      <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_03.jpg"
-                          alt=""
-                          class="w-100 h-100 shadow-1-strong rounded"
-                        />
-                      </div>
-
-                      <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_02.jpg"
-                          alt=""
-                          class="w-100 h-100 shadow-1-strong rounded"
-                        />
-                      </div>
-                      <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_03.jpg"
-                          alt=""
-                          class="w-100 h-100 shadow-1-strong rounded"
-                        />
-                      </div>
-                      <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_01.jpg"
-                          alt=""
-                          class="w-100 h-100 shadow-1-strong rounded"
-                        />
-                      </div>
-
-                      <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_01.jpg"
-                          alt=""
-                          class="w-100 h-100 shadow-1-strong rounded"
-                        />
-                      </div>
-                      <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_02.jpg"
-                          alt=""
-                          class="w-100 h-100 shadow-1-strong rounded"
-                        />
-                      </div>
-                      <div class="col-lg-4 mb-3">
-                        <img
-                          src="assets/images_dev/aot_03.jpg"
-                          alt=""
-                          class="w-100 h-100 shadow-1-strong rounded"
-                        />
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
               </div>
+
               <!-- ảnh feature -->
               <!-- friends -->
               <div class="card mb-3">

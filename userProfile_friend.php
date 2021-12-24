@@ -109,7 +109,7 @@
             <div>
               <button
                 type="button"
-                class="btn bg-light mr-2"
+                class="btn bg-light mr-2 hover_link"
                 data-mdb-ripple-color="dark"
               >
               <i class="fas fa-user-friends"></i> Kết bạn

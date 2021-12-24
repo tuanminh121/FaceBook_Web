@@ -9,3 +9,7 @@
       width: 100%;
     }
 }
+
+.hover_link:hover {
+  background-color: rgb(28,132,237);
+}

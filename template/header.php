@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="assets/css/sidebar.css">
 <!--CSS FOR NEWSFEED-->
     <link rel="stylesheet" href="assets/css/newsfeed2.css">
+<!--CSS FOR USERPROFILE-->
+<link rel="stylesheet" href="assets/css/userProfile.css">
 <!--FaceBook LOGO-->
     <link rel="icon" href="assets\images\Facebook_logo\Facebook_logo.ico" type="image/x-icon"/>
     <title>Facebook</title>
