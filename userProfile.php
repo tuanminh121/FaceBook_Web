@@ -21,7 +21,7 @@
         if(!$conn){
             die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
         }
-        $sql_ava = "SELECT UserAva from user_profile where UserID=1";
+        $sql_ava = "SELECT * from user_profile where UserID=1";
         $result_ava = mysqli_query($conn, $sql_ava);
         if(mysqli_num_rows($result_ava) > 0) {
           while($row_ava = mysqli_fetch_assoc($result_ava)) {
@@ -39,35 +39,18 @@
                 "
                 style="width: 168px; margin-top: -60px"
               />
-<?php
-          }
-        }
-        mysqli_close($conn);
-?>
             </div>
             <!-- Background image -->
           </section>
           <!-- Section: images -->
 
           <!-- Section: user data -->
-<?php
-    //KẾT NỐI SQL
-        $conn = mysqli_connect('localhost','root','','facebook');
-        if(!$conn){
-            die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
-        }
-        $sql_info = "SELECT * from user_profile where UserID=1";
-        $result_info = mysqli_query($conn, $sql_info);
-        if(mysqli_num_rows($result_info) > 0) {
-          while($row_info = mysqli_fetch_assoc($result_info)) {
-            global $row_info;
-?>
           <section class="text-center border-bottom">
             <div class="row d-flex justify-content-center">
               <div class="col-md-6">
-                <h2><strong> <?php echo $row_info['UserFirstName'] . " " . $row_info['UserLastName'] ?> </strong></h2>
+                <h2><strong> <?php echo $row_ava['UserFirstName'] . " " . $row_ava['UserLastName'] ?> </strong></h2>
                 <p class="text-muted">
-                  <?php echo $row_info['Description'] ?>
+                  <?php echo $row_ava['Description'] ?>
                 </p>
               </div>
             </div>
@@ -175,14 +158,14 @@
                       <i class="fas fa-house-damage me-2 mt-3"></i>Sống tại
                       <a
                         href="https://vi.wikipedia.org/wiki/H%C3%A0_N%E1%BB%99i"
-                        ><strong> <?php echo $row_info['UserAddress'] ?> </strong></a
+                        ><strong> <?php echo $row_ava['UserAddress'] ?> </strong></a
                       >
                     </li>
                     <li>
                       <i class="fas fa-map-marker-alt me-2 mt-3"></i>Đến từ
                       <a
                         href="https://vi.wikipedia.org/wiki/H%C3%A0_N%E1%BB%99i"
-                        ><strong> <?php echo $row_info['UserAddress'] ?> </strong></a
+                        ><strong> <?php echo $row_ava['UserAddress'] ?> </strong></a
                       >
                     </li>
                     <li>
@@ -308,72 +291,7 @@
                       />
                       <p><small>Kelly Hel</small></p>
                     </div>
-                    <div class="col-lg-4 text-center mb-4">
-                      <img
-                        src="assets/images_dev/ava1.jpg"
-                        alt=""
-                        class="w-100 h-100 shadow-1-strong rounded"
-                      />
-                      <p><small>Kelly Hel</small></p>
-                    </div>
-                    <div class="col-lg-4 text-center mb-4">
-                      <img
-                        src="assets/images_dev/ava1.jpg"
-                        alt=""
-                        class="w-100 h-100 shadow-1-strong rounded"
-                      />
-                      <p><small>Kelly Hel</small></p>
-                    </div>
-
-                    <div class="col-lg-4 text-center mb-4">
-                      <img
-                        src="assets/images_dev/ava1.jpg"
-                        alt=""
-                        class="w-100 h-100 shadow-1-strong rounded"
-                      />
-                      <p><small>Kelly Hel</small></p>
-                    </div>
-                    <div class="col-lg-4 text-center mb-4">
-                      <img
-                        src="assets/images_dev/ava1.jpg"
-                        alt=""
-                        class="w-100 h-100 shadow-1-strong rounded"
-                      />
-                      <p><small>Kelly Hel</small></p>
-                    </div>
-                    <div class="col-lg-4 text-center mb-4">
-                      <img
-                        src="assets/images_dev/ava1.jpg"
-                        alt=""
-                        class="w-100 h-100 shadow-1-strong rounded"
-                      />
-                      <p><small>Kelly Hel</small></p>
-                    </div>
-
-                    <div class="col-lg-4 text-center mb-4">
-                      <img
-                        src="assets/images_dev/ava1.jpg"
-                        alt=""
-                        class="w-100 h-100 shadow-1-strong rounded"
-                      />
-                      <p><small>Kelly Hel</small></p>
-                    </div>
-                    <div class="col-lg-4 text-center mb-4">
-                      <img
-                        src="assets/images_dev/ava1.jpg"
-                        alt=""
-                        class="w-100 h-100 shadow-1-strong rounded"
-                      />
-                      <p><small>Kelly Hel</small></p>
-                    </div>
-                    <div class="col-lg-4 text-center mb-4">
-                      <img
-                        src="assets/images_dev/ava1.jpg"
-                        alt=""
-                        class="w-100 h-100 shadow-1-strong rounded"
-                      />
-                      <p><small>Kelly Hel</small></p>
-                    </div>
+                    
                   </div>
                 </div>
               </div>
@@ -417,12 +335,24 @@
                 </div>
               </div>
 
+<?php
+    //KẾT NỐI SQL
+        $conn = mysqli_connect('localhost','root','','facebook');
+        if(!$conn){
+            die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+        }
+        $sql_ava = "SELECT * from user_profile where UserID=1";
+        $result_ava = mysqli_query($conn, $sql_ava);
+        if(mysqli_num_rows($result_ava) > 0) {
+          while($row_ava = mysqli_fetch_assoc($result_ava)) {
+            global $row_ava;
+?>
               <div class="card mb-4">
                 <div class="card-body">
                   <div class="d-flex">
                     <a style="margin-right: 0.5rem;" href=""
                       ><img
-                        src="assets/images_dev/totoro.webp"
+                        src="<?php echo $row_ava['UserAva'] ?>"
                         alt=""
                         style="height: 40px; margin-right: 8px"
                         class="rounded-circle border"
@@ -442,64 +372,71 @@
                   </div>
                 </div>
               </div>
-
-              <div class="card text-start|center|end">
+<?php
+                    }   
+                }
+?>
+<!-- bài viết từ đây -->
+<?php
+    //KẾT NỐI SQL
+        $conn = mysqli_connect('localhost','root','','facebook');
+        if(!$conn){
+            die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+        }
+        $sql_news = "SELECT * from post INNER JOIN user_profile on post.UserID = user_profile.UserID inner join images on images.PostID = post.PostID WHERE user_profile.UserID = 1;";
+        $result_news = mysqli_query($conn, $sql_news);
+        if(mysqli_num_rows($result_news) > 0) {
+          while($row_news = mysqli_fetch_assoc($result_news)) {
+            global $row_news;
+?>
+              <div class="card text-start|center|end mb-3">
                 <div class="card-body">
-                  <div class="d-flex mb-2">
-                    <a href=""
+                  <div class="d-flex">
+                    <a href="<?php echo $row_news['UserAva'] ?>"
                       ><img
-                        src="assets/images_dev/totoro.webp"
+                        src="<?php echo $row_news['UserAva'] ?>"
                         alt=""
                         style="height: 40px; margin-right: 8px"
                         class="rounded-circle border"
                     /></a>
-                    <div>
-                      <a href="" class="text-dark mb-0"><strong>ThaoVan</strong></a>
-                      <a href="" class="text-muted d-block" style="margin-top: -6px;"><small>10h</small></a>
+                    <div class="mb-2">
+                      <a href="" class="text-dark mb-0"><strong> <?php echo $row_news['UserFirstName'] . " " . $row_news['UserLastName'] ?></strong></a>
+                      <a href="" class="text-muted d-block" style="margin-top: -6px;"><small> <?php echo $row_news['PostTime'] ?></small></a>
+                    </div>
+<!-- option -->
+                    <div class="option ms-auto">
+                        <div class="option-icon"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <span class="material-icons-outlined" style="position: absolute;">
+                                more_horiz
+                            </span>
+                        </div>
+                        <div class="collapse" id="collapseExample">
+                            <div class="option-item">
+                                <div class="col-md-12 items">
+                                <span class="material-icons-outlined">history</span>
+                                    <b>Xem lịch sử chỉnh sửa</b>
+                                </div>
+                                <div class="col-md-12 items">
+                                    <span class="material-icons-outlined">bookmarks</span>
+                                    <b>Lưu bài viết</b>
+                                </div>
+                                <div class="col-md-12 items">
+                                <span class="material-icons-outlined">report</span>
+                                    <b>Báo cáo bài viết</b>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                   </div>
 
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni fuga unde eius ea suscipit numquam exercitationem possimus nostrum ex adipisci dicta quidem et optio quas deserunt non ipsum assumenda, expedita iure dolor qui tenetur. Recusandae omnis, optio blanditiis sunt vel dolore cupiditate veritatis corporis, cum consectetur molestias suscipit, officia perspiciatis?</p>
+                  <p><?php echo $row_news['PostCaption'] ?></p>
 
                 </div>
-                <a href="">
-                  <img src="assets/images_dev/anh.jpg" class="w-100" alt="">
-                </a>
-
-                <!-- <div class="card-body">
-                  <div class="d-flex justify-content-between mb-1">
-                    <a href="">
-                      <i class="fas fa-thumbs-up text-primary"></i>
-                      <i class="fas fa-heart text-danger"></i>
-                      <span>123</span>
-                    </a>
-
-                    <div class="">
-                      <a href="" class="text-muted">8 bình luận</a>
-                    </div>
-                  </div>
-
-                  <div class="d-flex justify-content-between text-center border-top border-bottom mb-4">
-                    <button class="btn btn-link btn-lg text-muted"><i class="far fa-thumbs-up"></i> Thích</button>
-                    <button class="btn btn-link btn-lg text-muted"><i class="far fa-comment-alt"></i> Bình Luận</button>
-                    <button class="btn btn-link btn-lg text-muted"><i class="far fa-share-square"></i> Chia sẻ</button>
-                  </div>
-
-                  <div class="d-flex mb-2">
-                    <a href=""
-                      ><img
-                        src="assets/images_dev/totoro.webp"
-                        alt=""
-                        style="height: 40px; margin-right: 8px"
-                        class="rounded-circle border"
-                    /></a>
-                    <div class="form-outline w-100">
-                      <input type="text" id="formControlLg" class="form-control form-control-lg"/>
-                      <label class="form-label" for="formControlLg">Viết bình luận...</label>
-                    </div>
-                  </div>
-
-                </div> -->
+                <div class="content-images">
+                  <a href="<?php echo $row_news['images'] ?>" target="_blank">
+                    <img src="<?php echo $row_news['images'] ?>" class="w-100" alt="">
+                  </a>
+                </div>
                 <div class="action-comment">
                     <div class="action-comment-above">
                         <div class="action-index">
@@ -507,9 +444,16 @@
                                 emoji_emotions
                             </span>
                         </div>
+
+<?php
+//ĐẾM LƯỢT BÌNH LUÂN
+    $sql_count_comment = "SELECT count(CommentID) FROM comment where PostID=" .$row_news['PostID'];
+    $result_count_comment = mysqli_query($conn, $sql_count_comment);
+    $row_count_comment = mysqli_fetch_assoc($result_count_comment);
+?>  
                         <div class="comment-index">
                             <div class="comment-index-item" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-                                100 bình luận 
+                                <?php echo $row_count_comment['count(CommentID)'];?> bình luận 
                             </div>
                             <div class="share-index-item">
                                 100 lượt chia sẻ
@@ -561,10 +505,15 @@
 
 
               </div>
+              <?php
+                    }   
+                }
+?>
             </div>
             <!-- right -->
           </div>
         </div>
+        
       </section>
       <!-- Section grey bg -->
     </main>
