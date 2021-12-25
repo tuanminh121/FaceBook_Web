@@ -135,7 +135,7 @@ main{
     margin-left: -150px;
     width: auto;
     height: auto;
-    padding: 10px;
+    padding: 3px;
     position: absolute;
     background-color: rgb(255, 255, 255);
     border-radius: 5px;
@@ -144,8 +144,17 @@ main{
     flex-direction: column;
     justify-content: center;
 }
+.option-item .items{
+    padding: 0px 5px;
+}
+.option-item .items:active{
+    background-color: rgb(185, 184, 184);
+}
 .option-item b{
     padding-left: 5px;
+}
+.option-item a{
+    color: #4f4f4f;
 }
 .items{
     height: 30px;
@@ -370,6 +379,7 @@ img{
         min-width: 400px;
     }
 }
+#input-edit-comment::-webkit-scrollbar,
 #post-writing::-webkit-scrollbar,
 #right-side-bar::-webkit-scrollbar,
 #left-side-bar::-webkit-scrollbar{
@@ -412,10 +422,23 @@ img{
     display: flex;
     flex-direction: row;
 }
-.hide {
+/* .hide {
     opacity: 1;
 }
 
 .myDIV:hover > .hide {
    opacity: 1;
-  }
+} */
+#input-edit-comment{
+    resize: none;
+    height: auto;
+    overflow-y: scroll;
+    border: none;
+}
+#input-edit-comment:focus{
+    background-color: #F2F3F5;
+    outline: none;
+}
+#form-edit-comment{
+    display: none;
+}

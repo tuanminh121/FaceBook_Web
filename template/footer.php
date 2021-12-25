@@ -3,11 +3,15 @@
 <!--Thư viện js_mdb-->
 <script type="text/javascript" src="assets/js_mdb/mdb.min.js"></script>
 <!--JS  FOR COMMENT INPUT-->
+<<<<<<< HEAD
 <!-- Custom scripts -->
 <script type="text/javascript"></script>
 <!-- <script src="assets\js\comment_input.js"></script> -->
 <!-- js for userProfile -->
 <script scr="assets\js\userProfile.js"></script>
 
+=======
+<script src="assets\js\newsfeed.js"></script>
+>>>>>>> f5ce7be675e66e29c26ba58084d4534afe6954d9
 </body>
 </html>

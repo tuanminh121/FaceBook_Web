@@ -20,8 +20,10 @@
     <link rel="stylesheet" href="assets/css/sidebar.css">
 <!--CSS FOR NEWSFEED-->
     <link rel="stylesheet" href="assets/css/newsfeed2.css">
+<!--CSS FOR SEARCH-->
+    <link rel="stylesheet" href="assets/css/search.css">
 <!--CSS FOR USERPROFILE-->
-<link rel="stylesheet" href="assets/css/userProfile.css">
+    <link rel="stylesheet" href="assets/css/userProfile.css">
 <!--FaceBook LOGO-->
     <link rel="icon" href="assets\images\Facebook_logo\Facebook_logo.ico" type="image/x-icon"/>
     <title>Facebook</title>
@@ -32,14 +34,14 @@
     <nav class="navbar navbar-light bg-light fixed-top fb-navbar">
         <div class="container-fluid inner-fb-navbar">
             <div class="navbar-left">
-          <a class="navbar-brand" href="NewsFeed.php">
+          <a class="navbar-brand" href="index.php">
             <div class="fb_logo icon">
                 <i class="fab fa-facebook-f fb-icon"></i>
             </div>
           </a>
-          <form class="d-flex">
-            <input class="form-control me-2 search-input" type="search" placeholder="Tìm kiếm..." aria-label="Search">
-            <button class="search-button" type="submit">
+          <form class="d-flex" action="search.php" method="post" autocomplete="off">
+            <input name="search-input" class="form-control me-2 search-input" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+            <button name="search-btn" class="search-button" type="submit">
                 <span class="material-icons-round search-icon">
                     search
                 </span>
@@ -54,9 +56,9 @@
           <div class="col-md 4 navbar-center">
             <div class="navbar-center-list">
             <div class="nav-item">
-                <a class="nav-link active navbar-center-item" aria-current="page" href="newsfeed.php">
+                <a class="nav-link active navbar-center-item" aria-current="page" href="index.php">
                     <div class="home icon" title="Home">
-                        <span class="material-icons-round home-icon">
+                        <span class="material-icons-round home-icon" style="color: #1877F2;">
                             home
                         </span>
                     </div>
@@ -66,7 +68,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="watch icon" title="Watch">
-                        <span class="material-icons-round watch-icon">
+                        <span class="material-icons-round watch-icon" style="color: rgb(97, 97, 97)">
                             ondemand_video
                         </span>
                     </div>
@@ -76,7 +78,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="marketplace icon" title="Marketplace">
-                        <span class="material-icons marketplace-icon">
+                        <span class="material-icons marketplace-icon"style="color: rgb(97, 97, 97)">
                             storefront
                         </span>
                     </div>
@@ -86,7 +88,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="groups icon" title="Groups">
-                        <span class="material-icons-round groups-icon">
+                        <span class="material-icons-round groups-icon"style="color: rgb(97, 97, 97)">
                             groups
                         </span>
                     </div>
@@ -96,7 +98,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="games icon" title="Games">
-                        <span class="material-icons-round games-icon">
+                        <span class="material-icons-round games-icon"style="color: rgb(97, 97, 97)">
                             gamepad
                         </span>
                     </div>

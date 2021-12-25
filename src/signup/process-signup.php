@@ -8,7 +8,7 @@ if(isset($_POST['btnSignUp'])){
     $UserBirth = "{$_POST['yearOfBirth']}-{$_POST['monthOfBirth']}-{$_POST['dayOfBirth']}";
     $UserGender = intval($_POST['genderSignUp']);
 
-    require('./connectDB.php');
+    require('../connectDB.php');
 
     $sql = "select * from user_profile where UserEmail = '$UserMail'";
     $result = mysqli_query($conn, $sql);
@@ -18,16 +18,18 @@ if(isset($_POST['btnSignUp'])){
         $sql2 = "insert into user_profile (UserEmail, UserPass, UserGender, UserFirstName, UserLastName, UserBirth, VerifyLink) values ('$UserMail', '$pass_hash', {$UserGender}, '$UserFirstName', '$UserLastName', '$UserBirth', '$token')";
         $result2 = mysqli_query($conn, $sql2);
         if($result2) {
-            $link = "localhost/FaceBook_Web/src/verify-email.php?key=".$UserMail."&token=".$token."";
+            $link = "localhost/FaceBook_Web/src/signup/verify-email.php?key=".$UserMail."&token=".$token."";
             require('./process-mailer.php');
             sendMail($UserMail, $link);
             //header("location: index.php");
         } else {
-            echo "'$sql2'";
+            $error = "Không truy vấn được cơ sở dữ liệu";
+            header("location: ../../components/404page.php?error=$error");
         }
     } else {
-        echo "error";
-    }
+        $error = "Email có vẻ đã tồn tại rồi bạn êiiii";
+        header("location: ../../components/404page.php?error=$error");
+ }
 }
 
 ?>
