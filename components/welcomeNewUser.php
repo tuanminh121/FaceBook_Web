@@ -294,7 +294,7 @@
                   Bạn đã xác nhận tài khoản rồi?
                 </h2>
                 <p style="margin: 0">
-                  <a href="/FaceBook_Web" style="color: #1c7ed6"
+                  <a href="/FaceBook_Web/login.php" style="color: #1c7ed6"
                     >Về trang đăng nhập</a
                   >
                 </p>

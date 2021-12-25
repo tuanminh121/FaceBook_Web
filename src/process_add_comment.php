@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST['btn-comment']) && $_POST['txt-comment']){
+    if(isset($_POST['btn-comment'])){
         $UserID = $_POST['UserID'];
         $PostID = $_POST['PostID'];
         $Comment = $_POST['txt-comment'];
@@ -12,12 +12,12 @@
         if($Comment != ''){
             $sql = "INSERT INTO comment(PostID, UserID, CommentContent) VALUES($PostID, $UserID, '$Comment')";
             mysqli_query($conn,$sql);
-            header("location: ../newsfeed.php");
+            header("location: ../index.php");
         }
         //ĐÓNG KẾT NỐI
         mysqli_close($conn);
     }
     else{
-        header("location: ../newsfeed.php");
+        header("location: ../index.php");
     }
 ?>

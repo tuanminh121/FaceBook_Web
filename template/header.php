@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="assets/css/newsfeed2.css">
 <!--CSS FOR USERPROFILE-->
 <link rel="stylesheet" href="assets/css/userProfile.css">
+<!--CSS FOR SEARCH-->
+<link rel="stylesheet" href="assets/css/search.css">
 <!--FaceBook LOGO-->
     <link rel="icon" href="assets\images\Facebook_logo\Facebook_logo.ico" type="image/x-icon"/>
     <title>Facebook</title>
@@ -37,9 +39,9 @@
                 <i class="fab fa-facebook-f fb-icon"></i>
             </div>
           </a>
-          <form class="d-flex">
-            <input class="form-control me-2 search-input" type="search" placeholder="Tìm kiếm..." aria-label="Search">
-            <button class="search-button" type="submit">
+          <form class="d-flex" action="search.php" method="post" autocomplete="off">
+            <input class="form-control me-2 search-input" name="search-input" type="search" placeholder="Tìm kiếm..." aria-label="Search">
+            <button class="search-button" name="search-btn" type="submit">
                 <span class="material-icons-round search-icon">
                     search
                 </span>

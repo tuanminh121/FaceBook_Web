@@ -6,7 +6,7 @@
     <title></title>
     <link
       rel="stylesheet"
-      href="./assets/css/404page.css"
+      href="../assets/css/404page.css"
       type="text/css"
       media="all"
     />
@@ -26,7 +26,7 @@ echo "<p>".$_GET['error']."
                 <em>. . . hãy kiểm tra lại.</em>
       </p>";
 ?>  
-        <a href="/FaceBook_Web"><button>You can go back now!</button></a>
+        <a href="/FaceBook_Web/login.php"><button>You can go back now!</button></a>
       </main>
     </div>
   </body>

@@ -8,9 +8,9 @@
 
     <meta name="author" content="Codeconvey" />
     <!-- Message Box CSS -->
-    <link rel="stylesheet" href="./assets/css/registration/style.css">
+    <link rel="stylesheet" href="../assets/css/registration/style.css">
     <!--Only for demo purpose - no need to add.-->
-    <link rel="stylesheet" href="./assets/css/registration/demo.css" />
+    <link rel="stylesheet" href="../assets/css/registration/demo.css" />
 	
 </head>
 <body>
@@ -54,7 +54,7 @@
     <p id='message'>
       Chúc mừng, tài khoản của bạn đã sẵn sàng để sử dụng.
     </p>
-    <a href="/FaceBook_Web" id="contBtn">Về trang đăng nhập</a>
+    <a href="/FaceBook_Web/login.php" id="contBtn">Về trang đăng nhập</a>
   </div>
 </div>
 <!-- partial -->

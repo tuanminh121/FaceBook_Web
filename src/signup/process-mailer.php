@@ -50,10 +50,10 @@
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
             $mail->send();
-            header("location: ../../welcomeNewUser.php");
+            header("location: ../../components/welcomeNewUser.php");
         } catch (Exception $e) {
             $error = "Email có vẻ không tồn tại rồi bạn êiiii";
-            header("location: ../../404page.php?error=$error");
+            header("location: ../../components/404page.php?error=$error");
         }
     }
 ?>

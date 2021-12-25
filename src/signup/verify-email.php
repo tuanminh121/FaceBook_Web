@@ -27,7 +27,7 @@
         $row = mysqli_fetch_array($query); 
         if ($row["VerifyDate"] == null) { 
             mysqli_query( $conn, "UPDATE user_profile set VerifyDate ='". $d ."', Active = 1 WHERE UserEmail='" . $email . "'" ); 
-            header("location: ../../registration_successful_page.php");
+            header("location: ../../components/registration_successful_page.php");
             } else { 
             $msg = "Bạn đã xác nhận tài khoản trước đó rồi!"; 
             } 

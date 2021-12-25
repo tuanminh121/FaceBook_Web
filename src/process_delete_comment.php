@@ -13,7 +13,7 @@
         }
         $sql = "DELETE FROM comment WHERE CommentID = $CommentID";
         mysqli_query($conn,$sql);
-        header("location: ../newsfeed.php");
+        header("location: ../index.php");
         //ĐÓNG KẾT NỐI
         mysqli_close($conn);
     }

@@ -24,11 +24,11 @@ if(isset($_POST['btnSignUp'])){
             //header("location: index.php");
         } else {
             $error = "Không truy vấn được cơ sở dữ liệu";
-            header("location: ../../404page.php?error=$error");
+            header("location: ../../components/404page.php?error=$error");
         }
     } else {
         $error = "Email có vẻ đã tồn tại rồi bạn êiiii";
-        header("location: ../../404page.php?error=$error");
+        header("location: ../../components/404page.php?error=$error");
  }
 }
 
