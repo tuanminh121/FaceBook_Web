@@ -56,9 +56,9 @@
           <div class="col-md 4 navbar-center">
             <div class="navbar-center-list">
             <div class="nav-item">
-                <a class="nav-link active navbar-center-item" aria-current="page" href="newsfeed.php">
+                <a class="nav-link active navbar-center-item" aria-current="page" href="index.php">
                     <div class="home icon" title="Home">
-                        <span class="material-icons-round home-icon">
+                        <span class="material-icons-round home-icon" style="color: #1877F2;">
                             home
                         </span>
                     </div>
@@ -68,7 +68,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="watch icon" title="Watch">
-                        <span class="material-icons-round watch-icon">
+                        <span class="material-icons-round watch-icon" style="color: rgb(97, 97, 97)">
                             ondemand_video
                         </span>
                     </div>
