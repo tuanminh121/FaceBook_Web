@@ -38,10 +38,14 @@
     background-image: linear-gradient(0, #273cfa, #13cae2);
     margin-left: 15px;
     border-radius: 50%;
+    display: flex;
+    flex-direction: column;
     align-items: flex-end;
+    justify-content: center;
 }
 .fb-icon{
     font-size: 32px;
+    margin-bottom: 0px;
     color: rgba(255, 255, 255,1);
 }
 .search-button{
@@ -97,13 +101,13 @@
 }
 .navbar-center .underline{
     width: 100%;
-    height: 3px;
+    height: 4px;
     background-color: #1877F2;
 }
 .home-icon{
     color: #1877F2;
 }
-.material-icons-round{
+.iconn{
     color: rgb(97, 97, 97);
 }
 .navbar-center-list{
