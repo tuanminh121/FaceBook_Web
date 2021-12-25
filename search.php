@@ -31,7 +31,7 @@
                 <b><?php echo $row_search['UserName'] ?></b>
             </div>
         </a>
-        <hr>
+        <hr style="margin: 0px">
 <?php
                }
             }
