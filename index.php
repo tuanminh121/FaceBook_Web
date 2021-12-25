@@ -546,7 +546,7 @@
                   <input name="lastnameSignUp" type="text" class="form-control p-2 form-control-input" id="recipient-sur-name" placeholder="Last name" required>
                 </div>
                 <input name="emailSignUp" type="email" class="form-control mt-2 p-2 form-control-input" id="recipient-mobile-mail" placeholder="Email address" required>
-                <input name="pwSignUp" type="text" class="form-control mt-2 p-2 form-control-input" id="recipient-password" placeholder="New password" required>
+                <input name="pwSignUp" type="password" class="form-control mt-2 p-2 form-control-input" id="recipient-password" placeholder="New password" required>
               </div>
               <div class="mb-3">
                 <span class="form-description">Date of birth</span>

@@ -15,10 +15,10 @@ if(isset($_POST['btnSignUp'])){
     if(mysqli_num_rows($result) == 0){
         $token = md5($UserMail).rand(10,9999);
         $pass_hash = password_hash($UserPasswd, PASSWORD_DEFAULT);
-        $sql2 = "insert into user_profile (UserEmail, UserPass, UserGender, UserFirstName, UserLastName, UserBirth, VerifyLink) values ('$UserMail', '$UserPasswd', {$UserGender}, '$UserFirstName', '$UserLastName', '$UserBirth', '$token')";
+        $sql2 = "insert into user_profile (UserEmail, UserPass, UserGender, UserFirstName, UserLastName, UserBirth, VerifyLink) values ('$UserMail', '$pass_hash', {$UserGender}, '$UserFirstName', '$UserLastName', '$UserBirth', '$token')";
         $result2 = mysqli_query($conn, $sql2);
         if($result2) {
-            $link = "localhost/src/verify-email.php?key=".$UserMail."&token=".$token."";
+            $link = "localhost/FaceBook_Web/src/verify-email.php?key=".$UserMail."&token=".$token."";
             require('./process-mailer.php');
             sendMail($UserMail, $link);
             //header("location: index.php");
