@@ -12,12 +12,12 @@
         if($Comment != ''){
             $sql = "INSERT INTO comment(PostID, UserID, CommentContent) VALUES($PostID, $UserID, '$Comment')";
             mysqli_query($conn,$sql);
-            header("location: newsfeed.php");
+            header("location: ../newsfeed.php");
         }
         //ĐÓNG KẾT NỐI
         mysqli_close($conn);
     }
     else{
-        header("location: newsfeed.php");
+        header("location: ../newsfeed.php");
     }
 ?>

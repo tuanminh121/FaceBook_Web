@@ -3,6 +3,6 @@
 <!--Thư viện js_mdb-->
 <script type="text/javascript" src="assets/js_mdb/mdb.min.js"></script>
 <!--JS  FOR COMMENT INPUT-->
-<!-- <script src="assets\js\comment_input.js"></script> -->
+<script src="assets\js\newsfeed.js"></script>
 </body>
 </html>

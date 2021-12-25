@@ -45,7 +45,7 @@
                     FROM friend_ship INNER JOIN view_post
                     on UserID = User1ID or UserID = User2ID
                     WHERE User1ID = 2 or User2ID = 2) as Bang
-                WHERE UserID != 2";
+                WHERE UserID != 2"; //Người đăng nhập-->
         $result_news = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result_news) > 0){ 
             while($row_news = mysqli_fetch_assoc($result_news)){
@@ -65,12 +65,12 @@
                         </h6>
                     </div>
                     <div class="option ms-auto">
-                        <div class="option-icon"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="option-icon collapsibleOption" >
                             <span class="material-icons-outlined" style="position: absolute;">
                                 more_horiz
                             </span>
                         </div>
-                        <div class="collapse" id="collapseExample">
+                        <div class="collapse contentOption" >
                             <div class="option-item">
                                 <div class="col-md-12 items">
                                 <span class="material-icons-outlined">history</span>
@@ -80,10 +80,11 @@
                                     <span class="material-icons-outlined">bookmarks</span>
                                     <b>Lưu bài viết</b>
                                 </div>
-                                <div class="col-md-12 items">
-                                <span class="material-icons-outlined">report</span>
+                                <a class="col-md-12 items link-dark" href="src/process_report.php?PostID=<?php echo $row_news['PostID'];?>
+                                &&PostUserID=<?php echo $row_news['UserID'];?>">
+                                    <span class="material-icons-outlined">report</span>
                                     <b>Báo cáo bài viết</b>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -151,13 +152,13 @@
                 </div>
 <!--COMMENT INPUT-->
                 <div class="row">
-                    <form id="comment-form" action="process_add_comment.php" method="post" autocomplete="off">
+                    <form id="comment-form" action="src/process_add_comment.php" method="post" autocomplete="off">
                         <div class="col-md-12 comment-input-form">
                             <a class="icon"  href="userProfile.php">
                                 <img class="user-img" src="assets/images/content-img.jpeg" alt="">
                             </a>
                             <input class="ID" type="text" value="<?php echo $row_news['PostID'];?>" name="PostID">
-                            <input class="ID" type="text" value="2" name="UserID">
+                            <input class="ID" type="text" value="2" name="UserID">    <!--Người đăng nhập-->
                             <div class="comment-input">
                                 <input id="comment-input" name="txt-comment" type="text" placeholder=" Viết bình luận" class="form-control">
                             </div>
@@ -191,12 +192,22 @@
                     <p class="comment-content">
                         <?php echo $row_comment['CommentContent'];?>
                     </p>
-            </div>
+            </div>  
+<!--EDIT COMMENT-->
             <div id="edit-comment" class="hide">
-                <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
-                    edit
-                </span>
-                <a href="process_delete_comment.php?CommentID=<?php echo $row_comment['CommentID'];?>
+                <div class="option-comment option-icon collapsible">
+                    <span id="btn-edit" class="material-icons-outlined option-comment option-icon" style="font-size:15px">
+                        edit
+                    </span>
+                </div>
+                <form class="content" id="form-edit-comment" action="src/process_update_comment.php" method="post">
+                    <input class="ID" type="text" value="<?php echo $row_comment['UserID'];?>" name="CommentUserID">
+                    <input class="ID" type="text" value="2" name="UserID"> <!--Người đăng nhập-->
+                    <input class="ID" type="text" value="<?php echo $row_comment['CommentID'];?>" name="CommentID">
+                    <textarea id="input-edit-comment" name="txt-edit" id="" cols="30" rows="4"><?php echo $row_comment['CommentContent']; ?></textarea>
+                    <button id="btn-edit-comment" name="btn-edit" type="submit">Lưu</button>
+                </form>
+                <a href="src/process_delete_comment.php?CommentID=<?php echo $row_comment['CommentID'];?>
                         &&CommentUserID=<?php echo $row_comment['UserID']?>&&UserID=2" class="link-dark">
                 <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
                     delete_forever
