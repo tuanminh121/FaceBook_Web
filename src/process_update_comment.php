@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST['btn-edit']) && $_POST['txt-edit']){
+    if(isset($_POST['btn-edit'])){
         $UserID = $_POST['UserID'];
         $CommentUserID = $_POST['CommentUserID'];
         $CommentID = $_POST['CommentID'];

@@ -170,7 +170,6 @@
                         </div>
                     </form>
                 </div>
-<!--ADD COMMENT -->
 
 <!--COMMENTS-->
     <ul class="collapse collapse-horizontal comments" id="collapseWidthExample">
@@ -268,18 +267,19 @@
         while($row_friend = mysqli_fetch_assoc($result_friend)){
 
 ?>
-        <div class="row">
+        <a class="row" href="userProfile_friend.php">
             <div class="sidebar-item">
                 <div class="icon"></div>
                 <div class="text">
                     <b><?php  echo $row_friend['UserName'];?></b>
                 </div>
             </div>
-        </div>
+        </a>
 <?php
         }
     }
-
+    //ĐÓNG KẾT NỐI
+    mysqli_close($conn);
 ?>
 
         <div class="row">
