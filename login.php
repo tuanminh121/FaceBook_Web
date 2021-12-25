@@ -66,9 +66,10 @@
               "
             >
               <div id="body-top-right">
-                <form>
+                <form action="./src/signin/process_signin.php" method="post">
                   <div>
                     <input
+                      name="UserEmail"
                       class="form-control login-form-input"
                       type="text"
                       placeholder="Email address or phone number"
@@ -76,15 +77,22 @@
                       required
                     />
                     <input
+                      name="UserPassword"
                       id="login-form-input-password"
                       class="form-control login-form-input"
-                      type="text"
+                      type="password"
                       placeholder="Password"
                       required
-                    />
+                    /> 
+                    <?php
+                      if(isset($_GET['error'])){
+                      echo "<span style='color:red;'>".$_GET['error']."</span>";
+                      } 
+                    ?>
                   </div>
                   <div>
                     <button
+                      name="btnSignIn"
                       id="login-btn"
                       class="btn btn-primary btn-lg"
                       type="submit"
