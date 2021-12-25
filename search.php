@@ -45,7 +45,7 @@
    mysqli_close($conn);
     }
     else{
-        header("location: newsfeed.php");
+        header("location: index.php");
     }
     include "template/footer.php";
 ?>
