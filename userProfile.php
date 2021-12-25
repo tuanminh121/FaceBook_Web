@@ -36,8 +36,10 @@
                   shadow-3-strong
                   position-absolute
                   border border-white
-                "
+                " 
+                id = "avatarImg"
                 style="width: 168px; margin-top: -60px"
+                onClick="clickImg()"
               />
             </div>
             <!-- Background image -->
@@ -71,6 +73,7 @@
                 type="button"
                 class="btn btn-link text-reset"
                 datadata-ripple-color="dark"
+                onClick="document.location.href='userProfile_gioithieu.php'"
               >
                 Giới thiệu
               </button>
@@ -78,6 +81,7 @@
                 type="button"
                 class="btn btn-link text-reset"
                 datadata-ripple-color="dark"
+                onclick="document.location.href=''"
               >
                 Bạn bè
               </button>
@@ -446,7 +450,7 @@
                         </div>
 
 <?php
-//ĐẾM LƯỢT BÌNH LUÂN
+  //ĐẾM LƯỢT BÌNH LUÂN ???
     $sql_count_comment = "SELECT count(CommentID) FROM comment where PostID=" .$row_news['PostID'];
     $result_count_comment = mysqli_query($conn, $sql_count_comment);
     $row_count_comment = mysqli_fetch_assoc($result_count_comment);
@@ -491,35 +495,66 @@
                         </div>
                     </div>
                 </div>
-<!--COMMENT INPUT-->
-                <div class="row">
-                    <div class="col-md-12 comment-input-form">
-                        <a class="icon"  href="userProfile.html">
-                            <img class="user-img" src="assets/images_dev/totoro.webp" alt="">
-                        </a>
-                        <div class="comment-input">
-                            <input type="text" placeholder=" Viết bình luận" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-
+<!--COMMENT INPUT--><?php
+//TRUY VẤN COMMENT, COMMENT_USET ???
+            $sql_comment = "SELECT * from view_comment WHERE PostID =" .$row_news['PostID'];
+            $result_comment = mysqli_query($conn, $sql_comment);
+            if(mysqli_num_rows($result_comment) > 0){
+                while ($row_comment = mysqli_fetch_assoc($result_comment)){
+?>
+  <ul class="collapse collapse-horizontal comments" id="collapseWidthExample">
+  <li class="comment-item myDIV">
+            <a class="icon" href="userProfile.php">
+                <img class="user-img" src="assets/images/content-img.jpeg" alt="">
+            </a>
+            <div class="commentator-name">
+                <a href="userProfile.php" class="user-name text-decoration-none link-dark">
+                    <b><?php echo $row_comment['UserName'];?></b>
+                </a>
+                    <p class="comment-content">
+                        <?php echo $row_comment['CommentContent'];?>
+                    </p>
+            </div>
+            <div id="edit-comment" class="hide">
+                <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
+                    edit
+                </span>
+                <a href="process_delete_comment.php?CommentID=<?php echo $row_comment['CommentID'];?>
+                        &&CommentUserID=<?php echo $row_comment['UserID']?>&&UserID=2" class="link-dark">
+                <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
+                    delete_forever
+                </span>
+                </a>
+            </div>
+        </li>
+  </ul>
+  <?php
+                    }   
+                }
+?>
               </div>
-              <?php
+<?php
                     }   
                 }
 ?>
             </div>
             <!-- right -->
+
           </div>
         </div>
-        
+
       </section>
       <!-- Section grey bg -->
     </main>
+    <script>
+function clickImg() {
+    var avatarImg = document.getElementById('avatarImg')
+    var url = avatarImg.getAttribute('scr');
+    window.open(url, "_blank");
+}
 
-    <script type="text/javascript" src="assets/js_mdb/mdb.min.js"></script>
-    <!-- Custom scripts -->
-    <script type="text/javascript"></script>
-  </body>
-</html>
+</script>
+
+<?php
+    include "template/footer.php"
+?>

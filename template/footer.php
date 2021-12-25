@@ -3,6 +3,11 @@
 <!--Thư viện js_mdb-->
 <script type="text/javascript" src="assets/js_mdb/mdb.min.js"></script>
 <!--JS  FOR COMMENT INPUT-->
+<!-- Custom scripts -->
+<script type="text/javascript"></script>
 <!-- <script src="assets\js\comment_input.js"></script> -->
+<!-- js for userProfile -->
+<script scr="assets\js\userProfile.js"></script>
+
 </body>
 </html>
