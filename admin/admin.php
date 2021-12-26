@@ -47,13 +47,29 @@
     </header>
 <!--MAIN-->
 <main>
-        <div id="main-news-feed">
-            <div class="reported-posts">
-                <span class="material-icons-outlined icon">
-                    speaker_notes_off
-                </span>
-                <b>Bài viết bị báo cáo</b>
-            </div>
+<!--REPORTED POST-->
+        <div class="reported-posts option-select">
+            <span class="material-icons-outlined icon">
+                speaker_notes_off
+            </span>
+            <b>Bài viết bị báo cáo</b>
+        </div>
+        <div class="main-news-report">
+<?php
+    //KẾT NỐI SQL
+    $conn = mysqli_connect('localhost','root','','facebook');
+    if(!$conn){
+        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
+    }
+    //TRUY VẤN POST BỊ REPORT
+    $sql_news = "SELECT view_post.PostID, view_post.UserID, view_post.UserName, view_post.PostTime, view_post.PostCaption
+                FROM view_post INNER JOIN post
+                ON post.PostID = view_post.PostID
+                WHERE post.Reported = 1";
+    $result_news = mysqli_query($conn, $sql_news);
+    if(mysqli_num_rows($result_news) > 0){
+        while($row_news = mysqli_fetch_assoc($result_news)){
+?>
             <div class="news">
                 <div class="row">
                     <div class="heading">
@@ -62,10 +78,10 @@
                         </a>
                         <div class="user-name-time">
                             <a class="user-name text-decoration-none link-dark">
-                                <b>UserName</b>
+                                <b><?php echo $row_news['UserName'];?></b>
                             </a>
                             <h6 class="time">
-                                Time
+                                <?php echo $row_news['PostTime'];?>
                             </h6>
                         </div>
                         <div class="option ms-auto">
@@ -88,7 +104,7 @@
                     </div>
                     <div class="news-content">
                         <div class="content-caption">
-                           caption
+                            <?php echo $row_news['PostCaption'];?>
                         </div>
                         <div class="content-images">
                             <img src="../assets/images/content-img.jpeg" alt="">
@@ -97,26 +113,42 @@
                 </div>
                 
             </div>
-            
-            <div class="reported-users">
-                <span class="material-icons-outlined icon">
-                    person_remove
-                </span>
-                <b>Người dùng bị báo cáo</b>
-            </div>
+<?php
+        }
+    }
+?>
+        </div>
+<!--REPORTED USER-->
+        <div class="reported-users option-select">
+            <span class="material-icons-outlined icon">
+                person_remove
+            </span>
+            <b>Người dùng bị báo cáo</b>
+        </div>
+        <div class="main-users-report">
+<?php
+    //TRUY VẤN USER BỊ REPORT
+    $sql_reported_user = "SELECT UserID, CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva, Reported
+                        FROM user_profile WHERE Reported > 0 and Active = 1";
+    $result_reported_user = mysqli_query($conn, $sql_reported_user);
+    if(mysqli_num_rows($result_reported_user)>0){
+        while($row_reported_user = mysqli_fetch_assoc($result_reported_user)){
+?>
             <div class="row search-results">
-                <div class="col-md-12 search-result-item">
+                <div class="col-md-12 search-result-item collapsible">
                     <div class="user-icon">
                         <img class="user-img" src="../assets/images/content-img.jpeg" alt="">
                     </div>
                     <div class="txt">
-                        <b>username</b>
+                        <b><?php echo $row_reported_user['UserName'];?></b>
                     </div>
-                    <div class="txt ms-auto">
-                        <b>Reported</b>
+                    <div class="txt ms-auto txt-lock">
+                    <b>Reported:
+                        <p style="color: red;"><?php echo $row_reported_user['Reported'];?></p>
+                    </b>
                     </div>
                 </div>
-                <div class="ban-option">
+                <div class="ban-option content">
                     <div class="ban-item">
                         <span class="material-icons-outlined lock-icon">
                             lock
@@ -126,7 +158,59 @@
                 </div>
                 <hr style="margin: 0px">
             </div>
+<?php
+        }
+    }
+?>
         </div>
+<!--BANNED USER-->
+    <div class="locked-users option-select">
+        <span class="material-icons-outlined icon">
+            punch_clock
+        </span>
+        <b>Người dùng bị khóa</b>
+    </div>
+    <div class="main-users-ban">
+<?php
+    //TRUY VẤN USER BỊ LOCKER
+    $sql_locked_user = "SELECT UserID, CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva, Reported, TIMEDIFF(NOW(),LockTime) as Time
+                        FROM user_profile WHERE Reported > 0 and Active = 0";
+    $result_locked_user = mysqli_query($conn, $sql_locked_user);
+    if(mysqli_num_rows($result_locked_user)>0){
+        while($row_locked_user = mysqli_fetch_assoc($result_locked_user)){
+?>
+        <div class="row search-results">
+            <div class="col-md-12 search-result-item collapsible">
+                <div class="user-icon">
+                    <img class="user-img" src="../assets/images/content-img.jpeg" alt="">
+                </div>
+                <div class="txt">
+                    <b><?php echo $row_locked_user['UserName'];?></b>
+                </div>
+                <div class="txt ms-auto txt-lock">
+                    <b>Reported:
+                        <p style="color: red;"><?php echo $row_locked_user['Reported'];?></p>
+                    </b>
+                    <b>Thời gian bị khóa:
+                        <p style="color: red;"><?php echo $row_locked_user['Time'];?></p>
+                    </b>
+                </div>
+            </div>
+            <div class="lock-option content">
+                <div class="ban-item">
+                    <span class="material-icons-outlined">
+                        lock_open
+                    </span>
+                    <b>Mở khóa tài khoản</b>
+                </div>
+            </div>
+            <hr style="margin: 0px">
+        </div>
+<?php
+        }
+    }
+?>
+    </div>
         </main>
 <!--Thư viện Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
