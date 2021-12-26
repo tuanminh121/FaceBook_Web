@@ -1,7 +1,7 @@
 <?php
 include "template/header.php";
 include "src/connectDB.php";
-$userId = 1;
+$userId = 2;
 
 $queryProfile = "SELECT * from user_profile where UserID='$userId'";
 $result_ava = mysqli_query($conn, $queryProfile);
@@ -27,7 +27,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                   shadow-3-strong
                   position-absolute
                   border border-white
-                " id="avatarImg" style="width: 168px; margin-top: -60px" onclick="clickImg('<?php echo $row_ava['UserAva'] ?>')" />
+                " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo $row_ava['UserAva'] ?>')" />
         </div>
         <!-- Background image -->
       </section>
@@ -231,7 +231,7 @@ if (mysqli_num_rows($result_ava) > 0) {
           <!--News-->
           <?php
           //TRUY VẤN POST, POST_USER
-          $sql = "SELECT * from post, user_profile, images WHERE post.UserID = user_profile.UserID AND user_profile.UserID = " . $userId . " GROUP BY post.PostID";
+          $sql = "SELECT * from post, user_profile, images WHERE post.UserID = user_profile.UserID AND post.PostID = images.PostID AND user_profile.UserID = " . $userId . " GROUP BY post.PostID";
           //Người đăng nhập-->
           $result_news = mysqli_query($conn, $sql);
           if (mysqli_num_rows($result_news) > 0) {
@@ -281,7 +281,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                       <?php echo $row_news['PostCaption'] ?>
                     </div>
                     <div class="content-images">
-                      <img src="<?php echo $row_ava['images'] ?>" alt="">
+                      <img src="<?php echo $row_news['images'] ?>" alt="">
                     </div>
                   </div>
                   <div class="action-comment">

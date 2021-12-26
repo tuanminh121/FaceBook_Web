@@ -59,10 +59,10 @@
     //KẾT NỐI SQL
     include "../src/connectDB.php";
     //TRUY VẤN POST BỊ REPORT
-    $sql_news = "SELECT view_post.PostID, view_post.UserID, view_post.UserName, view_post.PostTime, view_post.PostCaption
-                FROM view_post INNER JOIN post
+    $sql_news = "SELECT view_post.PostID, view_post.UserID, view_post.UserName, view_post.PostTime, view_post.PostCaption, UserAva
+                FROM user_profile,view_post INNER JOIN post
                 ON post.PostID = view_post.PostID
-                WHERE post.Reported = 1";
+                WHERE post.Reported = 1 and post.UserID = user_profile.UserID";
     $result_news = mysqli_query($conn, $sql_news);
     if(mysqli_num_rows($result_news) > 0){
         while($row_news = mysqli_fetch_assoc($result_news)){
@@ -71,7 +71,7 @@
                 <div class="row">
                     <div class="heading">
                         <a class="user-ava">
-                            <img class="user-img" src="../assets/images/content-img.jpeg" alt="">
+                            <img class="user-img" src="../<?php echo $row_news['UserAva']?>" alt="">
                         </a>
                         <div class="user-name-time">
                             <a class="user-name text-decoration-none link-dark">
@@ -146,7 +146,7 @@
             <div class="row search-results">
                 <div class="col-md-12 search-result-item collapsible">
                     <div class="user-icon">
-                        <img class="user-img" src="../assets/images/content-img.jpeg" alt="">
+                        <img class="user-img" src="../<?php echo $row_reported_user['UserAva'];?>" alt="">
                     </div>
                     <div class="txt">
                         <b><?php echo $row_reported_user['UserName'];?></b>
@@ -192,7 +192,7 @@
         <div class="row search-results">
             <div class="col-md-12 search-result-item collapsible">
                 <div class="user-icon">
-                    <img class="user-img" src="../assets/images/content-img.jpeg" alt="">
+                    <img class="user-img" src="../<?php echo $row_locked_user['UserAva'];?>" alt="">
                 </div>
                 <div class="txt">
                     <b><?php echo $row_locked_user['UserName'];?></b>
