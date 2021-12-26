@@ -22,7 +22,7 @@
 ?>
         <a class="col-md-12 search-result-item" href="userProfile_friend.php">
             <div class="icon">
-                <img class="user-img" src="assets/images/content-img.jpeg" alt="">
+                <img class="user-img" src="<?php echo $row_search['UserAva']?>" alt="">
             </div>
             <div class="text">
                 <b><?php echo $row_search['UserName'] ?></b>

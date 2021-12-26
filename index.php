@@ -177,7 +177,16 @@
                     <form id="comment-form" action="src/process_add_comment.php" method="post" autocomplete="off">
                         <div class="col-md-12 comment-input-form">
                             <a class="icon"  href="userProfile.php">
-                                <img class="user-img" src="assets/images/content-img.jpeg" alt="">
+<?php
+    $sql_comment_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
+    $result_comment_ava = mysqli_query($conn, $sql_comment_ava);
+    if(mysqli_num_rows($result_comment_ava) > 0){
+        $row_comment_ava = mysqli_fetch_assoc($result_comment_ava)
+?>
+                                <img class="user-img" src="<?php echo $row_comment_ava['UserAva'];?>" alt="">
+<?php
+    }
+?>
                             </a>
                             <input class="ID" type="text" value="<?php echo $row_news['PostID'];?>" name="PostID">
                             <input class="ID" type="text" value="<?php echo $UserID;?>" name="UserID">    <!--Người đăng nhập-->
