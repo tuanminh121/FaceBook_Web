@@ -92,12 +92,13 @@
                             </div>
                             <div class="content" >
                                 <div class="option-item">
-                                    <div class="col-md-12 items">
+                                    <a class="col-md-12 items text-decoration-none link-dark"
+                                        href="controllers/process_ban_post.php?PostID= <?php echo $row_news['PostID'];?>">
                                         <span class="material-icons-outlined">
                                             remove_circle_outline
                                         </span>
                                         <b>Ban bài viết</b>
-                                    </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -149,12 +150,13 @@
                     </div>
                 </div>
                 <div class="ban-option content">
-                    <div class="ban-item">
+                    <a class="ban-item text-decoration-none link-dark"
+                        href="controllers/process_lock_user.php?UserID= <?php echo $row_reported_user['UserID'];?>">
                         <span class="material-icons-outlined lock-icon">
                             lock
                         </span>
                         <b>Khóa tài khoản</b>
-                    </div>
+                    </a>
                 </div>
                 <hr style="margin: 0px">
             </div>
@@ -163,7 +165,7 @@
     }
 ?>
         </div>
-<!--BANNED USER-->
+<!--LOCKED USER-->
     <div class="locked-users option-select">
         <span class="material-icons-outlined icon">
             punch_clock
@@ -197,12 +199,13 @@
                 </div>
             </div>
             <div class="lock-option content">
-                <div class="ban-item">
+                <a class="ban-item text-decoration-none link-dark"
+                href="controllers/process_unlock_user.php?UserID= <?php echo $row_locked_user['UserID'];?>">
                     <span class="material-icons-outlined">
                         lock_open
                     </span>
                     <b>Mở khóa tài khoản</b>
-                </div>
+                </a>
             </div>
             <hr style="margin: 0px">
         </div>
