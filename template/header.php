@@ -68,7 +68,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="watch icon" title="Watch">
-                        <span class="material-icons-round watch-icon" style="color: rgb(97, 97, 97)">
+                        <span class="material-icons-round iconn watch-icon" style="color: rgb(97, 97, 97)">
                             ondemand_video
                         </span>
                     </div>
@@ -78,7 +78,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="marketplace icon" title="Marketplace">
-                        <span class="material-icons marketplace-icon"style="color: rgb(97, 97, 97)">
+                        <span class="material-icons marketplace-icon iconn"style="color: rgb(97, 97, 97)">
                             storefront
                         </span>
                     </div>
@@ -88,7 +88,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="groups icon" title="Groups">
-                        <span class="material-icons-round groups-icon"style="color: rgb(97, 97, 97)">
+                        <span class="material-icons-round groups-icon iconn"style="color: rgb(97, 97, 97)">
                             groups
                         </span>
                     </div>
@@ -98,7 +98,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="games icon" title="Games">
-                        <span class="material-icons-round games-icon"style="color: rgb(97, 97, 97)">
+                        <span class="material-icons-round games-icon iconn"style="color: rgb(97, 97, 97)">
                             gamepad
                         </span>
                     </div>
