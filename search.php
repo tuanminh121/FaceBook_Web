@@ -4,10 +4,7 @@
     if(isset($_POST['search-btn'])){
         $search = $_POST['search-input'];
         //KẾT NỐI SQL
-        $conn = mysqli_connect('localhost','root','','facebook');
-        if(!$conn){
-            die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
-        }
+        include "src/connectDB.php";
         //SEARCH FRIEND
         if($search != ''){
 ?>

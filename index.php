@@ -1,5 +1,6 @@
 <?php
     include "template/header.php";
+    $UserID = 2;
 ?>
 <!--MAIN-->  
     <main>
@@ -15,9 +16,21 @@
         <div class="card mb-4 thinking-post">
             <div class="card-body">
                 <div class="d-flex">
+<?php
+    include "src\connectDB.php";
+    $sql_thinking_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
+    $result_thinking_ava = mysqli_query($conn, $sql_thinking_ava);
+    if(mysqli_num_rows($result_thinking_ava) > 0){
+        $row_thinking_ava = mysqli_fetch_assoc($result_thinking_ava)
+?>
                     <a id="thinking-user" href="userProfile.php">
-                        <img src="assets/images/content-img.jpeg" alt="" class="rounded-circle border"/>
+                        <img src="<?php echo $row_thinking_ava['UserAva'];?>" alt="" class="rounded-circle border"/>
                     </a>
+<?php
+    }
+    //ĐÓNG KẾT NỐI
+    mysqli_close($conn);
+?>
                     <button
                       class="btn btn-light btn-block btn-rounded bg-light" data-mdb-toggle="modal" data-mdb-target="#buttonModalUserPost">
                       Bạn đang nghĩ gì?
@@ -34,18 +47,16 @@
 <!--News-->
 <?php
     //KẾT NỐI SQL
-        $conn = mysqli_connect('localhost','root','','facebook');
-        if(!$conn){
-            die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
-        }
+        include "src/connectDB.php";
     //TRUY VẤN POST, POST_USER
-        $sql = "SELECT PostID, UserID, UserName, PostCaption, PostTime
-                from
+        $sql = "SELECT PostID, Bang.UserID, UserName, PostCaption, PostTime, UserAva
+                from user_profile,
                     (SELECT *
                     FROM friend_ship INNER JOIN view_post
                     on UserID = User1ID or UserID = User2ID
-                    WHERE User1ID = 2 or User2ID = 2) as Bang
-                WHERE UserID != 2"; //Người đăng nhập-->
+                    WHERE User1ID = $UserID or User2ID = $UserID) as Bang
+                WHERE Bang.UserID != $UserID AND Bang.UserID = user_profile.UserID
+                ORDER BY PostTime DESC";                   //Người đăng nhập-->
         $result_news = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result_news) > 0){ 
             while($row_news = mysqli_fetch_assoc($result_news)){
@@ -54,7 +65,7 @@
             <div class="row">
                 <div class="heading">
                     <a class="user-ava" href="userProfile.php">
-                        <img class="user-img" src="assets/images/content-img.jpeg" alt="">
+                        <img class="user-img" src="<?php echo $row_news['UserAva'];?>" alt="">
                     </a>
                     <div class="user-name-time">
                         <a href="userProfile.php" class="user-name text-decoration-none link-dark">
@@ -94,7 +105,18 @@
                         <?php echo $row_news['PostCaption'] ?>
                     </div>
                     <div class="content-images">
-                        <img src="assets/images/content-img.jpeg" alt="">
+<?php
+    $sql_img_content = "SELECT * FROM images INNER JOIN post ON post.PostID = images.PostID WHERE post.PostID=" .$row_news['PostID'];
+    $result_img_content = mysqli_query($conn, $sql_img_content);
+    if(mysqli_num_rows($result_img_content) > 0){
+        while($row_img_content = mysqli_fetch_assoc($result_img_content)){
+    
+?>
+                        <img src="<?php echo $row_img_content['images'];?>" alt="" onclick="clickImg('<?php echo $row_img_content['images'];?>')">
+<?php
+        }
+    }
+?>
                     </div>
                 </div>
                 <div class="action-comment">
@@ -158,7 +180,7 @@
                                 <img class="user-img" src="assets/images/content-img.jpeg" alt="">
                             </a>
                             <input class="ID" type="text" value="<?php echo $row_news['PostID'];?>" name="PostID">
-                            <input class="ID" type="text" value="2" name="UserID">    <!--Người đăng nhập-->
+                            <input class="ID" type="text" value="<?php echo $UserID;?>" name="UserID">    <!--Người đăng nhập-->
                             <div class="comment-input">
                                 <input id="comment-input" name="txt-comment" type="text" placeholder=" Viết bình luận" class="form-control">
                             </div>
@@ -182,7 +204,7 @@
 ?>
         <li class="comment-item myDIV">
             <a class="icon" href="userProfile.php">
-                <img class="user-img" src="assets/images/content-img.jpeg" alt="">
+                <img class="user-img" src="<?php echo $row_comment['UserAva'];?>" alt="">
             </a>
             <div class="commentator-name">
                 <a href="userProfile.php" class="user-name text-decoration-none link-dark">
@@ -201,13 +223,13 @@
                 </div>
                 <form class="content" id="form-edit-comment" action="src/process_update_comment.php" method="post">
                     <input class="ID" type="text" value="<?php echo $row_comment['UserID'];?>" name="CommentUserID">
-                    <input class="ID" type="text" value="2" name="UserID"> <!--Người đăng nhập-->
+                    <input class="ID" type="text" value="<?php echo $UserID;?>" name="UserID"> <!--Người đăng nhập-->
                     <input class="ID" type="text" value="<?php echo $row_comment['CommentID'];?>" name="CommentID">
                     <textarea id="input-edit-comment" name="txt-edit" id="" cols="30" rows="4"><?php echo $row_comment['CommentContent']; ?></textarea>
                     <button id="btn-edit-comment" name="btn-edit" type="submit">Lưu</button>
                 </form>
                 <a href="src/process_delete_comment.php?CommentID=<?php echo $row_comment['CommentID'];?>
-                        &&CommentUserID=<?php echo $row_comment['UserID']?>&&UserID=2" class="link-dark">
+                        &&CommentUserID=<?php echo $row_comment['UserID']?>&&UserID=<?php echo $UserID;?>" class="link-dark"> <!--Người đăng nhập-->
                 <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
                     delete_forever
                 </span>
@@ -263,8 +285,8 @@
                     FROM(SELECT UserID, CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva
                         FROM friend_ship INNER JOIN user_profile
                         on UserID = User1ID or UserID = User2ID
-                        WHERE User1ID = 1 or User2ID = 1) as Bang
-                    WHERE UserID != 1";
+                        WHERE User1ID = $UserID or User2ID = $UserID) as Bang
+                    WHERE UserID != $UserID"; //Người dùng đăng nhập
     $result_friend = mysqli_query($conn, $sql_friend);
     if(mysqli_num_rows($result_friend) > 0){
         while($row_friend = mysqli_fetch_assoc($result_friend)){
@@ -272,7 +294,9 @@
 ?>
         <a class="row" href="userProfile_friend.php">
             <div class="sidebar-item">
-                <div class="icon"></div>
+                <div class="icon">
+                    <img src="<?php echo $row_friend['UserAva'];?>" alt="" style="border-radius: 50%;width:36px;height:36px">
+                </div>
                 <div class="text">
                     <b><?php  echo $row_friend['UserName'];?></b>
                 </div>
@@ -293,6 +317,11 @@
         </div>
     </div>
     </main>
+    <script>
+function clickImg(link) {
+    window.open(link, "_blank");
+}
+</script>
 <?php
     include "template/footer.php";
 ?>
