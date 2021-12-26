@@ -49,19 +49,19 @@ if (mysqli_num_rows($result_ava) > 0) {
       <section class="py-2 d-flex justify-content-between">
         <!-- left -->
         <div>
-          <button type="button" class="btn btn-link bg-light" datadata-ripple-color="dark">
+          <button type="button" class="btn btn-link bg-light" datadata-ripple-color="dark" onclick="document.location.href='userProfile.php'">
             Bài viết
           </button>
-          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onClick="document.location.href='userProfile_gioithieu.php'">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_gioithieu.php'">
             Giới thiệu
           </button>
-          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href=''">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_myFriend.php'">
             Bạn bè
           </button>
-          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark"  onclick="document.location.href='userProfile_image.php'">
             Ảnh
           </button>
-          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark"  onclick="document.location.href='userProfile_video.php'">
             Video
           </button>
           <div class="dropdown d-inline-block">
