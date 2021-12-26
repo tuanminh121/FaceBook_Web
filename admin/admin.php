@@ -57,10 +57,7 @@
         <div class="main-news-report">
 <?php
     //KẾT NỐI SQL
-    $conn = mysqli_connect('localhost','root','','facebook');
-    if(!$conn){
-        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
-    }
+    include "../src/connectDB.php";
     //TRUY VẤN POST BỊ REPORT
     $sql_news = "SELECT view_post.PostID, view_post.UserID, view_post.UserName, view_post.PostTime, view_post.PostCaption
                 FROM view_post INNER JOIN post
@@ -108,7 +105,18 @@
                             <?php echo $row_news['PostCaption'];?>
                         </div>
                         <div class="content-images">
-                            <img src="../assets/images/content-img.jpeg" alt="">
+                        <?php
+    $sql_img_content = "SELECT * FROM images INNER JOIN post ON post.PostID = images.PostID WHERE post.PostID=" .$row_news['PostID'];
+    $result_img_content = mysqli_query($conn, $sql_img_content);
+    if(mysqli_num_rows($result_img_content) > 0){
+        while($row_img_content = mysqli_fetch_assoc($result_img_content)){
+    
+?>
+                        <img src="../<?php echo $row_img_content['images'];?>" alt="">
+<?php
+        }
+    }
+?>
                         </div>
                     </div>
                 </div>

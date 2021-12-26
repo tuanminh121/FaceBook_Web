@@ -1,12 +1,10 @@
 <?php
     $UserID = $_GET['UserID'];
     //KÊT NỐI SQL
-    $conn = mysqli_connect('localhost','root','','facebook');
+    include "../../src/connectDB.php";
     //UPDATE ACTIVE = 0
     $sql = "UPDATE user_profile SET Active = 0, LockTime = NOW() WHERE UserID = $UserID";
-    if(!$conn){
-        die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
-    }
+
     $result = mysqli_query($conn,$sql);
     if(!$result){
         header("location: ../../components/404page.php");
