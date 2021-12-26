@@ -281,7 +281,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                       <?php echo $row_news['PostCaption'] ?>
                     </div>
                     <div class="content-images">
-                      <img src="<?php echo $row_ava['UserAva'] ?>" alt="">
+                      <img src="<?php echo $row_ava['images'] ?>" alt="">
                     </div>
                   </div>
                   <div class="action-comment">
@@ -368,7 +368,6 @@ if (mysqli_num_rows($result_ava) > 0) {
                     if (mysqli_num_rows($result_comment) > 0) {
                       while ($row_comment = mysqli_fetch_assoc($result_comment)) {
                     ?>
-                    
                         <li class="comment-item myDIV">
                           <a class="icon" href="userProfile.php">
                             <?php
