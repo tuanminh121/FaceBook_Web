@@ -1,5 +1,6 @@
 <?php
-include "template/header.php"
+  include "template/header.php";
+  $UserIDFriend = $_GET['UserIDFriend'];
 ?>
 <main>
   <!-- Section: white bg -->

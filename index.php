@@ -64,11 +64,11 @@
         <div class="news">
             <div class="row">
                 <div class="heading">
-                    <a class="user-ava" href="userProfile.php">
+                    <a class="user-ava" href="userProfile_friend.php?UserIDFriend=<?php echo $row_news['UserID'];?>">
                         <img class="user-img" src="<?php echo $row_news['UserAva'];?>" alt="">
                     </a>
                     <div class="user-name-time">
-                        <a href="userProfile.php" class="user-name text-decoration-none link-dark">
+                        <a href="userProfile_friend.php?UserIDFriend=<?php echo $row_news['UserID'];?>" class="user-name text-decoration-none link-dark">
                             <b><?php echo $row_news['UserName']?></b>
                         </a>
                         <h6 class="time">
@@ -205,12 +205,14 @@
 <!--COMMENTS-->
     <ul class="collapse collapse-horizontal comments" id="collapseWidthExample">
 <?php
-//TRUY VẤN COMMENT, COMMENT_USET
+//TRUY VẤN COMMENT, COMMENT_USER
             $sql_comment = "SELECT * from view_comment WHERE PostID =" .$row_news['PostID'];
             $result_comment = mysqli_query($conn, $sql_comment);
             if(mysqli_num_rows($result_comment) > 0){
                 while ($row_comment = mysqli_fetch_assoc($result_comment)){
+                    if($row_comment['UserID']==$UserID){
 ?>
+<!--COMMENT OF USER LOGIN-->
         <li class="comment-item myDIV">
             <a class="icon" href="userProfile.php">
                 <img class="user-img" src="<?php echo $row_comment['UserAva'];?>" alt="">
@@ -229,7 +231,7 @@
                     <span id="btn-edit" class="material-icons-outlined option-comment option-icon" style="font-size:15px">
                         edit
                     </span>
-                </div>
+                </div>  
                 <form class="content" id="form-edit-comment" action="src/process_update_comment.php" method="post">
                     <input class="ID" type="text" value="<?php echo $row_comment['UserID'];?>" name="CommentUserID">
                     <input class="ID" type="text" value="<?php echo $UserID;?>" name="UserID"> <!--Người đăng nhập-->
@@ -240,14 +242,34 @@
                 <a href="src/process_delete_comment.php?CommentID=<?php echo $row_comment['CommentID'];?>
                         &&CommentUserID=<?php echo $row_comment['UserID']?>&&UserID=<?php echo $UserID;?>" class="link-dark"> <!--Người đăng nhập-->
                 <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
-                    delete_forever
+                    delete_forever  
                 </span>
                 </a>
             </div>
         </li>
 <?php
-                    }   
+                    }
+                else{
+?>
+<!--COMMENT OF USER FRIEND-->
+        <li class="comment-item myDIV">
+            <a class="icon" href="userProfile_friend.php?UserIDFriend=<?php echo $row_comment['UserID'];?>">
+                <img class="user-img" src="<?php echo $row_comment['UserAva'];?>" alt="">
+            </a>
+            <div class="commentator-name">
+                <a href="userProfile_friend.php?UserIDFriend=<?php echo $row_comment['UserID'];?>" class="user-name text-decoration-none link-dark">
+                    <b><?php echo $row_comment['UserName'];?></b>
+                </a>
+                    <p class="comment-content">
+                        <?php echo $row_comment['CommentContent'];?>
+                    </p>
+            </div>  
+        </li>
+
+<?php                    
                 }
+                }   
+            }
 ?>
     </ul>
             </div>
@@ -301,7 +323,7 @@
         while($row_friend = mysqli_fetch_assoc($result_friend)){
 
 ?>
-        <a class="row" href="userProfile_friend.php">
+        <a class="row" href="userProfile_friend.php?UserIDFriend=<?php echo $row_friend['UserID'];?>">
             <div class="sidebar-item">
                 <div class="icon">
                     <img src="<?php echo $row_friend['UserAva'];?>" alt="" style="border-radius: 50%;width:36px;height:36px">
