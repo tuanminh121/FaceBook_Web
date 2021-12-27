@@ -117,16 +117,22 @@
           <div class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
             <div class="nav-item">
 <?php
+<<<<<<< HEAD
     $UserID = $_SESSION['isLoginOk'];
     require "./src/connectDB.php";
     $sql_user_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
+=======
+    include "src\connectDB.php";
+    include "template/info.php";
+    $sql_user_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $userId";
+>>>>>>> ba3609e5cc6b6fe6ee6491d0f01c48d5727cdfcc
     $result_user_ava = mysqli_query($conn, $sql_user_ava);
     if(mysqli_num_rows($result_user_ava) > 0){
         $row_user_ava = mysqli_fetch_assoc($result_user_ava);
 ?>
                 <a id="user" class="text-decoration-none link-dark" href="userProfile.php">
                     <div id="user-ava">
-                        <img src="<?php echo $row_user_ava['UserAva'];?>" alt="">
+                        <img src="<?php echo defaultImage($row_user_ava['UserAva']) ?>" alt="">
                     </div>
                     <div id="user-name">
                         <b><?php echo $row_user_ava['UserName'];?></b>

@@ -7,7 +7,10 @@
 <?php
 include "template/header.php";
 include "src/connectDB.php";
+<<<<<<< HEAD
 $userId = $_SESSION['isLoginOk'];
+=======
+>>>>>>> ba3609e5cc6b6fe6ee6491d0f01c48d5727cdfcc
 
 $queryProfile = "SELECT * from user_profile where UserID='$userId'";
 $result_ava = mysqli_query($conn, $queryProfile);
@@ -28,12 +31,12 @@ if (mysqli_num_rows($result_ava) > 0) {
               " onclick="clickImg('assets/images_dev/sky.jpg')"></div>
 
         <div class="d-flex justify-content-center">
-          <img src="<?php echo $row_ava['UserAva'] ?>" alt="" class="
+          <img src="<?php echo defaultImage($row_ava['UserAva']) ?>" alt="" class="
                   rounded-circle
                   shadow-3-strong
                   position-absolute
                   border border-white
-                " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo $row_ava['UserAva'] ?>')" />
+                " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo defaultImage($row_ava['UserAva']) ?>')" />
         </div>
         <!-- Background image -->
       </section>
@@ -220,7 +223,7 @@ if (mysqli_num_rows($result_ava) > 0) {
             <div class="card-body">
               <div class="d-flex">
                 <a id="thinking-user" href="userProfile.php">
-                  <img src="<?php echo $row_ava['UserAva'] ?>" alt="" class="rounded-circle border" />
+                  <img src="<?php echo defaultImage($row_ava['UserAva']) ?>" alt="" class="rounded-circle border" />
                 </a>
                 <button class="btn btn-light btn-block btn-rounded bg-light" data-mdb-toggle="modal" data-mdb-target="#buttonModalUserPost">
                   Bạn đang nghĩ gì?
@@ -247,7 +250,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                 <div class="row">
                   <div class="heading">
                     <a class="user-ava" href="userProfile.php">
-                      <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
+                      <img class="user-img" src="<?php echo defaultImage($row_ava['UserAva']) ?>" alt="">
                     </a>
                     <div class="user-name-time">
                       <a href="userProfile.php" class="user-name text-decoration-none link-dark">
@@ -348,7 +351,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                     <form id="comment-form" action="src/process_add_comment.php" method="post" autocomplete="off">
                       <div class="col-md-12 comment-input-form">
                         <a class="icon" href="userProfile.php">
-                          <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
+                          <img class="user-img" src="<?php echo defaultImage($row_ava['UserAva']) ?>" alt="">
                         </a>
                         <input class="ID" type="text" value="<?php echo $row_news['PostID']; ?>" name="PostID">
                         <input class="ID" type="text" value="2" name="UserID">
@@ -384,7 +387,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                               $rowAvatar = mysqli_fetch_assoc($resultAvatar);
                             }
                             ?>
-                            <img class="user-img" src="<?php echo $rowAvatar['UserAva'] ?>" alt="">
+                            <img class="user-img" src="<?php echo defaultImage($row_ava['UserAva']) ?>" alt="">
                           </a>
                           <div class="commentator-name">
                             <a href="userProfile.php" class="user-name text-decoration-none link-dark">

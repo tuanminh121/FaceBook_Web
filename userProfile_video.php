@@ -7,8 +7,11 @@
 <?php
 include "template/header.php";
 include "src/connectDB.php";
+<<<<<<< HEAD
 include "template/info.php";
 $userId = $_SESSION['isLoginOk'];
+=======
+>>>>>>> ba3609e5cc6b6fe6ee6491d0f01c48d5727cdfcc
 
 $queryProfile = "SELECT * from user_profile where UserID='$userId'";
 $result_ava = mysqli_query($conn, $queryProfile);
@@ -27,14 +30,14 @@ if (mysqli_num_rows($result_ava) > 0) {
                 <div class="p-5 text-center bg-image shadow-1-strong rounded-bottom" style="
                 background-image: url('assets/images_dev/sky.jpg');
                 height: 400px;
-              "></div>
+              " onclick="clickImg('assets/images_dev/sky.jpg')"></div>
                 <div class="d-flex justify-content-center">
-                    <img src=" <?php echo $row_ava['UserAva'] ?>" alt="" class="
+                    <img src=" <?php echo defaultImage($row_ava['UserAva']) ?>" alt="" class="
                   rounded-circle
                   shadow-3-strong
                   position-absolute
                   border border-white
-                " id="avatarImg" style="width: 168px; margin-top: -60px" onClick="clickImg()" />
+                " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo defaultImage($row_ava['UserAva']) ?>')" />
                 </div>
                 <!-- Background image -->
             </section>
@@ -103,7 +106,7 @@ if (mysqli_num_rows($result_ava) > 0) {
     <!-- ảnh  -->
     <div class="container mb-3">
         <div class="bg-white mb-5 shadow-2 rounded">
-            <h2 class="pt-3" style="padding-left: 3rem"><strong>Ảnh</strong></h2>
+            <h2 class="pt-3" style="padding-left: 3rem"><strong>Video</strong></h2>
             <div class="row">
                 <div class="col-md-2">
                 </div>

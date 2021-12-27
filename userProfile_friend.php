@@ -12,7 +12,7 @@
         <div class="p-5 text-center bg-image shadow-1-strong rounded-bottom" style="
                 background-image: url('assets/images_dev/sky.jpg');
                 height: 400px;
-              "></div>
+              " onclick="clickImg('assets/images_dev/sky.jpg')"></div>
 
         <div class="d-flex justify-content-center">
           <img src="assets/images_dev/totoro.webp" alt="" class="
@@ -20,7 +20,7 @@
                   shadow-3-strong
                   position-absolute
                   border border-white
-                " style="width: 168px; margin-top: -60px" />
+                " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo defaultImage($row_ava['UserAva']) ?>')" />
         </div>
         <!-- Background image -->
       </section>
