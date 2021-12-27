@@ -9,7 +9,7 @@ if(isset($_POST['btnSignIn']) && isset($_POST['UserEmail'])) {
     if(mysqli_stmt_execute($stmt)) {
         mysqli_stmt_bind_result($stmt, $UserId, $UserEmail, $UserPass, $UserGender, $UserFirstName, $UserLastName, $UserBirth, $UserAddress, $UserAva, $Reported, $Description, $VerifyLink, $Active, $VerifyDate);
         if (mysqli_stmt_fetch($stmt)){
-            if(password_verify($pass, $UserPass)){
+            if(password_verify($pass, $UserPass) && $Active === 1){
                 header("Location: ../../");
             } else {
                 $error= "Tài khoản hoặc mật khẩu không chính xác!";
