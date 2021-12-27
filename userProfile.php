@@ -256,7 +256,7 @@ if (mysqli_num_rows($result_ava) > 0) {
           <!--News-->
           <?php
           //TRUY VẤN POST, POST_USER
-          $sql = "SELECT * from post, user_profile, images WHERE post.UserID = user_profile.UserID AND post.PostID = images.PostID AND user_profile.UserID = " . $userId . " GROUP BY post.PostID";
+          $sql = "SELECT * from post, user_profile, images WHERE post.UserID = user_profile.UserID AND user_profile.UserID = " . $userId . " GROUP BY post.PostID";
           //Người đăng nhập-->
           $result_news = mysqli_query($conn, $sql);
           if (mysqli_num_rows($result_news) > 0) {
@@ -306,7 +306,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                       <?php echo $row_news['PostCaption'] ?>
                     </div>
                     <div class="content-images">
-                      <img src="<?php echo $row_news['images'] ?>" alt="">
+                      <img src="<?php echo defaultImage($row_news['images']) ?>" alt="">
                     </div>
                   </div>
                   <div class="action-comment">
@@ -364,7 +364,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                   </div>
                   <!--COMMENT INPUT-->
                   <div class="row">
-                    <form id="comment-form" action="src/process_add_comment.php" method="post" autocomplete="off">
+                    <form id="comment-form" action="src/userProfile/addComment.php" method="post" autocomplete="off">
                       <div class="col-md-12 comment-input-form">
                         <a class="icon" href="userProfile.php">
                           <img class="user-img" src="<?php echo defaultImage($row_ava['UserAva']) ?>" alt="">
@@ -420,7 +420,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                                 edit
                               </span>
                             </div>
-                            <form class="content" id="form-edit-comment" action="src/process_update_comment.php" method="post">
+                            <form class="content" id="form-edit-comment" action="src/userProfile/updateComment.php" method="post">
                               <input class="ID" type="text" value="<?php echo $row_comment['UserID']; ?>" name="CommentUserID">
                               <input class="ID" type="text" value="2" name="UserID">
                               <!--Người đăng nhập-->
@@ -428,7 +428,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                               <textarea id="input-edit-comment" name="txt-edit" id="" cols="30" rows="4"><?php echo $row_comment['CommentContent']; ?></textarea>
                               <button id="btn-edit-comment" name="btn-edit" type="submit">Lưu</button>
                             </form>
-                            <a href="src/process_delete_comment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
+                            <a href="src/userProfile/deleteComment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
                         &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=2" class="link-dark">
                               <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
                                 delete_forever
@@ -453,31 +453,33 @@ if (mysqli_num_rows($result_ava) > 0) {
           <div class="col-md-9 mb-4 mb-md-0 thinking-post">
             <div class="modal fade" id="buttonModalUserPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                      <strong>Tạo bài viết</strong>
-                    </h5>
-                    <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <textarea id="post-writing" cols="50" rows="5" class="modal-body" placeholder="Hãy viết gì đó..."></textarea>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-                      Đóng
-                    </button>
-                    <button type="button" class="btn btn-primary">
-                      Lưu
-                    </button>
-                  </div>
-
-                </div>
+                <form id="post-form" action="src/userProfile/addPost.php" method="post" autocomplete="off">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        <strong>Tạo bài viết</strong>
+                      </h5>
+                      <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <input type="text" name="UserID" value="<?php echo $userId?>" hidden>
+                    <textarea id="post-writing" cols="50" rows="5" class="modal-body" placeholder="Hãy viết gì đó..." name="txt-content"></textarea>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                        Đóng
+                      </button>
+                      <button type="submit" class="btn btn-primary" name="btn-sendPost" >
+                        Lưu
+                      </button>
+                    </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
-        <!-- right -->
-
       </div>
+      <!-- right -->
+
+    </div>
     </div>
 
   </section>
