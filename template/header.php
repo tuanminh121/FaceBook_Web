@@ -68,7 +68,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="watch icon" title="Watch">
-                        <span class="material-icons-round watch-icon" style="color: rgb(97, 97, 97)">
+                        <span class="material-icons-round iconn watch-icon" style="color: rgb(97, 97, 97)">
                             ondemand_video
                         </span>
                     </div>
@@ -78,7 +78,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="marketplace icon" title="Marketplace">
-                        <span class="material-icons marketplace-icon"style="color: rgb(97, 97, 97)">
+                        <span class="material-icons marketplace-icon iconn"style="color: rgb(97, 97, 97)">
                             storefront
                         </span>
                     </div>
@@ -88,7 +88,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="groups icon" title="Groups">
-                        <span class="material-icons-round groups-icon"style="color: rgb(97, 97, 97)">
+                        <span class="material-icons-round groups-icon iconn"style="color: rgb(97, 97, 97)">
                             groups
                         </span>
                     </div>
@@ -98,7 +98,7 @@
             <div class="nav-item">
                 <a class="nav-link navbar-center-item" href="#">
                     <div class="games icon" title="Games">
-                        <span class="material-icons-round games-icon"style="color: rgb(97, 97, 97)">
+                        <span class="material-icons-round games-icon iconn"style="color: rgb(97, 97, 97)">
                             gamepad
                         </span>
                     </div>
@@ -109,14 +109,27 @@
           </div>
           <div class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
             <div class="nav-item">
+<?php
+    $UserID = 2;
+    include "src\connectDB.php";
+    $sql_user_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
+    $result_user_ava = mysqli_query($conn, $sql_user_ava);
+    if(mysqli_num_rows($result_user_ava) > 0){
+        $row_user_ava = mysqli_fetch_assoc($result_user_ava)
+?>
                 <a id="user" class="text-decoration-none link-dark" href="userProfile.php">
                     <div id="user-ava">
-                        <img src="assets/images/content-img.jpeg" alt="">
+                        <img src="<?php echo $row_user_ava['UserAva'];?>" alt="">
                     </div>
                     <div id="user-name">
-                        <b>User name</b>
+                        <b><?php echo $row_user_ava['UserName'];?></b>
                     </div>
                 </a>
+<?php
+    }
+    //ĐÓNG KẾT NỐI
+    mysqli_close($conn);
+?>
             </div>
             <div class="nav-item">
                     <button class="menu button" title="Menu">
