@@ -17,7 +17,7 @@ $UserID = $userId;
             <div class="card-body">
                 <div class="d-flex">
                     <?php
-                    include "src\connectDB.php";
+                    include "src/connectDB.php";
                     $sql_thinking_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
                     $result_thinking_ava = mysqli_query($conn, $sql_thinking_ava);
                     if (mysqli_num_rows($result_thinking_ava) > 0) {

@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(isset($_SESSION['isLoginOk'])){
+    unset($_SESSION['isLoginOk']);
+    session_destroy();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

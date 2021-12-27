@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,12 +114,12 @@
           <div class="navbar-nav ms-auto mb-2 mb-lg-0 navbar-right">
             <div class="nav-item">
 <?php
-    include "src\connectDB.php";
+    include "src/connectDB.php";
     include "template/info.php";
     $sql_user_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $userId";
     $result_user_ava = mysqli_query($conn, $sql_user_ava);
     if(mysqli_num_rows($result_user_ava) > 0){
-        $row_user_ava = mysqli_fetch_assoc($result_user_ava)
+        $row_user_ava = mysqli_fetch_assoc($result_user_ava);
 ?>
                 <a id="user" class="text-decoration-none link-dark" href="userProfile.php">
                     <div id="user-ava">
@@ -142,6 +146,9 @@
                     <button class="messages button" title="Messenger">
                         <i class="fab fa-facebook-messenger messages-icon"></i>
                     </button>
+                    <div class="messages-box">
+
+                    </div>
             </div>
             <div class="nav-item">
                     <button class="notifications button" title="Notifications">
