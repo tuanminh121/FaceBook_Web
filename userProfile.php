@@ -57,10 +57,10 @@ if (mysqli_num_rows($result_ava) > 0) {
           <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_myFriend.php'">
             Bạn bè
           </button>
-          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark"  onclick="document.location.href='userProfile_image.php'">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_image.php'">
             Ảnh
           </button>
-          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark"  onclick="document.location.href='userProfile_video.php'">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_video.php'">
             Video
           </button>
           <div class="dropdown d-inline-block">
@@ -182,19 +182,45 @@ if (mysqli_num_rows($result_ava) > 0) {
                 <a href="" class="text-reset">
                   <h5 class="card-title mt"><strong>Bạn bè</strong></h5>
                 </a>
-                <p class="friend_numbers">1420 người bạn</p>
+                <?php
+                $queryCount = "SELECT COUNT(*) as total FROM user_profile, friend_ship 
+            WHERE (friend_ship.User1ID = UserID OR friend_ship.User2ID = UserID)
+            AND UserID != $userId 
+            AND (friend_ship.User1ID = $userId OR friend_ship.User2ID = $userId);";
+                $resultCount = mysqli_query($conn, $queryCount);
+                if (mysqli_num_rows($resultCount) > 0) {
+                  $rowCount = mysqli_fetch_assoc($resultCount);
+                  echo '<p class="friend_numbers">' . $rowCount['total'] . ' người bạn</p>';
+                }
+                ?>
               </div>
               <div class="card_right d-inline-block" style="float: right">
                 <a href="" class="btn btn-link py-1 px-3">Xem tất cả bạn bè</a>
               </div>
-
-              <div class="row gx-2">
-                <div class="col-lg-4 text-center mb-4">
-                  <img src="assets/images_dev/ava1.jpg" alt="" class="w-100 h-100 shadow-1-strong rounded" />
-                  <p><small>Kelly Hel</small></p>
-                </div>
-
-              </div>
+              <?php
+              $queryFriends = "SELECT * FROM user_profile, friend_ship 
+            WHERE (friend_ship.User1ID = UserID OR friend_ship.User2ID = UserID)
+            AND UserID != $userId 
+            AND (friend_ship.User1ID = $userId OR friend_ship.User2ID = $userId)  
+            GROUP BY UserID LIMIT 6;";
+              $resultFriends = mysqli_query($conn, $queryFriends);
+              if (mysqli_num_rows($resultFriends) > 0) {
+                $count = 0;
+                while ($rowFriends = mysqli_fetch_assoc($resultFriends)) {
+                  if ($count % 3 == 0) {
+                    echo '<div class="row">';
+                  }
+                  echo '<div class="col-md-4 text-center">';
+                  echo '<img src="' . defaultImage($rowFriends['UserAva']) . '" alt="" class="shadow-1-strong rounded" style="width: 75px; height: 75px;"/>';
+                  echo '<p><small>' . $rowFriends['UserFirstName'] . " " . $rowFriends['UserLastName'] . '</small></p>';
+                  echo '</div>';
+                  if ($count % 3 == 2) {
+                    echo '</div>';
+                  }
+                  $count++;
+                }
+              }
+              ?>
             </div>
           </div>
           <!-- friends -->
