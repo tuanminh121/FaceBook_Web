@@ -2,6 +2,7 @@
     <div class="row">
 <?php
     include "src\connectDB.php";
+
     $sql_user_ava_sidebar = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
     $result_user_ava_sidebar = mysqli_query($conn, $sql_user_ava_sidebar);
     if(mysqli_num_rows($result_user_ava_sidebar) > 0){
@@ -9,7 +10,7 @@
 ?>
     <a class="col-md-12 text-decoration-none link-dark sidebar-item" href="userProfile.php">
         <div class="icon">
-            <img class="user-img" src="<?php echo $row_user_ava['UserAva'];?>" alt="">
+            <img class="user-img" src="<?php echo defaultImage($row_user_ava['UserAva']);?>" alt="">
         </div>
         <div class="text">
              <b><?php echo $row_user_ava['UserName'];?></b>

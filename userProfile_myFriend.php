@@ -1,8 +1,6 @@
 <?php
 include "template/header.php";
 include "src/connectDB.php";
-include "template/info.php";
-$userId = 1;
 
 $queryProfile = "SELECT * from user_profile where UserID='$userId'";
 $result_ava = mysqli_query($conn, $queryProfile);
@@ -21,14 +19,14 @@ if (mysqli_num_rows($result_ava) > 0) {
                 <div class="p-5 text-center bg-image shadow-1-strong rounded-bottom" style="
                 background-image: url('assets/images_dev/sky.jpg');
                 height: 400px;
-              "></div>
+              " onclick="clickImg('assets/images_dev/sky.jpg')"></div>
                 <div class="d-flex justify-content-center">
-                    <img src=" <?php echo $row_ava['UserAva'] ?>" alt="" class="
+                    <img src=" <?php echo defaultImage($row_ava['UserAva']) ?>" alt="" class="
                   rounded-circle
                   shadow-3-strong
                   position-absolute
                   border border-white
-                " id="avatarImg" style="width: 168px; margin-top: -60px" onClick="clickImg()" />
+                " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo defaultImage($row_ava['UserAva']) ?>')" />
                 </div>
                 <!-- Background image -->
             </section>
