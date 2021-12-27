@@ -1,12 +1,7 @@
 <div class="container-fluid" id="SideBar">
     <div class="row">
 <?php
-<<<<<<< HEAD
     include "src/connectDB.php";
-=======
-    include "src\connectDB.php";
-
->>>>>>> ba3609e5cc6b6fe6ee6491d0f01c48d5727cdfcc
     $sql_user_ava_sidebar = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
     $result_user_ava_sidebar = mysqli_query($conn, $sql_user_ava_sidebar);
     if(mysqli_num_rows($result_user_ava_sidebar) > 0){

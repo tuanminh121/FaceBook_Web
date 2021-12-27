@@ -1,15 +1,6 @@
 <?php
-<<<<<<< HEAD
-    session_start();
-    if(!isset($_SESSION['isLoginOk'])) {
-        header('Location: login.php');
-    }
-    include "template/header.php";
-    $UserID = $_SESSION['isLoginOk'];
-=======
 include "template/header.php";
 $UserID = $userId;
->>>>>>> ba3609e5cc6b6fe6ee6491d0f01c48d5727cdfcc
 ?>
 <!--MAIN-->
 <main>
@@ -25,28 +16,8 @@ $UserID = $userId;
         <div class="card mb-4 thinking-post">
             <div class="card-body">
                 <div class="d-flex">
-<<<<<<< HEAD
-<?php
-    include "src/connectDB.php";
-    $sql_thinking_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
-    $result_thinking_ava = mysqli_query($conn, $sql_thinking_ava);
-    if(mysqli_num_rows($result_thinking_ava) > 0){
-        $row_thinking_ava = mysqli_fetch_assoc($result_thinking_ava);
-?>
-                    <a id="thinking-user" href="userProfile.php">
-                        <img src="<?php echo $row_thinking_ava['UserAva'];?>" alt="" class="rounded-circle border"/>
-                    </a>
-<?php
-    }
-    //ĐÓNG KẾT NỐI
-    mysqli_close($conn);
-?>
-                    <button
-                      class="btn btn-light btn-block btn-rounded bg-light" data-mdb-toggle="modal" data-mdb-target="#buttonModalUserPost">
-                      Bạn đang nghĩ gì?
-=======
                     <?php
-                    include "src\connectDB.php";
+                    include "src/connectDB.php";
                     $sql_thinking_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
                     $result_thinking_ava = mysqli_query($conn, $sql_thinking_ava);
                     if (mysqli_num_rows($result_thinking_ava) > 0) {
@@ -62,7 +33,6 @@ $UserID = $userId;
                     ?>
                     <button class="btn btn-light btn-block btn-rounded bg-light" data-mdb-toggle="modal" data-mdb-target="#buttonModalUserPost">
                         Bạn đang nghĩ gì?
->>>>>>> ba3609e5cc6b6fe6ee6491d0f01c48d5727cdfcc
                     </button>
                 </div>
                 <hr>

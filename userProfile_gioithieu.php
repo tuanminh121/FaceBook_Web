@@ -7,11 +7,7 @@
 <?php
 include "template/header.php";
 include "src/connectDB.php";
-<<<<<<< HEAD
 include "template/info.php";
-$userId = $_SESSION['isLoginOk'];
-=======
->>>>>>> ba3609e5cc6b6fe6ee6491d0f01c48d5727cdfcc
 
 $queryProfile = "SELECT * from user_profile where UserID='$userId'";
 $result_ava = mysqli_query($conn, $queryProfile);
