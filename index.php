@@ -1,6 +1,10 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['isLoginOk'])) {
+        header('Location: login.php');
+    }
     include "template/header.php";
-    $UserID = 2;
+    $UserID = $_SESSION['isLoginOk'];
 ?>
 <!--MAIN-->  
     <main>
@@ -17,11 +21,11 @@
             <div class="card-body">
                 <div class="d-flex">
 <?php
-    include "src\connectDB.php";
+    include "src/connectDB.php";
     $sql_thinking_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
     $result_thinking_ava = mysqli_query($conn, $sql_thinking_ava);
     if(mysqli_num_rows($result_thinking_ava) > 0){
-        $row_thinking_ava = mysqli_fetch_assoc($result_thinking_ava)
+        $row_thinking_ava = mysqli_fetch_assoc($result_thinking_ava);
 ?>
                     <a id="thinking-user" href="userProfile.php">
                         <img src="<?php echo $row_thinking_ava['UserAva'];?>" alt="" class="rounded-circle border"/>

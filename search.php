@@ -1,6 +1,12 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['isLoginOk'])) {
+        header('Location: login.php');
+    }
+?>
+<?php
     include "template/header.php";
-    $UserID = 2;
+    $UserID = $_SESSION['isLoginOk'];
     if(isset($_POST['search-btn'])){
         $search = $_POST['search-input'];
         //KẾT NỐI SQL

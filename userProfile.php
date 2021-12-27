@@ -1,7 +1,13 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['isLoginOk'])) {
+        header('Location: login.php');
+    }
+?>
+<?php
 include "template/header.php";
 include "src/connectDB.php";
-$userId = 2;
+$userId = $_SESSION['isLoginOk'];
 
 $queryProfile = "SELECT * from user_profile where UserID='$userId'";
 $result_ava = mysqli_query($conn, $queryProfile);
