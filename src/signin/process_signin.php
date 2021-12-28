@@ -3,7 +3,7 @@ session_start();
 if(isset($_POST['btnSignIn']) && isset($_POST['UserEmail'])) {
     require('../connectDB.php');
     $email = $_POST['UserEmail'];
-    $pass = $_POST['UserPassword'];
+    $pass = $_POST['UserPassword']; 
     $sql = "select * from user_profile where UserEmail=?";
     $stmt = mysqli_prepare($conn, $sql);
     mysqli_stmt_bind_param($stmt, "s", $email);

@@ -1,6 +1,5 @@
 <?php
 include "template/header.php";
-
 ?>
 <!--MAIN-->
 <main>
@@ -24,7 +23,7 @@ include "template/header.php";
                         $row_thinking_ava = mysqli_fetch_assoc($result_thinking_ava)
                     ?>
                         <a id="thinking-user" href="userProfile.php">
-                            <img src="<?php echo defaultImage($row_thinking_ava['UserAva']) ?>" alt="" class="rounded-circle border" />
+                            <img src="<?php echo ($row_thinking_ava['UserAva']) ?>" alt="" class="rounded-circle border" />
                         </a>
                     <?php
                     }
@@ -53,7 +52,7 @@ include "template/header.php";
                     (SELECT *
                     FROM friend_ship INNER JOIN view_post
                     on UserID = User1ID or UserID = User2ID
-                    WHERE User1ID = $UserID or User2ID = $UserID) as Bang
+                    WHERE (User1ID = $UserID or User2ID = $UserID) AND Active = 1) as Bang
                 WHERE Bang.UserID != $UserID AND Bang.UserID = user_profile.UserID
                 ORDER BY PostTime DESC";                   //Người đăng nhập-->
         $result_news = mysqli_query($conn, $sql);
@@ -64,7 +63,7 @@ include "template/header.php";
                     <div class="row">
                         <div class="heading">
                             <a class="user-ava" href="userProfile_friend.php?UserIDFriend=<?php echo $row_news['UserID']; ?>">
-                                <img class="user-img" src="<?php echo defaultImage($row_news['UserAva']); ?>" alt="">
+                                <img class="user-img" src="<?php echo ($row_news['UserAva']); ?>" alt="">
                             </a>
                             <div class="user-name-time">
                                 <a href="userProfile_friend.php?UserIDFriend=<?php echo $row_news['UserID']; ?>" class="user-name text-decoration-none link-dark">
@@ -182,7 +181,7 @@ include "template/header.php";
                                         if (mysqli_num_rows($result_comment_ava) > 0) {
                                             $row_comment_ava = mysqli_fetch_assoc($result_comment_ava)
                                         ?>
-                                            <img class="user-img" src="<?php echo defaultImage($row_comment_ava['UserAva']); ?>" alt="">
+                                            <img class="user-img" src="<?php echo ($row_comment_ava['UserAva']); ?>" alt="">
                                         <?php
                                         }
                                         ?>
@@ -215,7 +214,7 @@ include "template/header.php";
                                         <!--COMMENT OF USER LOGIN-->
                                         <li class="comment-item myDIV">
                                             <a class="icon" href="userProfile.php">
-                                                <img class="user-img" src="<?php echo defaultImage($row_comment['UserAva']); ?>" alt="">
+                                                <img class="user-img" src="<?php echo ($row_comment['UserAva']); ?>" alt="">
                                             </a>
                                             <div class="commentator-name">
                                                 <a href="userProfile.php" class="user-name text-decoration-none link-dark">
@@ -241,7 +240,7 @@ include "template/header.php";
                                                     <button id="btn-edit-comment" name="btn-edit" type="submit">Lưu</button>
                                                 </form>
                                                 <a href="src/process_delete_comment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
-                        &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=<?php echo $UserID; ?>" class="link-dark">
+                                                    &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=<?php echo $UserID; ?>" class="link-dark">
                                                     <!--Người đăng nhập-->
                                                     <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
                                                         delete_forever
@@ -255,7 +254,7 @@ include "template/header.php";
                                         <!--COMMENT OF USER FRIEND-->
                                         <li class="comment-item myDIV">
                                             <a class="icon" href="userProfile_friend.php?UserIDFriend=<?php echo $row_comment['UserID']; ?>">
-                                                <img class="user-img" src="<?php echo defaultImage($row_comment['UserAva']); ?>" alt="">
+                                                <img class="user-img" src="<?php echo ($row_comment['UserAva']); ?>" alt="">
                                             </a>
                                             <div class="commentator-name">
                                                 <a href="userProfile_friend.php?UserIDFriend=<?php echo $row_comment['UserID']; ?>" class="user-name text-decoration-none link-dark">
@@ -285,28 +284,29 @@ include "template/header.php";
         <!--THINKING POST-->
         <div class="col-md-9 mb-4 mb-md-0 thinking-post">
             <div class="modal fade" id="buttonModalUserPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">
-                                <strong>Tạo bài viết</strong>
-                            </h5>
-                            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <textarea id="post-writing" cols="50" rows="5" class="modal-body" placeholder="Hãy viết gì đó..."></textarea>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
-                                Đóng
-                            </button>
-                            <button type="button" class="btn btn-primary">
-                                Lưu
-                            </button>
-                        </div>
-
+              <div class="modal-dialog">
+                <form id="post-form" action="src/userProfile/addPost.php" method="post" autocomplete="off">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        <strong>Tạo bài viết</strong>
+                      </h5>
+                      <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                     </div>
-                </div>
+                    <input type="text" name="UserID" value="<?php echo $UserID?>" hidden>
+                    <textarea id="post-writing" cols="50" rows="5" class="modal-body" placeholder="Hãy viết gì đó..." name="txt-content"></textarea>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                        Đóng
+                      </button>
+                      <button type="submit" class="btn btn-primary" name="btn-sendPost" >
+                        Lưu
+                      </button>
+                    </div>
+                </form>
+              </div>
             </div>
-        </div>
+          </div>
         <!--RIGHT-SIDE-BAR-->
         <div id="right-side-bar">
             <div class="row">
@@ -327,7 +327,7 @@ include "template/header.php";
                     <a class="row" href="userProfile_friend.php?UserIDFriend=<?php echo $row_friend['UserID']; ?>">
                         <div class="sidebar-item">
                             <div class="icon">
-                                <img src="<?php echo defaultImage($row_friend['UserAva']); ?>" alt="" style="border-radius: 50%;width:36px;height:36px">
+                                <img src="<?php echo ($row_friend['UserAva']); ?>" alt="" style="border-radius: 50%;width:36px;height:36px">
                             </div>
                             <div class="text">
                                 <b><?php echo $row_friend['UserName']; ?></b>

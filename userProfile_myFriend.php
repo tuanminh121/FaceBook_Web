@@ -1,16 +1,9 @@
-<?php
-    session_start();
-    if(!isset($_SESSION['isLoginOk'])) {
-        header('Location: login.php');
-    }
-?>
+
 <?php
 include "template/header.php";
 include "src/connectDB.php";
-include "template/info.php";
-$userId = $_SESSION['isLoginOk'];
 
-$queryProfile = "SELECT * from user_profile where UserID='$userId'";
+$queryProfile = "SELECT * from user_profile where UserID='$UserID'";
 $result_ava = mysqli_query($conn, $queryProfile);
 if (mysqli_num_rows($result_ava) > 0) {
     $row_ava = mysqli_fetch_assoc($result_ava);
@@ -29,12 +22,12 @@ if (mysqli_num_rows($result_ava) > 0) {
                 height: 400px;
               " onclick="clickImg('assets/images_dev/sky.jpg')"></div>
                 <div class="d-flex justify-content-center">
-                    <img src=" <?php echo defaultImage($row_ava['UserAva']) ?>" alt="" class="
+                    <img src=" <?php echo $row_ava['UserAva'] ?>" alt="" class="
                   rounded-circle
                   shadow-3-strong
                   position-absolute
                   border border-white
-                " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo defaultImage($row_ava['UserAva']) ?>')" />
+                " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo $row_ava['UserAva'] ?>')" />
                 </div>
                 <!-- Background image -->
             </section>
@@ -110,15 +103,15 @@ if (mysqli_num_rows($result_ava) > 0) {
                         <?php
                         $queryFriends = "SELECT * FROM user_profile, friend_ship 
             WHERE (friend_ship.User1ID = UserID OR friend_ship.User2ID = UserID)
-            AND UserID != $userId 
-            AND (friend_ship.User1ID = $userId OR friend_ship.User2ID = $userId) 
+            AND UserID != $UserID 
+            AND (friend_ship.User1ID = $UserID OR friend_ship.User2ID = $UserID) 
             GROUP BY UserID;";
                         $resultFriends = mysqli_query($conn, $queryFriends);
                         if (mysqli_num_rows($resultFriends) > 0) {
                             while ($rowFriends = mysqli_fetch_assoc($resultFriends)) {
                                 echo '<div class="col-4 pt-4 pb-4">';
                                 echo '<div class="d-flex border rounded align-items-center">';
-                                echo '<a href=""><img src="' . defaultImage($rowFriends['UserAva']) . '" style="max-wdith: 200px; max-height: 100px" alt="" class="mr-3"></a>';
+                                echo '<a href=""><img src="' . $rowFriends['UserAva'] . '" style="max-wdith: 200px; max-height: 100px" alt="" class="mr-3"></a>';
                                 echo '<p style="margin-left: 1rem;"><strong>' . $rowFriends['UserFirstName'] . " " . $rowFriends['UserLastName'] . '</strong></p>';
                                 echo '</div>';
                                 echo '</div>';

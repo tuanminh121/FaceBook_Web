@@ -21,12 +21,12 @@ if (mysqli_num_rows($result_ava) > 0) {
               " onclick="clickImg('assets/images_dev/sky.jpg')"></div>
 
         <div class="d-flex justify-content-center">
-          <img src="<?php echo defaultImage($row_ava['UserAva']) ?>" alt="" class="
+          <img src="<?php echo $row_ava['UserAva'] ?>" alt="" class="
                   rounded-circle
                   shadow-3-strong
                   position-absolute
                   border border-white
-                " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo defaultImage($row_ava['UserAva']) ?>')" />
+                " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo $row_ava['UserAva'] ?>')" />
         </div>
         <!-- Background image -->
       </section>
@@ -211,7 +211,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                     echo '<div class="row">';
                   }
                   echo '<div class="col-md-4 text-center">';
-                  echo '<img src="' . defaultImage($rowFriends['UserAva']) . '" alt="" class="shadow-1-strong rounded" style="width: 75px; height: 75px;"/>';
+                  echo '<img src="' . $rowFriends['UserAva'] . '" alt="" class="shadow-1-strong rounded" style="width: 75px; height: 75px;"/>';
                   echo '<p><small>' . $rowFriends['UserFirstName'] . " " . $rowFriends['UserLastName'] . '</small></p>';
                   echo '</div>';
                   if ($count % 3 == 2) {
@@ -239,7 +239,7 @@ if (mysqli_num_rows($result_ava) > 0) {
             <div class="card-body">
               <div class="d-flex">
                 <a id="thinking-user" href="userProfile.php">
-                  <img src="<?php echo defaultImage($row_ava['UserAva']) ?>" alt="" class="rounded-circle border" />
+                  <img src="<?php echo $row_ava['UserAva'] ?>" alt="" class="rounded-circle border" />
                 </a>
                 <button class="btn btn-light btn-block btn-rounded bg-light" data-mdb-toggle="modal" data-mdb-target="#buttonModalUserPost">
                   Bạn đang nghĩ gì?
@@ -256,7 +256,7 @@ if (mysqli_num_rows($result_ava) > 0) {
           <!--News-->
           <?php
           //TRUY VẤN POST, POST_USER
-          $sql = "SELECT * from post, user_profile, images WHERE post.UserID = user_profile.UserID AND user_profile.UserID = " . $UserID . " GROUP BY post.PostID";
+          $sql = "SELECT * from post, user_profile WHERE post.UserID = user_profile.UserID AND user_profile.UserID = " . $UserID . " GROUP BY post.PostID";
           //Người đăng nhập-->
           $result_news = mysqli_query($conn, $sql);
           if (mysqli_num_rows($result_news) > 0) {
@@ -266,7 +266,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                 <div class="row">
                   <div class="heading">
                     <a class="user-ava" href="userProfile.php">
-                      <img class="user-img" src="<?php echo defaultImage($row_ava['UserAva']) ?>" alt="">
+                      <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
                     </a>
                     <div class="user-name-time">
                       <a href="userProfile.php" class="user-name text-decoration-none link-dark">
@@ -306,7 +306,18 @@ if (mysqli_num_rows($result_ava) > 0) {
                       <?php echo $row_news['PostCaption'] ?>
                     </div>
                     <div class="content-images">
-                      <img src="<?php echo defaultImage($row_news['images']) ?>" alt="">
+                    <?php
+                                $sql_img_content = "SELECT * FROM images INNER JOIN post ON post.PostID = images.PostID WHERE post.PostID=" . $row_news['PostID'];
+                                $result_img_content = mysqli_query($conn, $sql_img_content);
+                                if (mysqli_num_rows($result_img_content) > 0) {
+                                    while ($row_img_content = mysqli_fetch_assoc($result_img_content)) {
+
+                                ?>
+                                        <img src="<?php echo $row_img_content['images']; ?>" alt="" onclick="clickImg('<?php echo $row_img_content['images']; ?>')">
+                                <?php
+                                    }
+                                }
+                                ?>
                     </div>
                   </div>
                   <div class="action-comment">
@@ -367,7 +378,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                     <form id="comment-form" action="src/userProfile/addComment.php" method="post" autocomplete="off">
                       <div class="col-md-12 comment-input-form">
                         <a class="icon" href="userProfile.php">
-                          <img class="user-img" src="<?php echo defaultImage($row_ava['UserAva']) ?>" alt="">
+                          <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
                         </a>
                         <input class="ID" type="text" value="<?php echo $row_news['PostID']; ?>" name="PostID">
                         <input class="ID" type="text" value="2" name="UserID">
@@ -403,7 +414,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                               $rowAvatar = mysqli_fetch_assoc($resultAvatar);
                             }
                             ?>
-                            <img class="user-img" src="<?php echo defaultImage($row_ava['UserAva']) ?>" alt="">
+                            <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
                           </a>
                           <div class="commentator-name">
                             <a href="userProfile.php" class="user-name text-decoration-none link-dark">
