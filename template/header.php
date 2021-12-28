@@ -1,7 +1,3 @@
-<?php
-    session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +29,13 @@
     <title>Facebook</title>
 </head>
 <body>
+<?php
+    session_start();    
+    if(!isset($_SESSION['isLoginOk'])) {
+        header('Location: login.php');
+    }
+    $UserID = $_SESSION['isLoginOk'];
+?>
 <!--HEADER-->
     <header class="container-fluid">
     <nav class="navbar navbar-light bg-light fixed-top fb-navbar">
@@ -116,7 +119,7 @@
 <?php
     include "src/connectDB.php";
     include "template/info.php";
-    $sql_user_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $userId";
+    $sql_user_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
     $result_user_ava = mysqli_query($conn, $sql_user_ava);
     if(mysqli_num_rows($result_user_ava) > 0){
         $row_user_ava = mysqli_fetch_assoc($result_user_ava);

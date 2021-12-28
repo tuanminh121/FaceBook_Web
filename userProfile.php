@@ -1,15 +1,8 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['isLoginOk'])) {
-        header('Location: login.php');
-    }
-?>
-<?php
 include "template/header.php";
 include "src/connectDB.php";
-$userId = $_SESSION['isLoginOk'];
 
-$queryProfile = "SELECT * from user_profile where UserID='$userId'";
+$queryProfile = "SELECT * from user_profile where UserID='$UserID'";
 $result_ava = mysqli_query($conn, $queryProfile);
 if (mysqli_num_rows($result_ava) > 0) {
   $row_ava = mysqli_fetch_assoc($result_ava);
@@ -136,7 +129,7 @@ if (mysqli_num_rows($result_ava) > 0) {
               </button>
               <?php
               $sql_img = "SELECT * from images, post, user_profile where images.PostID = post.PostID and post.UserID = user_profile.UserID 
-        and user_profile.UserID = " . $userId;
+        and user_profile.UserID = " . $UserID;
               $result_img = mysqli_query($conn, $sql_img);
               if (mysqli_num_rows($result_img) > 0) {
                 while ($row_img = mysqli_fetch_assoc($result_img)) {
@@ -192,8 +185,8 @@ if (mysqli_num_rows($result_ava) > 0) {
                 <?php
                 $queryCount = "SELECT COUNT(*) as total FROM user_profile, friend_ship 
             WHERE (friend_ship.User1ID = UserID OR friend_ship.User2ID = UserID)
-            AND UserID != $userId 
-            AND (friend_ship.User1ID = $userId OR friend_ship.User2ID = $userId);";
+            AND UserID != $UserID 
+            AND (friend_ship.User1ID = $UserID OR friend_ship.User2ID = $UserID);";
                 $resultCount = mysqli_query($conn, $queryCount);
                 if (mysqli_num_rows($resultCount) > 0) {
                   $rowCount = mysqli_fetch_assoc($resultCount);
@@ -207,8 +200,8 @@ if (mysqli_num_rows($result_ava) > 0) {
               <?php
               $queryFriends = "SELECT * FROM user_profile, friend_ship 
             WHERE (friend_ship.User1ID = UserID OR friend_ship.User2ID = UserID)
-            AND UserID != $userId 
-            AND (friend_ship.User1ID = $userId OR friend_ship.User2ID = $userId)  
+            AND UserID != $UserID 
+            AND (friend_ship.User1ID = $UserID OR friend_ship.User2ID = $UserID)  
             GROUP BY UserID LIMIT 6;";
               $resultFriends = mysqli_query($conn, $queryFriends);
               if (mysqli_num_rows($resultFriends) > 0) {
@@ -263,7 +256,7 @@ if (mysqli_num_rows($result_ava) > 0) {
           <!--News-->
           <?php
           //TRUY VẤN POST, POST_USER
-          $sql = "SELECT * from post, user_profile, images WHERE post.UserID = user_profile.UserID AND user_profile.UserID = " . $userId . " GROUP BY post.PostID";
+          $sql = "SELECT * from post, user_profile, images WHERE post.UserID = user_profile.UserID AND user_profile.UserID = " . $UserID . " GROUP BY post.PostID";
           //Người đăng nhập-->
           $result_news = mysqli_query($conn, $sql);
           if (mysqli_num_rows($result_news) > 0) {
@@ -468,7 +461,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                       </h5>
                       <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <input type="text" name="UserID" value="<?php echo $userId?>" hidden>
+                    <input type="text" name="UserID" value="<?php echo $UserID?>" hidden>
                     <textarea id="post-writing" cols="50" rows="5" class="modal-body" placeholder="Hãy viết gì đó..." name="txt-content"></textarea>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">

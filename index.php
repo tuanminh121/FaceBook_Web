@@ -1,6 +1,6 @@
 <?php
 include "template/header.php";
-$UserID = $userId;
+
 ?>
 <!--MAIN-->
 <main>
