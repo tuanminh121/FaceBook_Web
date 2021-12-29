@@ -140,24 +140,26 @@ if (mysqli_num_rows($result_ava) > 0) {
               <a href="userProfile_image.php" class="btn btn-link d-inline-block py-1 px-3" style="float: right">Xem tất cả ảnh</a>
               <?php
               $sql_img = "SELECT * from images, post, user_profile where images.PostID = post.PostID and post.UserID = user_profile.UserID 
-        and user_profile.UserID = " . $UserID;
+        and user_profile.UserID = " . $UserID . " LIMIT 6;";
               $result_img = mysqli_query($conn, $sql_img);
               if (mysqli_num_rows($result_img) > 0) {
+                $count = 0;
                 while ($row_img = mysqli_fetch_assoc($result_img)) {
                   global $row_img;
+                  if ($count % 3 == 0) {
+                    echo '<div class="row gx-2">';
+                  }
               ?>
-                  <div class="lightbox mt-4">
-                    <div class="row gx-2">
-                      <!-- ảnh đang sửa ở đâyy -->
-
-                      <div class="col-lg-4 mb-3">
-                        <a href="<?php echo $row_img['images'] ?>" target="_blank">
-                          <img src="<?php echo $row_img['images'] ?>" alt="" onclick="clickImg('<?php echo $row_img['images'] ?>')" class="w-100 shadow-1-strong rounded" />
-                        </a>
-                      </div>
-                    </div>
+                  <div class="col-lg-4 mb-3">
+                    <a href="<?php echo $row_img['images'] ?>" target="_blank">
+                      <img src="<?php echo $row_img['images'] ?>" alt="" onclick="clickImg('<?php echo $row_img['images'] ?>')" class="w-100 shadow-1-strong rounded" style="height: 100px;"/>
+                    </a>
                   </div>
               <?php
+                  if ($count % 3 == 2 || $count == mysqli_num_rows($result_img) - 1) {
+                    echo '</div>';
+                  }
+                  $count++;
                 }
               }
               ?>
@@ -172,7 +174,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                 <a href="???trosanglinkbanbe" class="text-reset">
                   <h5 class="card-title mt"><strong>Bạn bè</strong></h5>
                 </a>
-                
+
               </div>
 
               <div class="card_right d-inline-block" style="float: right">
@@ -195,7 +197,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                   echo '<img src="' . $rowFriends['UserAva'] . '" alt="" class="shadow-1-strong rounded" style="width: 75px; height: 75px;"/>';
                   echo '<p><small>' . $rowFriends['UserFirstName'] . " " . $rowFriends['UserLastName'] . '</small></p>';
                   echo '</div>';
-                  if ($count % 3 == 2) {
+                  if ($count % 3 == 2 ||  $count == mysqli_num_rows($resultFriends) - 1) {
                     echo '</div>';
                   }
                   $count++;
@@ -237,7 +239,7 @@ if (mysqli_num_rows($result_ava) > 0) {
           <!--Newss-->
           <?php
           //TRUY VẤN POST, POST_USERR
-          $sql = "SELECT * from post, user_profile WHERE post.UserID = user_profile.UserID AND user_profile.UserID = " . $UserID . " GROUP BY post.PostID";
+          $sql = "SELECT * from post, user_profile WHERE post.UserID = user_profile.UserID AND user_profile.UserID = " . $UserID . " GROUP BY post.PostID ORDER BY post.PostID DESC";
           //Người đăng nhậpp-->
           $result_news = mysqli_query($conn, $sql);
           if (mysqli_num_rows($result_news) > 0) {
@@ -267,12 +269,13 @@ if (mysqli_num_rows($result_ava) > 0) {
                       <div class="collapse contentOption">
                         <div class="option-item">
                           <div class="col-md-12 items">
+                            <!-- bấm vào đây sửa bài viết -->
                             <span class="material-icons-outlined">history</span>
                             <b>Sửa bài viết</b>
                           </div>
                           <div class="col-md-12 items">
                             <span class="material-icons-outlined">bookmarks</span>
-                            <b>Xóa bài viết</b>
+                            <b>Xóa bài viết</b> <!-- bấm vào đây xóa bài viết -->
                           </div>
                         </div>
                       </div>
@@ -382,51 +385,86 @@ if (mysqli_num_rows($result_ava) > 0) {
                     $result_comment = mysqli_query($conn, $sql_comment);
                     if (mysqli_num_rows($result_comment) > 0) {
                       while ($row_comment = mysqli_fetch_assoc($result_comment)) {
+                        if ($row_comment['UserID'] == $UserID) {
                     ?>
-                        <li class="comment-item myDIV">
-                          <a class="icon" href="userProfile.php">
-                            <?php
-                            //TRUY VẤN COMMENT, COMMENT_USER
-                            $queryAvatar = "SELECT * from user_profile WHERE UserID =" . $row_comment['UserID'];
-                            $resultAvatar = mysqli_query($conn, $queryAvatar);
-                            if (mysqli_num_rows($resultAvatar) > 0) {
-                              $rowAvatar = mysqli_fetch_assoc($resultAvatar);
-                            }
-                            ?>
-                            <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
-                          </a>
-                          <div class="commentator-name">
-                            <a href="userProfile.php" class="user-name text-decoration-none link-dark">
-                              <b><?php echo $row_comment['UserName']; ?></b>
+                          <li class="comment-item myDIV">
+                            <a class="icon" href="userProfile.php">
+                              <?php
+                              //TRUY VẤN COMMENT, COMMENT_USER
+                              $queryAvatar = "SELECT * from user_profile WHERE UserID =" . $row_comment['UserID'];
+                              $resultAvatar = mysqli_query($conn, $queryAvatar);
+                              if (mysqli_num_rows($resultAvatar) > 0) {
+                                $rowAvatar = mysqli_fetch_assoc($resultAvatar);
+                              }
+                              ?>
+                              <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
                             </a>
-                            <p class="comment-content">
-                              <?php echo $row_comment['CommentContent']; ?>
-                            </p>
-                          </div>
-                          <!--EDIT COMMENTT-->
-                          <div id="edit-comment" class="hide">
-                            <div class="option-comment option-icon collapsible">
-                              <span id="btn-edit" class="material-icons-outlined option-comment option-icon" style="font-size:15px">
-                                edit
-                              </span>
+                            <div class="commentator-name">
+                              <a href="userProfile.php" class="user-name text-decoration-none link-dark">
+                                <b><?php echo $row_comment['UserName']; ?></b>
+                              </a>
+                              <p class="comment-content">
+                                <?php echo $row_comment['CommentContent']; ?>
+                              </p>
                             </div>
-                            <form class="content" id="form-edit-comment" action="src/userProfile/updateComment.php" method="post">
-                              <input class="ID" type="text" value="<?php echo $row_comment['UserID']; ?>" name="CommentUserID">
-                              <input class="ID" type="text" value="2" name="UserID">
-                              <!--Người đăng nhậpp-->
-                              <input class="ID" type="text" value="<?php echo $row_comment['CommentID']; ?>" name="CommentID">
-                              <textarea id="input-edit-comment" name="txt-edit" id="" cols="30" rows="4"><?php echo $row_comment['CommentContent']; ?></textarea>
-                              <button id="btn-edit-comment" name="btn-edit" type="submit">Lưu</button>
-                            </form>
-                            <a href="src/userProfile/deleteComment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
+                            <!--EDIT COMMENTT-->
+                            <div id="edit-comment" class="hide">
+                              <div class="option-comment option-icon collapsible">
+                                <span id="btn-edit" class="material-icons-outlined option-comment option-icon" style="font-size:15px">
+                                  edit
+                                </span>
+                              </div>
+                              <form class="content" id="form-edit-comment" action="src/userProfile/updateComment.php" method="post">
+                                <input class="ID" type="text" value="<?php echo $row_comment['UserID']; ?>" name="CommentUserID">
+                                <input class="ID" type="text" value="2" name="UserID">
+                                <!--Người đăng nhậpp-->
+                                <input class="ID" type="text" value="<?php echo $row_comment['CommentID']; ?>" name="CommentID">
+                                <textarea id="input-edit-comment" name="txt-edit" id="" cols="30" rows="4"><?php echo $row_comment['CommentContent']; ?></textarea>
+                                <button id="btn-edit-comment" name="btn-edit" type="submit">Lưu</button>
+                              </form>
+                              <a href="src/userProfile/deleteComment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
                         &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=2" class="link-dark">
-                              <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
-                                delete_forever
-                              </span>
+                                <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
+                                  delete_forever
+                                </span>
+                              </a>
+                            </div>
+                          </li>
+                        <?php
+                        } else {
+                        ?>
+                          <li class="comment-item myDIV">
+                            <a class="icon" href="userProfile.php">
+                              <?php
+                              //TRUY VẤN COMMENT, COMMENT_USER
+                              $queryAvatar = "SELECT * from user_profile WHERE UserID =" . $row_comment['UserID'];
+                              $resultAvatar = mysqli_query($conn, $queryAvatar);
+                              if (mysqli_num_rows($resultAvatar) > 0) {
+                                $rowAvatar = mysqli_fetch_assoc($resultAvatar);
+                              }
+                              ?>
+                              <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
                             </a>
-                          </div>
-                        </li>
+                            <div class="commentator-name">
+                              <a href="userProfile.php" class="user-name text-decoration-none link-dark">
+                                <b><?php echo $row_comment['UserName']; ?></b>
+                              </a>
+                              <p class="comment-content">
+                                <?php echo $row_comment['CommentContent']; ?>
+                              </p>
+                            </div>
+                            <!--EDIT COMMENTT-->
+                            <div id="edit-comment" class="hide">
+                              <a href="src/userProfile/deleteComment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
+                        &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=2" class="link-dark">
+                                <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
+                                  delete_forever
+                                </span>
+                              </a>
+                            </div>
+                          </li>
                     <?php
+                        }
                       }
                     }
                     ?>
@@ -443,7 +481,7 @@ if (mysqli_num_rows($result_ava) > 0) {
           <div class="col-md-9 mb-4 mb-md-0 thinking-post">
             <div class="modal fade" id="buttonModalUserPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
-                <form id="post-form" action="src/userProfile/addPost.php" method="post" autocomplete="off">
+                <form id="post-form" action="src/userProfile/addPost.php" method="post" autocomplete="off" enctype="multipart/form-data">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">
@@ -453,6 +491,13 @@ if (mysqli_num_rows($result_ava) > 0) {
                     </div>
                     <input type="text" name="UserID" value="<?php echo $UserID ?>" hidden>
                     <textarea id="post-writing" cols="50" rows="5" class="modal-body" placeholder="Hãy viết gì đó..." name="txt-content"></textarea>
+                    <div class="displayImg">
+                      <div class="mb-3 p-2">
+                        <label for="formFileMultiple" class="form-label">Chọn ảnh của bạn</label>
+                        <input class="form-control" type="file" id="formFileMultiple" name="myFile">
+                        <!-- <input class="form-control" type="file" id="formFileMultiple" name="myFile" multiple> -->
+                      </div>
+                    </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
                         Đóng
