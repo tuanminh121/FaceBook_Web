@@ -163,6 +163,9 @@
 .navbar-right .button:hover{
     background-color: rgb(212, 208, 208);
 }
+.navbar-right .button:active{
+    background-color: rgb(185, 184, 184);
+}
 .menu-icon{
     font-size: 29px;
 }
@@ -210,6 +213,31 @@
 #user-name b{
     margin: 0px !important;
 }
+.log-out{
+    padding: 1px;
+    background-color: white;
+    display: none;
+    padding: 5px;
+    position: absolute;
+    top: 55px;
+    right: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgb(168, 166, 166);
+}
+.item-logout{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 5px;
+}
+.item-logout:hover{
+    background-color: rgb(240, 238, 238);
+}
+.item-logout:active{
+    background-color: rgb(185, 184, 184);
+}
 /*RESPONSIVE*/
 @media screen and (max-width:1259px) {
     .search-input{
@@ -232,4 +260,49 @@
     .navbar-left .sidebar-menu{
         display: none;
     }
+}
+
+/*CSS FOR NOTIFICATION*/
+.notify{
+    width: 350px;
+    height: auto;
+    padding: 1px;
+    background-color: white;
+    display: none;
+    flex-direction: column;
+    padding: 5px;
+    position: absolute;
+    top: 55px;
+    right: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgb(168, 166, 166);
+}
+.notify-item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: 5px;
+    width: 100%;
+    height: 75px;
+}
+.notify-item:hover{
+    background-color: rgb(240, 238, 238);
+}
+.notify-item:active{
+    background-color: rgb(185, 184, 184);
+}
+.notify-content p{
+    margin: 0px;
+    height: 45px;
+    overflow: hidden;
+}
+.notify-content{
+    font-size: 14px;
+    padding-left: 12px;
+    border: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

@@ -34,7 +34,8 @@
     if(!isset($_SESSION['isLoginOk'])) {
         header('Location: login.php');
     }
-    $UserID = $_SESSION['isLoginOk'];
+    //$UserID = $_SESSION['isLoginOk'];
+    $UserID = 2;
 ?>
 <!--HEADER-->
     <header class="container-fluid">
@@ -159,6 +160,53 @@
                             notifications
                         </span>
                     </button>
+                    <div class="notify">
+        <?php
+        //KẾT NỐI SQL
+        include "src/connectDB.php";
+        //TRUY VẤN POST, POST_USER NOTIFY
+        $sql_notify = "SELECT PostID, Bang.UserID, UserName, PostCaption, UserAva,
+                    MINUTE(TIMEDIFF(NOW(),PostTime)) as MM, HOUR(timediff(NOW(),PostTime)) as HH
+                        from user_profile,
+                        (SELECT *
+                        FROM friend_ship INNER JOIN view_post
+                        on UserID = User1ID or UserID = User2ID
+                        WHERE (User1ID = $UserID or User2ID = $UserID) AND Active = 1) as Bang
+                    WHERE Bang.UserID != $UserID AND Bang.UserID = user_profile.UserID
+                    ORDER BY PostTime DESC";
+        $result_notify = mysqli_query($conn, $sql_notify);
+        if (mysqli_num_rows($result_notify) > 0) {
+            while ($row_notify = mysqli_fetch_assoc($result_notify)){
+                $time = 'vừa xong';
+                if($row_notify['HH']==0){
+                    $time = $row_notify['MM'].' phút trước';
+                }
+                else if($row_notify['HH']>=1){
+                    $time = floor($row_notify['HH']/24) .' ngày trước';
+                }
+                else if($row_notify['HH']>=24){
+                    $time = floor($row_notify['HH']/24) .' ngày trước';
+                }
+                
+        ?>
+                        <a class="notify-item link-dark" href="">
+                            <div class="user-ava">
+                                <img class="user-img" src="<?php echo ($row_notify['UserAva']); ?>" alt="">
+                            </div>
+                            <div class="notify-content">
+                                <p>
+                                    <b><?php echo ($row_notify['UserName']); ?></b> Đã đăng một bài viết mới: <?php echo ($row_notify['PostCaption']); ?>
+                                </p>
+                                <b style="color:#1877F2"><?php echo $time?></b>
+                            </div>
+                        </a>
+        <?php
+            }
+        }
+        //ĐÓNG KẾT NỐI
+        mysqli_close($conn);
+        ?>
+                </div>
             </div>
             <div class="nav-item">
                     <button class="account button" title="Account">
@@ -166,6 +214,14 @@
                             arrow_drop_down
                         </span>
                     </button>
+                    <div class="log-out">
+                        <a class="item-logout link-dark" href="login.php">
+                            <span class="material-icons-outlined">
+                                logout
+                            </span>
+                            <b>Log-out</b>
+                        </a>
+                    </div>
             </div>
           </div>
         </div>
