@@ -34,7 +34,7 @@
     if(!isset($_SESSION['isLoginOk'])) {
         header('Location: login.php');
     }
-    $UserID = $_SESSION['isLoginOk'];
+    $UserID = 1;
 ?>
 <!--HEADER-->
     <header class="container-fluid">
