@@ -13,7 +13,7 @@ if(isset($_POST['btnSignIn']) && isset($_POST['UserEmail'])) {
             if(password_verify($pass, $UserPass)){
                 $_SESSION['Admin'] = $UserId;
                 mysqli_close($conn);
-                header("Location: admin.php");
+                header("Location: index.php");
             } else {
                 mysqli_close($conn);
                 $error= "Tài khoản hoặc mật khẩu không chính xác!";
