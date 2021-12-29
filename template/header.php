@@ -160,7 +160,35 @@
                         </span>
                     </button>
                     <div class="notify">
-        <?php
+                    <?php
+        //KẾT NỐI SQL
+        include "src/connectDB.php";
+        //TRUY VẤN lỜI MỜI KẾT BẠN
+        $sql_friend_notify = "SELECT UserID, CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva
+                            FROM friend_ship INNER JOIN user_profile
+                            on UserID = User1ID or UserID = User2ID
+                            WHERE User2ID = $UserID and UserID !=$UserID AND friend_ship.Active = 0";
+        $result_friend_notify = mysqli_query($conn, $sql_friend_notify);
+        if(mysqli_num_rows($result_friend_notify) > 0){
+            while($row_friend_notify = mysqli_fetch_assoc($result_friend_notify)){
+?>
+                        <a class="notify-item link-dark" href="userProfile_friend.php?UserIDFriend=<?php echo $row_friend_notify['UserID'];?>">
+                            <div class="user-ava">
+                                <img class="user-img" src="<?php echo ($row_friend_notify['UserAva']); ?>" alt="">
+                            </div>
+                            <div class="notify-content">
+                                <p>
+                                    <b><?php echo ($row_friend_notify['UserName']); ?></b> Đã gửi cho bạn một lời mời kết bạn
+                                </p>
+                            </div>
+                        </a>
+
+<?php
+            }
+        }
+        //ĐÓNG KẾT NỐI
+        mysqli_close($conn);
+
         //KẾT NỐI SQL
         include "src/connectDB.php";
         //TRUY VẤN POST, POST_USER NOTIFY
@@ -180,11 +208,11 @@
                 if($row_notify['HH']==0){
                     $time = $row_notify['MM'].' phút trước';
                 }
-                else if($row_notify['HH']>=1){
-                    $time = floor($row_notify['HH']/24) .' ngày trước';
-                }
                 else if($row_notify['HH']>=24){
                     $time = floor($row_notify['HH']/24) .' ngày trước';
+                }
+                else if($row_notify['HH']<24){
+                    $time = floor($row_notify['HH']) .' giờ trước';
                 }
                 
         ?>
@@ -204,7 +232,8 @@
         }
         //ĐÓNG KẾT NỐI
         mysqli_close($conn);
-        ?>
+?>
+
                 </div>
             </div>
             <div class="nav-item">

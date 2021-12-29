@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="log-out">
-                    <a href="signinAdmin.php" class="">
+                    <a href="signinAdmin.php" class="text-decoration-none link-dark">
                         <div class="item">
                             <span class="material-icons-outlined">
                                 logout
