@@ -279,8 +279,8 @@ include "template/header.php";
         <?php
             }
         }
-
         ?>
+    </div>
         <!--THINKING POST-->
         <div class="col-md-9 mb-4 mb-md-0 thinking-post">
             <div class="modal fade" id="buttonModalUserPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -306,7 +306,7 @@ include "template/header.php";
                 </form>
               </div>
             </div>
-          </div>
+        </div>
         <!--RIGHT-SIDE-BAR-->
         <div id="right-side-bar">
             <div class="row">
@@ -317,7 +317,7 @@ include "template/header.php";
                     FROM(SELECT UserID, CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva
                         FROM friend_ship INNER JOIN user_profile
                         on UserID = User1ID or UserID = User2ID
-                        WHERE User1ID = $UserID or User2ID = $UserID) as Bang
+                        WHERE (User1ID = $UserID or User2ID = $UserID) AND friend_ship.Active = 1) as Bang
                     WHERE UserID != $UserID"; //Người dùng đăng nhập
             $result_friend = mysqli_query($conn, $sql_friend);
             if (mysqli_num_rows($result_friend) > 0) {

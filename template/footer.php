@@ -7,6 +7,9 @@
 <!-- <script src="assets\js\comment_input.js"></script> -->
 <!-- js for userProfile -->
 <script scr="assets\js\userProfile.js"></script>
+<!--JS FOR NEWSFEED-->
 <script src="assets\js\newsfeed.js"></script>
+<!--JS FOR HEADER-->
+<script src="assets\js\header.js"></script>
 </body>
 </html>

@@ -1,3 +1,10 @@
+<?php
+    session_start();    
+    if(!isset($_SESSION['Admin'])) {
+        header('Location: signinAdmin.php');
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,27 +28,29 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-                <div class="fb_logo">
-                    <i class="fab fa-facebook-f fb-icon"></i>
-                </div>
-              </a>
-              <div class="admin-account">
-                <b>Admin</b>
-                <div class="account">
-                  <span class="material-icons-outlined admin-icon">
-                      account_circle
-                  </span>
-                </div>
-              </div>
-              <div class="log-out">
-                  <div class="item">
-                    <span class="material-icons-outlined">
-                        logout
+                <a class="navbar-brand" href="#">
+                    <div class="fb_logo">
+                        <i class="fab fa-facebook-f fb-icon"></i>
+                    </div>
+                </a>
+                <div class="admin-account">
+                    <b>Admin</b>
+                    <div class="account">
+                    <span class="material-icons-outlined admin-icon">
+                        account_circle
                     </span>
-                    <b>Log-out</b>
-                  </div>
-              </div>
+                    </div>
+                </div>
+                <div class="log-out">
+                    <a href="signinAdmin.php" class="text-decoration-none link-dark">
+                        <div class="item">
+                            <span class="material-icons-outlined">
+                                logout
+                            </span>
+                            <b>Log-out</b>
+                        </div>
+                    </a>        
+                </div>
             </div>
           </nav>
     </header>
