@@ -34,7 +34,7 @@
     if(!isset($_SESSION['isLoginOk'])) {
         header('Location: login.php');
     }
-    $UserID = 1;
+    $UserID = $_SESSION['isLoginOk'];
 ?>
 <!--HEADER-->
     <header class="container-fluid">
@@ -216,13 +216,13 @@
                 }
                 
         ?>
-                        <a class="notify-item link-dark" href="">
+                        <a class="notify-item link-dark" href="post.php?PostID=<?php echo $row_notify['PostID'];?>">
                             <div class="user-ava">
                                 <img class="user-img" src="<?php echo ($row_notify['UserAva']); ?>" alt="">
                             </div>
                             <div class="notify-content">
                                 <p>
-                                    <b><?php echo ($row_notify['UserName']); ?></b> Đã đăng một bài viết mới: <?php echo ($row_notify['PostCaption']); ?>
+                                    <b><?php echo ($row_notify['UserName']); ?></b> Đã đăng một bài viết mới: <?php echo ($row_notify['PostCaption']);?>
                                 </p>
                                 <b style="color:#1877F2"><?php echo $time?></b>
                             </div>

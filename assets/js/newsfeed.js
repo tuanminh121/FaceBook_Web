@@ -1,63 +1,3 @@
-/* var input = document.getElementById("comment-input");
-var form = document.getElementById("comment-form");
-//thực hiện khi nhấn rồi thả tay
-input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) { //13 là nút Enter
-   event.preventDefault();
-   document.getElementById("send-comment").click();
-   form.reset();
-  }
-});
-
-var btn = document.getElementById("send-comment");
-
-btn.addEventListener("click", function(){
-    form.reset();
-}); */
-/* 
-function submitForm() {
-  document.comment-form.submit();
-  document.comment-form.reset();
-  } */
-  
-/* var option = document.getElementById('option-comment');
-var option_item = document.getElementsByClassName('option-comment-item');
-
-option.addEventListener("click", function(){
-  option_item.display
-}); */
-
-
-/* function myFunction() {
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-} */
-
-/* function myFunction() {
-  var x = document.getElementById("form-edit-comment");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-} */
-
-/* var input = document.getElementById("btn-edit");
-var form = document.getElementById("form-edit-comment");
-//thực hiện khi nhấn rồi thả tay
-input.addEventListener("click", function(event) {
-  if (form.style.display === "none") {
-    form.style.display = "block";
-  }
-  else {
-  form.style.display = "none";
-  }
-}); */
-
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
@@ -89,3 +29,18 @@ for (j = 0; j < coll.length; j++) {
     }
   });
 }
+
+//AJAX FOR COMMENT
+/* $(document).ready(function(){
+  $('#comment-form').on('submit',function(event){
+    event.preventDefault();
+    $.ajax({
+      url: "process_add_comment.php",
+      method: "post",
+      data:{txt_comment: $(this).val()},
+      success: function(res){
+        $("#comment-form").reset();
+      }
+    })
+  })
+}) */

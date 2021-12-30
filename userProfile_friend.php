@@ -3,9 +3,9 @@
   $UserIDFriend = $_GET['UserIDFriend'];
   include "src/connectDB.php";
 
-  $queryProfile = "SELECT * from user_profile where UserID='$UserIDFriend'";
+  $queryProfile = "SELECT * from user_profile where UserID=?";
   $stmt = mysqli_prepare($conn, $queryProfile);
-  mysqli_stmt_bind_param($stmt, "s", $email);
+  mysqli_stmt_bind_param($stmt, "s", $UserIDFriend);
   if(mysqli_stmt_execute($stmt)) {
       mysqli_stmt_bind_result($stmt, $UserId, $UserEmail, $UserPass, $UserGender, $UserFirstName, $UserLastName, $UserBirth, $UserAddress, $UserAva, $Reported, $Description, $VerifyLink, $Active, $VerifyDate, $LockTime);
       mysqli_stmt_fetch($stmt);
@@ -100,8 +100,8 @@
         <div style="display: flex">
           <?php
             require "src/connectDB.php";
-            $sql_my_send  = "select * from friend_ship where (User1ID='".$_SESSION['isLoginOk']."' and User2ID='".$UserId."')";
-            $sql_other_people_send = "select * from friend_ship where (User1ID='".$UserId."' and User2ID='".$_SESSION['isLoginOk']."')";
+            $sql_my_send  = "select * from friend_ship where (User1ID='".$UserID."' and User2ID='".$UserId."')";
+            $sql_other_people_send = "select * from friend_ship where (User1ID='".$UserId."' and User2ID='".$UserID."')";
             $result_my_send = mysqli_query($conn, $sql_my_send);
             $result_other_people_send = mysqli_query($conn, $sql_other_people_send);
             if (mysqli_num_rows($result_my_send) > 0 && mysqli_num_rows($result_other_people_send) <= 0) {

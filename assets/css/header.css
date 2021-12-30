@@ -266,6 +266,7 @@
 .notify{
     width: 350px;
     height: auto;
+    max-height: 600px;
     padding: 1px;
     background-color: white;
     display: none;
@@ -276,6 +277,7 @@
     right: 20px;
     border-radius: 5px;
     box-shadow: 3px 3px 10px rgb(168, 166, 166);
+    overflow-y: scroll;
 }
 .notify-item{
     display: flex;
@@ -306,4 +308,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.notify::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background: #bdc2c9; 
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #90959c;
 }

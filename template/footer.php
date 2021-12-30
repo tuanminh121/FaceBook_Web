@@ -11,5 +11,7 @@
 <script src="assets\js\newsfeed.js"></script>
 <!--JS FOR HEADER-->
 <script src="assets\js\header.js"></script>
+<!--AJAX-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
