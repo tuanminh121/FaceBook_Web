@@ -11,12 +11,12 @@ if (mysqli_num_rows($result_ava) > 0) {
 ?>
 
 <main>
-    <!-- Section: white bg -->
+    <!-- Section: white bgg -->
     <section class="bg-white mb-4 shadow-2">
         <div class="container">
-            <!-- Section: images -->
+            <!-- Section: imagess -->
             <section class="mb-10">
-                <!-- Background image -->
+                <!-- Background imagee -->
                 <div class="p-5 text-center bg-image shadow-1-strong rounded-bottom" style="
                 background-image: url('assets/images_dev/sky.jpg');
                 height: 400px;
@@ -29,11 +29,11 @@ if (mysqli_num_rows($result_ava) > 0) {
                   border border-white
                 " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo $row_ava['UserAva'] ?>')" />
                 </div>
-                <!-- Background image -->
+                <!-- Background imagee -->
             </section>
-            <!-- Section: images -->
+            <!-- Section: imagess -->
 
-            <!-- Section: user data -->
+            <!-- Section: user dataa -->
             <section class="text-center border-bottom">
                 <div class="row d-flex justify-content-center">
                     <div class="col-md-6">
@@ -45,9 +45,9 @@ if (mysqli_num_rows($result_ava) > 0) {
                 </div>
             </section>
 
-            <!-- Section buttons -->
+            <!-- Section buttonss -->
             <section class="py-2 d-flex justify-content-between">
-                <!-- left -->
+                <!-- leftt -->
                 <div>
                     <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile.php'">
                         Bài viết
@@ -75,9 +75,9 @@ if (mysqli_num_rows($result_ava) > 0) {
                         </ul>
                     </div>
                 </div>
-                <!-- left -->
+                <!-- leftt -->
 
-                <!-- right -->
+                <!-- rightt -->
                 <div>
                     <button type="button" class="btn btn-light bg-light mr-2" data-mdb-ripple-color="dark">
                         <i class="far fa-edit me-2"></i>Chỉnh sửa trang cá nhân
@@ -86,13 +86,13 @@ if (mysqli_num_rows($result_ava) > 0) {
                         <i class="fas fa-search me-2"></i>Tìm kiếm
                     </button>
                 </div>
-                <!-- right -->
+                <!-- right t-->
             </section>
-            <!-- Section buttons -->
+            <!-- Section buttonss -->
         </div>
     </section>
-    <!-- Section: white bg -->
-    <!-- bạn bè  -->
+    <!-- Section: white bgg -->
+    <!-- bạn bee  -->
     <div class="container mb-3">
         <div class="bg-white mb-5 shadow-2 rounded">
             <h2 class="pt-3" style="padding-left: 3rem"><strong>Bạn bè</strong></h2>
@@ -111,12 +111,13 @@ if (mysqli_num_rows($result_ava) > 0) {
                             while ($rowFriends = mysqli_fetch_assoc($resultFriends)) {
                                 echo '<div class="col-4 pt-4 pb-4">';
                                 echo '<div class="d-flex border rounded align-items-center">';
-                                echo '<a href=""><img src="' . $rowFriends['UserAva'] . '" style="max-wdith: 200px; max-height: 100px" alt="" class="mr-3"></a>';
+                                echo '<a href=""><img src="' . $rowFriends['UserAva'] . '" style="width: 90px; height: 90px" alt="" class="mr-3"></a>';
                                 echo '<p style="margin-left: 1rem;"><strong>' . $rowFriends['UserFirstName'] . " " . $rowFriends['UserLastName'] . '</strong></p>';
                                 echo '</div>';
                                 echo '</div>';
                             }
                         }
+
                         ?>
                     </div>
                 </div>

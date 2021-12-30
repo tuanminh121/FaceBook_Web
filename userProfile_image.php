@@ -1,4 +1,3 @@
-
 <?php
 include "template/header.php";
 include "src/connectDB.php";
@@ -11,12 +10,12 @@ if (mysqli_num_rows($result_ava) > 0) {
 ?>
 
 <main>
-  <!-- Section: white bg -->
+  <!-- Section: white bgg -->
   <section class="bg-white mb-4 shadow-2">
     <div class="container">
-      <!-- Section: images -->
+      <!-- Section: imagess -->
       <section class="mb-10">
-        <!-- Background image -->
+        <!-- Background imagee -->
         <div class="p-5 text-center bg-image shadow-1-strong rounded-bottom" style="
                 background-image: url('assets/images_dev/sky.jpg');
                 height: 400px;
@@ -29,11 +28,10 @@ if (mysqli_num_rows($result_ava) > 0) {
                   border border-white
                 " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo $row_ava['UserAva'] ?>')" />
         </div>
-        <!-- Background image -->
+        <!-- Background imagee -->
       </section>
-      <!-- Section: images -->
-
-      <!-- Section: user data -->
+      <!-- Section: imagess -->
+      <!-- Section: user dataa -->
       <section class="text-center border-bottom">
         <div class="row d-flex justify-content-center">
           <div class="col-md-6">
@@ -49,7 +47,7 @@ if (mysqli_num_rows($result_ava) > 0) {
       <section class="py-2 d-flex justify-content-between">
         <!-- left -->
         <div>
-        <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile.php'">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile.php'">
             Bài viết
           </button>
           <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_gioithieu.php'">
@@ -58,10 +56,10 @@ if (mysqli_num_rows($result_ava) > 0) {
           <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_myFriend.php'">
             Bạn bè
           </button>
-          <button type="button" class="btn btn-link bg-light" datadata-ripple-color="dark"  onclick="document.location.href='userProfile_image.php'">
+          <button type="button" class="btn btn-link bg-light" datadata-ripple-color="dark" onclick="document.location.href='userProfile_image.php'">
             Ảnh
           </button>
-          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark"  onclick="document.location.href='userProfile_video.php'">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_video.php'">
             Video
           </button>
           <div class="dropdown d-inline-block">
@@ -100,83 +98,42 @@ if (mysqli_num_rows($result_ava) > 0) {
       <div class="row">
         <div class="col-md-2">
         </div>
+        <!-- main imgaes -->
         <div class="col-md-8">
-          <div class="row">
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src=" <?php echo $row_ava['UserAva'] ?>" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://airportcargo.vn/wp-content/uploads/2018/05/dich-vu-van-chuyen-bang-duong-hang-khong-10.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="http://vinanet.vn/Uploaded/hienhoa/2020_08_14/3_FCRH.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://edugo.vn/wp-content/uploads/2019/07/anh-qu%E1%BB%91c.png" style="width: 200px; height: 150px;" />
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://ejoy-english.com/blog/wp-content/uploads/2018/05/tie%CC%82%CC%81ng-anh-u%CC%81c-.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://airportcargo.vn/wp-content/uploads/2018/05/dich-vu-van-chuyen-bang-duong-hang-khong-10.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="http://vinanet.vn/Uploaded/hienhoa/2020_08_14/3_FCRH.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://edugo.vn/wp-content/uploads/2019/07/anh-qu%E1%BB%91c.png" style="width: 200px; height: 150px;" />
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://ejoy-english.com/blog/wp-content/uploads/2018/05/tie%CC%82%CC%81ng-anh-u%CC%81c-.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://airportcargo.vn/wp-content/uploads/2018/05/dich-vu-van-chuyen-bang-duong-hang-khong-10.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="http://vinanet.vn/Uploaded/hienhoa/2020_08_14/3_FCRH.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://edugo.vn/wp-content/uploads/2019/07/anh-qu%E1%BB%91c.png" style="width: 200px; height: 150px;" />
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://ejoy-english.com/blog/wp-content/uploads/2018/05/tie%CC%82%CC%81ng-anh-u%CC%81c-.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://airportcargo.vn/wp-content/uploads/2018/05/dich-vu-van-chuyen-bang-duong-hang-khong-10.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="http://vinanet.vn/Uploaded/hienhoa/2020_08_14/3_FCRH.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://edugo.vn/wp-content/uploads/2019/07/anh-qu%E1%BB%91c.png" style="width: 200px; height: 150px;" />
-            </div>
-          </div>
-          <br>
-          <div class="row">
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://ejoy-english.com/blog/wp-content/uploads/2018/05/tie%CC%82%CC%81ng-anh-u%CC%81c-.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://airportcargo.vn/wp-content/uploads/2018/05/dich-vu-van-chuyen-bang-duong-hang-khong-10.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="http://vinanet.vn/Uploaded/hienhoa/2020_08_14/3_FCRH.jpg" style="width: 200px; height: 150px;" />
-            </div>
-            <div class="col-md-3">
-              <img alt="Bootstrap Image Preview" src="https://edugo.vn/wp-content/uploads/2019/07/anh-qu%E1%BB%91c.png" style="width: 200px; height: 150px;" />
-            </div>
-          </div>
+
+          <?php
+          // tat ca thông tin của user 
+          $sql = "SELECT * from post, user_profile WHERE post.UserID = user_profile.UserID AND user_profile.UserID = " . $UserID . " GROUP BY post.PostID ORDER BY post.PostID DESC";
+          $result_news = mysqli_query($conn, $sql);
+          if (mysqli_num_rows($result_news) > 0) {
+            $row_news = mysqli_fetch_assoc($result_news); // biến row_news
+          }
+
+          $sql_images_user = "SELECT * from images, post where images.PostID = post.PostID and post.UserID= " . $UserID .  ";";
+          $result_images_user = mysqli_query($conn, $sql_images_user);
+          if (mysqli_num_rows($result_images_user) > 0) {
+            $count = 0;
+            while ($row_img_content = mysqli_fetch_assoc($result_images_user)) {
+              global $row_img_content;
+              if ($count % 3 == 0) {
+                echo '<div class="row">';
+              }
+          ?>
+              <div class="col-md-3">
+                <img alt="Bootstrap Image Preview" src=" <?php echo $row_img_content['images']; ?>" style="width: 200px; height: 150px;" />
+              </div>
+          <?php
+              if ($count % 3 == 2 ||  $count == mysqli_num_rows($result_images_user) - 1) {
+                echo '</div>'; // đóng của if div row ????
+              }
+              $count++;
+            }
+          }
+
+          ?>
           <br>
         </div>
+        <!-- main imgaes -->
         <div class="col-md-2">
         </div>
       </div>

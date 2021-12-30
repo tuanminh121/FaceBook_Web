@@ -46,7 +46,7 @@ if (mysqli_num_rows($result_ava) > 0) {
 
       <!-- Section buttonss -->
       <section class="py-2 d-flex justify-content-between">
-        <!-- left -->
+        <!-- leftt -->
         <div>
           <button type="button" class="btn btn-link bg-light" datadata-ripple-color="dark" onclick="document.location.href='userProfile.php'">
             Bài viết
@@ -409,11 +409,13 @@ if (mysqli_num_rows($result_ava) > 0) {
                             </div>
                             <!--EDIT COMMENTT-->
                             <div id="edit-comment" class="hide">
+                              <!-- sửa comment -->
                               <div class="option-comment option-icon collapsible">
                                 <span id="btn-edit" class="material-icons-outlined option-comment option-icon" style="font-size:15px">
                                   edit
                                 </span>
                               </div>
+                              <!-- form sửa comment -->
                               <form class="content" id="form-edit-comment" action="src/userProfile/updateComment.php" method="post">
                                 <input class="ID" type="text" value="<?php echo $row_comment['UserID']; ?>" name="CommentUserID">
                                 <input class="ID" type="text" value="2" name="UserID">
@@ -422,13 +424,17 @@ if (mysqli_num_rows($result_ava) > 0) {
                                 <textarea id="input-edit-comment" name="txt-edit" id="" cols="30" rows="4"><?php echo $row_comment['CommentContent']; ?></textarea>
                                 <button id="btn-edit-comment" name="btn-edit" type="submit">Lưu</button>
                               </form>
+                              <!-- form sửa comment -->
+
+                              <!-- xóa comment -->
                               <a href="src/userProfile/deleteComment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
                         &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=2" class="link-dark">
                                 <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
                                   delete_forever
                                 </span>
                               </a>
-                            </div>
+                              <!-- xóa comment -->
+                            </div> <!-- đóng edit comment
                           </li>
                         <?php
                         } else {
@@ -445,6 +451,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                               ?>
                               <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
                             </a>
+
                             <div class="commentator-name">
                               <a href="userProfile.php" class="user-name text-decoration-none link-dark">
                                 <b><?php echo $row_comment['UserName']; ?></b>
@@ -453,7 +460,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                                 <?php echo $row_comment['CommentContent']; ?>
                               </p>
                             </div>
-                            <!--EDIT COMMENTT-->
+                            <!- EDIT COMMENTT-->
                             <div id="edit-comment" class="hide">
                               <a href="src/userProfile/deleteComment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
                         &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=2" class="link-dark">
