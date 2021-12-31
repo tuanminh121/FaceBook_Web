@@ -90,7 +90,7 @@ include "template/header.php";
                                             <b>Lưu bài viết</b>
                                         </div>
                                         <a class="col-md-12 items link-dark" href="src/process_report.php?PostID=<?php echo $row_news['PostID']; ?>
-                                &&PostUserID=<?php echo $row_news['UserID']; ?>">
+                                        &&PostUserID=<?php echo $row_news['UserID']; ?>">
                                             <span class="material-icons-outlined">report</span>
                                             <b>Báo cáo bài viết</b>
                                         </a>
@@ -285,7 +285,7 @@ include "template/header.php";
         <div class="col-md-9 mb-4 mb-md-0 thinking-post">
             <div class="modal fade" id="buttonModalUserPost" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
-                <form id="post-form" action="src/userProfile/addPost.php" method="post" autocomplete="off">
+                <form id="post-form" action="src/userProfile/addPost.php" method="post" autocomplete="off" enctype="multipart/form-data">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">
@@ -293,20 +293,27 @@ include "template/header.php";
                       </h5>
                       <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <input type="text" name="UserID" value="<?php echo $UserID?>" hidden>
+                    <input type="text" name="UserID" value="<?php echo $UserID ?>" hidden>
                     <textarea id="post-writing" cols="50" rows="5" class="modal-body" placeholder="Hãy viết gì đó..." name="txt-content"></textarea>
+                    <div class="displayImg">
+                      <div class="mb-3 p-2">
+                        <label for="formFileMultiple" class="form-label">Chọn ảnh của bạn</label>
+                        <input class="form-control" type="file" id="formFileMultiple" name="myFile">
+                        <!-- <input class="form-control" type="file" id="formFileMultiple" name="myFile" multiple> -->
+                      </div>
+                    </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
                         Đóng
                       </button>
-                      <button type="submit" class="btn btn-primary" name="btn-sendPost" >
+                      <button type="submit" class="btn btn-primary" name="btn-sendPost">
                         Lưu
                       </button>
                     </div>
                 </form>
               </div>
             </div>
-        </div>
+          </div>
         <!--RIGHT-SIDE-BAR-->
         <div id="right-side-bar">
             <div class="row">

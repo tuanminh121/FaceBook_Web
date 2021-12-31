@@ -58,7 +58,7 @@ if (isset($_POST['btn-sendPost'])) {
         }
     }
 
-
+    header("location: ../../userProfile.php");
 
     //ĐÓNG KẾT NỐI
     mysqli_close($conn);
