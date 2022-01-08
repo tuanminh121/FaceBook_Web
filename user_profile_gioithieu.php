@@ -12,12 +12,12 @@ if (mysqli_num_rows($result_ava) > 0) {
 ?>
 
 <main>
-  <!-- Section: white bg -->
+  <!-- Section: white bgg -->
   <section class="bg-white mb-4 shadow-2">
     <div class="container">
-      <!-- Section: images -->
+      <!-- Section: imagess -->
       <section class="mb-10">
-        <!-- Background image -->
+        <!-- Background imagee -->
         <div class="p-5 text-center bg-image shadow-1-strong rounded-bottom" style="
                 background-image: url('assets/images_dev/sky.jpg');
                 height: 400px;
@@ -30,11 +30,11 @@ if (mysqli_num_rows($result_ava) > 0) {
                   border border-white
                 " id="avatarImg" style="width: 180px;height:180px; margin-top: -60px" onclick="clickImg('<?php echo $row_ava['UserAva'] ?>')" />
         </div>
-        <!-- Background image -->
+        <!-- Background imagee -->
       </section>
-      <!-- Section: images -->
+      <!-- Section: imagess -->
 
-      <!-- Section: user data -->
+      <!-- Section: user dataa -->
       <section class="text-center border-bottom">
         <div class="row d-flex justify-content-center">
           <div class="col-md-6">
@@ -46,9 +46,9 @@ if (mysqli_num_rows($result_ava) > 0) {
         </div>
       </section>
 
-      <!-- Section buttons -->
+      <!-- Section buttonss -->
       <section class="py-2 d-flex justify-content-between">
-        <!-- left -->
+        <!-- leftt -->
         <div>
           <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='user_profile.php'">
             Bài viết
@@ -76,9 +76,9 @@ if (mysqli_num_rows($result_ava) > 0) {
             </ul>
           </div>
         </div>
-        <!-- left -->
+        <!-- leftt -->
 
-        <!-- right -->
+        <!-- rightt -->
         <div>
           <button type="button" class="btn btn-light bg-light mr-2" data-mdb-ripple-color="dark">
             <i class="far fa-edit me-2"></i>Chỉnh sửa trang cá nhân
@@ -87,19 +87,20 @@ if (mysqli_num_rows($result_ava) > 0) {
             <i class="fas fa-search me-2"></i>Tìm kiếm
           </button>
         </div>
-        <!-- right -->
+        <!-- rightt -->
       </section>
-      <!-- Section buttons -->
+      <!-- Section buttonss -->
     </div>
   </section>
-  <!-- Section: white bg -->
+  <!-- Section: white bgg -->
 
-  <!-- giới thiệu -->
+  <!-- giới thiệuu -->
   <div class="container mb-3">
     <div class="bg-white mb-5 shadow-2 rounded">
       <h2 class="pt-3" style="padding-left: 3rem"><strong>Giới Thiệu</strong></h2>
       <div class="row">
         <div class="col-2"></div>
+        
         <div class="col-3 pt-4 pb-4">
           <h4><i class="fas fa-user-alt"></i> Tên người dùng</h4>
           <hr>
@@ -112,7 +113,9 @@ if (mysqli_num_rows($result_ava) > 0) {
           <h4><i class="fas fa-map-marked-alt"></i> Địa chỉ</h4>
           <hr>
         </div>
+
         <div class="col-1">
+
         </div>
         <div class="col-4 pt-4 pb-4">
           <h4><?php echo $row_ava['UserFirstName'] . " " . $row_ava['UserLastName'] ?></h4>
@@ -133,12 +136,14 @@ if (mysqli_num_rows($result_ava) > 0) {
           <h4><?php echo $row_ava['UserAddress'] ?></h4>
           <hr>
         </div>
+
         <div class="col-2"></div>
+
       </div>
     </div>
   </div>
 
-  <!-- bạn bè  -->
+  <!-- bạn bèe  -->
   <div class="container mb-3">
     <div class="bg-white mb-5 shadow-2 rounded">
       <h2 class="pt-3" style="padding-left: 3rem"><strong>Bạn bè</strong></h2>
@@ -170,13 +175,14 @@ if (mysqli_num_rows($result_ava) > 0) {
       </div>
     </div>
   </div>
-  <!-- ảnh  -->
+  <!-- ảnhh  -->
   <div class="container mb-3">
     <div class="bg-white mb-5 shadow-2 rounded">
       <h2 class="pt-3" style="padding-left: 3rem"><strong>Ảnh</strong></h2>
       <div class="row">
         <div class="col-md-2">
         </div>
+        
         <div class="col-md-8">
           <div class="row">
             <div class="col-md-3">
@@ -193,6 +199,7 @@ if (mysqli_num_rows($result_ava) > 0) {
             </div>
           </div>
           <br>
+
           <div class="row">
             <div class="col-md-3">
               <img alt="Bootstrap Image Preview" src="https://ejoy-english.com/blog/wp-content/uploads/2018/05/tie%CC%82%CC%81ng-anh-u%CC%81c-.jpg" style="width: 200px; height: 150px;" />
@@ -208,6 +215,7 @@ if (mysqli_num_rows($result_ava) > 0) {
             </div>
           </div>
           <br>
+
           <div class="row">
             <div class="col-md-3">
               <img alt="Bootstrap Image Preview" src="https://ejoy-english.com/blog/wp-content/uploads/2018/05/tie%CC%82%CC%81ng-anh-u%CC%81c-.jpg" style="width: 200px; height: 150px;" />
@@ -223,6 +231,7 @@ if (mysqli_num_rows($result_ava) > 0) {
             </div>
           </div>
           <br>
+
           <div class="row">
             <div class="col-md-3">
               <img alt="Bootstrap Image Preview" src="https://ejoy-english.com/blog/wp-content/uploads/2018/05/tie%CC%82%CC%81ng-anh-u%CC%81c-.jpg" style="width: 200px; height: 150px;" />
@@ -238,6 +247,7 @@ if (mysqli_num_rows($result_ava) > 0) {
             </div>
           </div>
           <br>
+
           <div class="row">
             <div class="col-md-3">
               <img alt="Bootstrap Image Preview" src="https://ejoy-english.com/blog/wp-content/uploads/2018/05/tie%CC%82%CC%81ng-anh-u%CC%81c-.jpg" style="width: 200px; height: 150px;" />
@@ -254,7 +264,9 @@ if (mysqli_num_rows($result_ava) > 0) {
           </div>
           <br>
         </div>
+
         <div class="col-md-2">
+          
         </div>
       </div>
     </div>

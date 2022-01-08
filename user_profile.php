@@ -140,14 +140,14 @@ if (mysqli_num_rows($result_ava) > 0) {
               <a href="user_profile_image.php" class="btn btn-link d-inline-block py-1 px-3" style="float: right">Xem tất cả ảnh</a>
               <?php
               $sql_img = "SELECT * from images, post, user_profile where images.PostID = post.PostID and post.UserID = user_profile.UserID 
-        and user_profile.UserID = " . $UserID . " LIMIT 6;";
+        and user_profile.UserID = " . $UserID . " LIMIT 6;"; // max 6
               $result_img = mysqli_query($conn, $sql_img);
               if (mysqli_num_rows($result_img) > 0) {
                 $count = 0;
                 while ($row_img = mysqli_fetch_assoc($result_img)) {
                   global $row_img;
                   if ($count % 3 == 0) {
-                    echo '<div class="row gx-2">';
+                    echo '<div class="row gx-2">'; // open
                   }
               ?>
                   <div class="col-lg-4 mb-3">
@@ -157,7 +157,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                   </div>
               <?php
                   if ($count % 3 == 2 || $count == mysqli_num_rows($result_img) - 1) {
-                    echo '</div>';
+                    echo '</div>'; // close
                   }
                   $count++;
                 }

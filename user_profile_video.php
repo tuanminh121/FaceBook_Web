@@ -92,7 +92,7 @@ if (mysqli_num_rows($result_ava) > 0) {
     </section>
     <!-- Section: white bgg -->
 
-    <!-- ảnhh  -->
+    <!-- videos  -->
     <div class="container mb-3">
         <div class="bg-white mb-5 shadow-2 rounded">
             <h2 class="pt-3" style="padding-left: 3rem"><strong>Video</strong></h2>

@@ -43,9 +43,9 @@ if (mysqli_num_rows($result_ava) > 0) {
         </div>
       </section>
 
-      <!-- Section buttons -->
+      <!-- Section buttonss -->
       <section class="py-2 d-flex justify-content-between">
-        <!-- left -->
+        <!-- leftt -->
         <div>
           <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='user_profile.php'">
             Bài viết
@@ -73,9 +73,9 @@ if (mysqli_num_rows($result_ava) > 0) {
             </ul>
           </div>
         </div>
-        <!-- left -->
+        <!-- leftt -->
 
-        <!-- right -->
+        <!-- rightt -->
         <div>
           <button type="button" class="btn btn-light bg-light mr-2" data-mdb-ripple-color="dark">
             <i class="far fa-edit me-2"></i>Chỉnh sửa trang cá nhân
@@ -84,29 +84,29 @@ if (mysqli_num_rows($result_ava) > 0) {
             <i class="fas fa-search me-2"></i>Tìm kiếm
           </button>
         </div>
-        <!-- right -->
+        <!-- rightt -->
       </section>
-      <!-- Section buttons -->
+      <!-- Section buttonss -->
     </div>
   </section>
-  <!-- Section: white bg -->
+  <!-- Section: white bgg -->
 
-  <!-- ảnh  -->
+  <!-- ảnhh  -->
   <div class="container mb-3">
     <div class="bg-white mb-5 shadow-2 rounded">
       <h2 class="pt-3" style="padding-left: 3rem"><strong>Ảnh</strong></h2>
       <div class="row">
         <div class="col-md-2">
         </div>
-        <!-- main imgaes -->
+        <!-- main imgaess -->
         <div class="col-md-8">
 
           <?php
-          // tat ca thông tin của user 
+          // tat ca thông tin của user r
           $sql = "SELECT * from post, user_profile WHERE post.UserID = user_profile.UserID AND user_profile.UserID = " . $UserID . " GROUP BY post.PostID ORDER BY post.PostID DESC";
           $result_news = mysqli_query($conn, $sql);
           if (mysqli_num_rows($result_news) > 0) {
-            $row_news = mysqli_fetch_assoc($result_news); // biến row_news
+            $row_news = mysqli_fetch_assoc($result_news); // biến row_newss
           }
 
           $sql_images_user = "SELECT * from images, post where images.PostID = post.PostID and post.UserID= " . $UserID .  ";";
@@ -115,7 +115,7 @@ if (mysqli_num_rows($result_ava) > 0) {
             $count = 0;
             while ($row_img_content = mysqli_fetch_assoc($result_images_user)) {
               global $row_img_content;
-              if ($count % 3 == 0) {
+              if ($count % 4 == 0) { //open
                 echo '<div class="row">';
               }
           ?>
@@ -123,8 +123,8 @@ if (mysqli_num_rows($result_ava) > 0) {
                 <img alt="Bootstrap Image Preview" src=" <?php echo $row_img_content['images']; ?>" style="width: 200px; height: 150px;" />
               </div>
           <?php
-              if ($count % 3 == 2 ||  $count == mysqli_num_rows($result_images_user) - 1) {
-                echo '</div>'; // đóng của if div row ????
+              if ($count % 4 == 3 ||  $count == mysqli_num_rows($result_images_user) - 1) {
+                echo '</div>'; // đóng của if div roww ????
               }
               $count++;
             }
@@ -133,7 +133,7 @@ if (mysqli_num_rows($result_ava) > 0) {
           ?>
           <br>
         </div>
-        <!-- main imgaes -->
+        <!-- main imgaess -->
         <div class="col-md-2">
         </div>
       </div>

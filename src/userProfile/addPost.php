@@ -37,7 +37,7 @@ if (isset($_POST['btn-sendPost'])) {
     $fileType = pathinfo($uploadDir, PATHINFO_EXTENSION); // bắt định dạng tệp tin, ktra định dạng có hợp lệ hay k
 
     if (!empty($_FILES["myFile"]["name"])) {
-        $allowTypes = array('jpg', 'png', 'jpeg');
+        $allowTypes = array('jpg', 'png', 'jpeg'); // allow 3 types img type
         if (in_array($fileType, $allowTypes)) { // phương thức in_array kiểm tra 1 giá trị có thuộc mảng hay không
             // nếu có -> xử lý upload cái tệp tin đang lưu ở thư mục tạm C:\xampp\tmp\$_FILES["myFile"]["tmp_name"]
             if (move_uploaded_file($_FILES["myFile"]["tmp_name"], $uploadDir)) { // nghĩa là lấy từ nơi tạm đẩy vào nơi chính
@@ -57,12 +57,8 @@ if (isset($_POST['btn-sendPost'])) {
             $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
         }
     }
-<<<<<<< HEAD
-=======
 
-    header("location: ../../userProfile.php");
-
->>>>>>> 3c7f3f552c0a179765f754eb497077789a6e9a62
+    header("location: ../../user_profile.php");
     //ĐÓNG KẾT NỐI
     mysqli_close($conn);
 } else {

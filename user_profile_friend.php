@@ -393,41 +393,7 @@
             <a href="">
               <img src="assets/images_dev/anh.jpg" class="w-100" alt="">
             </a>
-
-            <!-- <div class="card-body">
-                  <div class="d-flex justify-content-between mb-1">
-                    <a href="">
-                      <i class="fas fa-thumbs-up text-primary"></i>
-                      <i class="fas fa-heart text-danger"></i>
-                      <span>123</span>
-                    </a>
-
-                    <div class="">
-                      <a href="" class="text-muted">8 bình luận</a>
-                    </div>
-                  </div>
-
-                  <div class="d-flex justify-content-between text-center border-top border-bottom mb-4">
-                    <button class="btn btn-link btn-lg text-muted"><i class="far fa-thumbs-up"></i> Thích</button>
-                    <button class="btn btn-link btn-lg text-muted"><i class="far fa-comment-alt"></i> Bình Luận</button>
-                    <button class="btn btn-link btn-lg text-muted"><i class="far fa-share-square"></i> Chia sẻ</button>
-                  </div>
-
-                  <div class="d-flex mb-2">
-                    <a href=""
-                      ><img
-                        src="assets/images_dev/totoro.webp"
-                        alt=""
-                        style="height: 40px; margin-right: 8px"
-                        class="rounded-circle border"
-                    /></a>
-                    <div class="form-outline w-100">
-                      <input type="text" id="formControlLg" class="form-control form-control-lg"/>
-                      <label class="form-label" for="formControlLg">Viết bình luận...</label>
-                    </div>
-                  </div>
-
-                </div> -->
+            
             <div class="action-comment">
               <div class="action-comment-above">
                 <div class="action-index">

@@ -102,10 +102,10 @@ if (mysqli_num_rows($result_ava) > 0) {
                     <div class="row">
                         <?php
                         $queryFriends = "SELECT * FROM user_profile, friend_ship 
-            WHERE (friend_ship.User1ID = UserID OR friend_ship.User2ID = UserID)
-            AND UserID != $UserID 
-            AND (friend_ship.User1ID = $UserID OR friend_ship.User2ID = $UserID) 
-            GROUP BY UserID;";
+                                        WHERE (friend_ship.User1ID = UserID OR friend_ship.User2ID = UserID)
+                                        AND UserID != $UserID 
+                                        AND (friend_ship.User1ID = $UserID OR friend_ship.User2ID = $UserID) 
+                                        GROUP BY UserID;";
                         $resultFriends = mysqli_query($conn, $queryFriends);
                         if (mysqli_num_rows($resultFriends) > 0) {
                             while ($rowFriends = mysqli_fetch_assoc($resultFriends)) {
