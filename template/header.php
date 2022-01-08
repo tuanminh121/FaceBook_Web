@@ -118,13 +118,13 @@
             <div class="nav-item">
 <?php
     include "src/connectDB.php";
-    include "template/info.php";
+    include "template/infor.php";
     $sql_user_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
     $result_user_ava = mysqli_query($conn, $sql_user_ava);
     if(mysqli_num_rows($result_user_ava) > 0){
         $row_user_ava = mysqli_fetch_assoc($result_user_ava);
 ?>
-                <a id="user" class="text-decoration-none link-dark" href="userProfile.php">
+                <a id="user" class="text-decoration-none link-dark" href="user_profile.php">
                     <div id="user-ava">
                         <img src="<?php echo defaultImage($row_user_ava['UserAva']) ?>" alt="">
                     </div>
@@ -172,7 +172,7 @@
         if(mysqli_num_rows($result_friend_notify) > 0){
             while($row_friend_notify = mysqli_fetch_assoc($result_friend_notify)){
 ?>
-                        <a class="notify-item link-dark" href="userProfile_friend.php?UserIDFriend=<?php echo $row_friend_notify['UserID'];?>">
+                        <a class="notify-item link-dark" href="user_profile_friend.php?UserIDFriend=<?php echo $row_friend_notify['UserID'];?>">
                             <div class="user-ava">
                                 <img class="user-img" src="<?php echo ($row_friend_notify['UserAva']); ?>" alt="">
                             </div>

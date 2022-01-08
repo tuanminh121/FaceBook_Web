@@ -1,23 +1,25 @@
 <?php
-    if(isset($_POST['btn-comment'])){
+    if(isset($_POST['btn-edit'])){
         $UserID = $_POST['UserID'];
-        $PostID = $_POST['PostID'];
-        $Comment = $_POST['txt-comment'];
+        $CommentUserID = $_POST['CommentUserID'];
+        $CommentID = $_POST['CommentID'];
+        $Comment = $_POST['txt-edit'];
         //KẾT NỐI SQL
         $conn = mysqli_connect('localhost','root','','facebook');
+
         if(!$conn){
             die("Kết nối thất bại. Vui lòng kiểm tra lại các thông tin máy chủ");
         }
-        //INSERT COMMENT
+        //UPDATE COMMENT
         if($Comment != ''){
-            $sql = "INSERT INTO comment(PostID, UserID, CommentContent) VALUES($PostID, $UserID, '$Comment')";
+            $sql = "UPDATE comment SET CommentContent='$Comment' WHERE CommentID=$CommentID";
             mysqli_query($conn,$sql);
-            header("location: ../../userProfile.php");
+            header("location: ../../user_profile.php");
         }
         //ĐÓNG KẾT NỐI
         mysqli_close($conn);
     }
     else{
-        header("location: ../../userProfile.php");
+        header("location: ../../user_profile.php");
     }
 ?>

@@ -20,7 +20,7 @@
             while($row_search = mysqli_fetch_assoc($result_search)){
                 if($row_search['UserID'] == $UserID){
 ?>
-        <a class="col-md-12 search-result-item" href="userProfile.php">
+        <a class="col-md-12 search-result-item" href="user_profile.php">
             <div class="icon">
                 <img class="user-img" src="<?php echo $row_search['UserAva']?>" alt="">
             </div>
@@ -35,7 +35,7 @@
                 }
                 else{
 ?>
-        <a class="col-md-12 search-result-item" href="userProfile_friend.php?UserIDFriend=<?php echo $row_search['UserID'];?>">
+        <a class="col-md-12 search-result-item" href="user_profile_friend.php?UserIDFriend=<?php echo $row_search['UserID'];?>">
             <div class="icon">
                 <img class="user-img" src="<?php echo $row_search['UserAva']?>" alt="">
             </div>

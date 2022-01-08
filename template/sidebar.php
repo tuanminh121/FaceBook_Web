@@ -7,7 +7,7 @@
     if(mysqli_num_rows($result_user_ava_sidebar) > 0){
         $row_user_ava_sidebar = mysqli_fetch_assoc($result_user_ava_sidebar)
 ?>
-    <a class="col-md-12 text-decoration-none link-dark sidebar-item" href="userProfile.php">
+    <a class="col-md-12 text-decoration-none link-dark sidebar-item" href="user_profile.php">
         <div class="icon">
             <img class="user-img" src="<?php echo defaultImage($row_user_ava['UserAva']);?>" alt="">
         </div>

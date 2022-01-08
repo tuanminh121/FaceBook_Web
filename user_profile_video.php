@@ -49,19 +49,19 @@ if (mysqli_num_rows($result_ava) > 0) {
             <section class="py-2 d-flex justify-content-between">
                 <!-- leftt -->
                 <div>
-                    <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile.php'">
+                    <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='user_profile.php'">
                         Bài viết
                     </button>
-                    <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_gioithieu.php'">
+                    <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='user_profile_gioithieu.php'">
                         Giới thiệu
                     </button>
-                    <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_myFriend.php'">
+                    <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='user_profile_myFriend.php'">
                         Bạn bè
                     </button>
-                    <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_image.php'">
+                    <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='user_profile_image.php'">
                         Ảnh
                     </button>
-                    <button type="button" class="btn btn-link bg-light" datadata-ripple-color="dark" onclick="document.location.href='userProfile_video.php'">
+                    <button type="button" class="btn btn-link bg-light" datadata-ripple-color="dark" onclick="document.location.href='user_profile_video.php'">
                         Video
                     </button>
                     <div class="dropdown d-inline-block">

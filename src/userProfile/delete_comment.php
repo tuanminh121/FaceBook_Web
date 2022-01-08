@@ -11,7 +11,7 @@
     }
     $sql = "DELETE FROM comment WHERE CommentID = $CommentID";
     mysqli_query($conn,$sql);
-    header("location: ../../userProfile.php");
+    header("location: ../../user_profile.php");
     
     //ĐÓNG KẾT NỐI
     mysqli_close($conn);

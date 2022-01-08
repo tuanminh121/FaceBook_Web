@@ -46,7 +46,7 @@ if (isset($_POST['btn-sendPost'])) {
                 $insert = mysqli_query($conn, $sql); // giống mysqli_query
                 if ($insert) { // ktra việc query thành công?
                     $statusMsg = "The file " . $fileName . " has been uploaded successfully.";
-                    header("location: ../../userProfile.php");
+                    header("location: ../../user_profile.php");
                 } else { // prbolem
                     $statusMsg = "File upload failed, please try again.";
                 }
@@ -57,11 +57,8 @@ if (isset($_POST['btn-sendPost'])) {
             $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
         }
     }
-
-
-
     //ĐÓNG KẾT NỐI
     mysqli_close($conn);
 } else {
-    header("location: ../../userProfile.php");
+    header("location: ../../user_profile.php");
 }

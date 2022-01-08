@@ -22,7 +22,7 @@ include "template/header.php";
                     if (mysqli_num_rows($result_thinking_ava) > 0) {
                         $row_thinking_ava = mysqli_fetch_assoc($result_thinking_ava)
                     ?>
-                        <a id="thinking-user" href="userProfile.php">
+                        <a id="thinking-user" href="user_profile.php">
                             <img src="<?php echo ($row_thinking_ava['UserAva']) ?>" alt="" class="rounded-circle border" />
                         </a>
                     <?php
@@ -62,11 +62,11 @@ include "template/header.php";
                 <div class="news">
                     <div class="row">
                         <div class="heading">
-                            <a class="user-ava" href="userProfile_friend.php?UserIDFriend=<?php echo $row_news['UserID']; ?>">
+                            <a class="user-ava" href="user_profile_friend.php?UserIDFriend=<?php echo $row_news['UserID']; ?>">
                                 <img class="user-img" src="<?php echo ($row_news['UserAva']); ?>" alt="">
                             </a>
                             <div class="user-name-time">
-                                <a href="userProfile_friend.php?UserIDFriend=<?php echo $row_news['UserID']; ?>" class="user-name text-decoration-none link-dark">
+                                <a href="user_profile_friend.php?UserIDFriend=<?php echo $row_news['UserID']; ?>" class="user-name text-decoration-none link-dark">
                                     <b><?php echo $row_news['UserName'] ?></b>
                                 </a>
                                 <h6 class="time">
@@ -174,7 +174,7 @@ include "template/header.php";
                         <div class="row">
                             <form id="comment-form" action="src/process_add_comment.php" method="post" autocomplete="off">
                                 <div class="col-md-12 comment-input-form">
-                                    <a class="icon" href="userProfile.php">
+                                    <a class="icon" href="user_profile.php">
                                         <?php
                                         $sql_comment_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
                                         $result_comment_ava = mysqli_query($conn, $sql_comment_ava);
@@ -213,11 +213,11 @@ include "template/header.php";
                             ?>
                                         <!--COMMENT OF USER LOGIN-->
                                         <li class="comment-item myDIV">
-                                            <a class="icon" href="userProfile.php">
+                                            <a class="icon" href="user_profile.php">
                                                 <img class="user-img" src="<?php echo ($row_comment['UserAva']); ?>" alt="">
                                             </a>
                                             <div class="commentator-name">
-                                                <a href="userProfile.php" class="user-name text-decoration-none link-dark">
+                                                <a href="user_profile.php" class="user-name text-decoration-none link-dark">
                                                     <b><?php echo $row_comment['UserName']; ?></b>
                                                 </a>
                                                 <p class="comment-content">
@@ -253,11 +253,11 @@ include "template/header.php";
                                     ?>
                                         <!--COMMENT OF USER FRIEND-->
                                         <li class="comment-item myDIV">
-                                            <a class="icon" href="userProfile_friend.php?UserIDFriend=<?php echo $row_comment['UserID']; ?>">
+                                            <a class="icon" href="user_profile_friend.php?UserIDFriend=<?php echo $row_comment['UserID']; ?>">
                                                 <img class="user-img" src="<?php echo ($row_comment['UserAva']); ?>" alt="">
                                             </a>
                                             <div class="commentator-name">
-                                                <a href="userProfile_friend.php?UserIDFriend=<?php echo $row_comment['UserID']; ?>" class="user-name text-decoration-none link-dark">
+                                                <a href="user_profile_friend.php?UserIDFriend=<?php echo $row_comment['UserID']; ?>" class="user-name text-decoration-none link-dark">
                                                     <b><?php echo $row_comment['UserName']; ?></b>
                                                 </a>
                                                 <p class="comment-content">
@@ -324,7 +324,7 @@ include "template/header.php";
                 while ($row_friend = mysqli_fetch_assoc($result_friend)) {
 
             ?>
-                    <a class="row" href="userProfile_friend.php?UserIDFriend=<?php echo $row_friend['UserID']; ?>">
+                    <a class="row" href="user_profile_friend.php?UserIDFriend=<?php echo $row_friend['UserID']; ?>">
                         <div class="sidebar-item">
                             <div class="icon">
                                 <img src="<?php echo ($row_friend['UserAva']); ?>" alt="" style="border-radius: 50%;width:36px;height:36px">

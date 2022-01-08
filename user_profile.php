@@ -48,19 +48,19 @@ if (mysqli_num_rows($result_ava) > 0) {
       <section class="py-2 d-flex justify-content-between">
         <!-- leftt -->
         <div>
-          <button type="button" class="btn btn-link bg-light" datadata-ripple-color="dark" onclick="document.location.href='userProfile.php'">
+          <button type="button" class="btn btn-link bg-light" datadata-ripple-color="dark" onclick="document.location.href='user_profile.php'">
             Bài viết
           </button>
-          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_gioithieu.php'">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='user_profile_gioithieu.php'">
             Giới thiệu
           </button>
-          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_myFriend.php'">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='user_profile_myFriend.php'">
             Bạn bè
           </button>
-          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_image.php'">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='user_profile_image.php'">
             Ảnh
           </button>
-          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='userProfile_video.php'">
+          <button type="button" class="btn btn-link text-reset" datadata-ripple-color="dark" onclick="document.location.href='user_profile_video.php'">
             Video
           </button>
           <div class="dropdown d-inline-block">
@@ -137,7 +137,7 @@ if (mysqli_num_rows($result_ava) > 0) {
               <a href="" class="text-reset d-inline-block">
                 <h5 class="card-title mt"><strong>Ảnh</strong></h5>
               </a>
-              <a href="userProfile_image.php" class="btn btn-link d-inline-block py-1 px-3" style="float: right">Xem tất cả ảnh</a>
+              <a href="user_profile_image.php" class="btn btn-link d-inline-block py-1 px-3" style="float: right">Xem tất cả ảnh</a>
               <?php
               $sql_img = "SELECT * from images, post, user_profile where images.PostID = post.PostID and post.UserID = user_profile.UserID 
         and user_profile.UserID = " . $UserID . " LIMIT 6;";
@@ -178,7 +178,7 @@ if (mysqli_num_rows($result_ava) > 0) {
               </div>
 
               <div class="card_right d-inline-block" style="float: right">
-                <a href="userProfile_myFriend.php" class="btn btn-link py-1 px-3">Xem tất cả bạn bè</a>
+                <a href="user_profile_myFriend.php" class="btn btn-link py-1 px-3">Xem tất cả bạn bè</a>
               </div>
               <?php
               $queryFriends = "SELECT * FROM user_profile, friend_ship 
@@ -221,7 +221,7 @@ if (mysqli_num_rows($result_ava) > 0) {
           <div class="card mb-4 thinking-post">
             <div class="card-body">
               <div class="d-flex">
-                <a id="thinking-user" href="userProfile.php">
+                <a id="thinking-user" href="user_profile.php">
                   <img src="<?php echo $row_ava['UserAva'] ?>" alt="" class="rounded-circle border" />
                 </a>
                 <button class="btn btn-light btn-block btn-rounded bg-light" data-mdb-toggle="modal" data-mdb-target="#buttonModalUserPost">
@@ -249,11 +249,11 @@ if (mysqli_num_rows($result_ava) > 0) {
                 <div class="row">
                   <!-- heading -->
                   <div class="heading">
-                    <a class="user-ava" href="userProfile.php">
+                    <a class="user-ava" href="userPuser_profile.php">
                       <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
                     </a>
                     <div class="user-name-time">
-                      <a href="userProfile.php" class="user-name text-decoration-none link-dark">
+                      <a href="user_profile.php" class="user-name text-decoration-none link-dark">
                         <b><?php echo $row_ava['UserFirstName'] . " " . $row_ava['UserLastName'] ?></b>
                       </a>
                       <h6 class="time">
@@ -357,9 +357,9 @@ if (mysqli_num_rows($result_ava) > 0) {
                   </div>
                   <!--COMMENT INPUTT-->
                   <div class="row">
-                    <form id="comment-form" action="src/userProfile/addComment.php" method="post" autocomplete="off">
+                    <form id="comment-form" action="src/userProfile/add_comment.php" method="post" autocomplete="off">
                       <div class="col-md-12 comment-input-form">
-                        <a class="icon" href="userProfile.php">
+                        <a class="icon" href="user_profile.php">
                           <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
                         </a>
                         <input class="ID" type="text" value="<?php echo $row_news['PostID']; ?>" name="PostID">
@@ -388,7 +388,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                         if ($row_comment['UserID'] == $UserID) {
                     ?>
                           <li class="comment-item myDIV">
-                            <a class="icon" href="userProfile.php">
+                            <a class="icon" href="user_profile.php">
                               <?php
                               //TRUY VẤN COMMENT, COMMENT_USER
                               $queryAvatar = "SELECT * from user_profile WHERE UserID =" . $row_comment['UserID'];
@@ -400,7 +400,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                               <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
                             </a>
                             <div class="commentator-name">
-                              <a href="userProfile.php" class="user-name text-decoration-none link-dark">
+                              <a href="user_profile.php" class="user-name text-decoration-none link-dark">
                                 <b><?php echo $row_comment['UserName']; ?></b>
                               </a>
                               <p class="comment-content">
@@ -416,7 +416,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                                 </span>
                               </div>
                               <!-- form sửa comment -->
-                              <form class="content" id="form-edit-comment" action="src/userProfile/updateComment.php" method="post">
+                              <form class="content" id="form-edit-comment" action="src/userProfile/update_comment.php" method="post">
                                 <input class="ID" type="text" value="<?php echo $row_comment['UserID']; ?>" name="CommentUserID">
                                 <input class="ID" type="text" value="2" name="UserID">
                                 <!--Người đăng nhậpp-->
@@ -427,7 +427,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                               <!-- form sửa comment -->
 
                               <!-- xóa comment -->
-                              <a href="src/userProfile/deleteComment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
+                              <a href="src/userProfile/delete_comment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
                         &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=2" class="link-dark">
                                 <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
                                   delete_forever
@@ -440,7 +440,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                         } else {
                         ?>
                           <li class="comment-item myDIV">
-                            <a class="icon" href="userProfile.php">
+                            <a class="icon" href="user_profile.php">
                               <?php
                               //TRUY VẤN COMMENT, COMMENT_USER
                               $queryAvatar = "SELECT * from user_profile WHERE UserID =" . $row_comment['UserID'];
@@ -453,7 +453,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                             </a>
 
                             <div class="commentator-name">
-                              <a href="userProfile.php" class="user-name text-decoration-none link-dark">
+                              <a href="user_profile.php" class="user-name text-decoration-none link-dark">
                                 <b><?php echo $row_comment['UserName']; ?></b>
                               </a>
                               <p class="comment-content">
@@ -462,7 +462,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                             </div>
                             <!- EDIT COMMENTT-->
                             <div id="edit-comment" class="hide">
-                              <a href="src/userProfile/deleteComment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
+                              <a href="src/userProfile/delete_comment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
                         &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=2" class="link-dark">
                                 <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
                                   delete_forever
@@ -477,8 +477,6 @@ if (mysqli_num_rows($result_ava) > 0) {
                     ?>
                   </ul>
                 </div>
-
-
               </div>
           <?php
             }

@@ -22,11 +22,11 @@
                 <div class="news">
                     <div class="row">
                         <div class="heading">
-                            <a class="user-ava" href="userProfile_friend.php?UserIDFriend=<?php echo $row_news['UserID']; ?>">
+                            <a class="user-ava" href="user_profile_friend.php?UserIDFriend=<?php echo $row_news['UserID']; ?>">
                                 <img class="user-img" src="<?php echo ($row_news['UserAva']); ?>" alt="">
                             </a>
                             <div class="user-name-time">
-                                <a href="userProfile_friend.php?UserIDFriend=<?php echo $row_news['UserID']; ?>" class="user-name text-decoration-none link-dark">
+                                <a href="user_profile_friend.php?UserIDFriend=<?php echo $row_news['UserID']; ?>" class="user-name text-decoration-none link-dark">
                                     <b><?php echo $row_news['UserName'] ?></b>
                                 </a>
                                 <h6 class="time">
@@ -134,7 +134,7 @@
                         <div class="row">
                             <form id="comment-form" action="src/process_add_comment.php" method="post" autocomplete="off">
                                 <div class="col-md-12 comment-input-form">
-                                    <a class="icon" href="userProfile.php">
+                                    <a class="icon" href="user_profile.php">
                                         <?php
                                         $sql_comment_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
                                         $result_comment_ava = mysqli_query($conn, $sql_comment_ava);
@@ -173,11 +173,11 @@
                             ?>
                                         <!--COMMENT OF USER LOGIN-->
                                         <li class="comment-item myDIV">
-                                            <a class="icon" href="userProfile.php">
+                                            <a class="icon" href="user_profile.php">
                                                 <img class="user-img" src="<?php echo ($row_comment['UserAva']); ?>" alt="">
                                             </a>
                                             <div class="commentator-name">
-                                                <a href="userProfile.php" class="user-name text-decoration-none link-dark">
+                                                <a href="user_profile.php" class="user-name text-decoration-none link-dark">
                                                     <b><?php echo $row_comment['UserName']; ?></b>
                                                 </a>
                                                 <p class="comment-content">
@@ -213,11 +213,11 @@
                                     ?>
                                         <!--COMMENT OF USER FRIEND-->
                                         <li class="comment-item myDIV">
-                                            <a class="icon" href="userProfile_friend.php?UserIDFriend=<?php echo $row_comment['UserID']; ?>">
+                                            <a class="icon" href="user_profile_friend.php?UserIDFriend=<?php echo $row_comment['UserID']; ?>">
                                                 <img class="user-img" src="<?php echo ($row_comment['UserAva']); ?>" alt="">
                                             </a>
                                             <div class="commentator-name">
-                                                <a href="userProfile_friend.php?UserIDFriend=<?php echo $row_comment['UserID']; ?>" class="user-name text-decoration-none link-dark">
+                                                <a href="user_profile_friend.php?UserIDFriend=<?php echo $row_comment['UserID']; ?>" class="user-name text-decoration-none link-dark">
                                                     <b><?php echo $row_comment['UserName']; ?></b>
                                                 </a>
                                                 <p class="comment-content">
