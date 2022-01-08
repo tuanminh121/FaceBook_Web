@@ -422,13 +422,6 @@ img{
     display: flex;
     flex-direction: row;
 }
-/* .hide {
-    opacity: 1;
-}
-
-.myDIV:hover > .hide {
-   opacity: 1;
-} */
 #input-edit-comment{
     resize: none;
     height: auto;

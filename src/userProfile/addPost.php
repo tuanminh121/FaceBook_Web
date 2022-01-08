@@ -57,6 +57,12 @@ if (isset($_POST['btn-sendPost'])) {
             $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
         }
     }
+<<<<<<< HEAD
+=======
+
+    header("location: ../../userProfile.php");
+
+>>>>>>> 3c7f3f552c0a179765f754eb497077789a6e9a62
     //ĐÓNG KẾT NỐI
     mysqli_close($conn);
 } else {

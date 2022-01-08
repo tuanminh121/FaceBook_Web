@@ -6,12 +6,14 @@
 <script type="text/javascript"></script>
 <!-- <script src="assets\js\comment_input.js"></script> -->
 <!-- js for userProfile -->
-<script scr="assets\js\userProfile.js"></script>
-<!--JS FOR NEWSFEED-->
-<script src="assets\js\newsfeed.js"></script>
-<!--JS FOR HEADER-->
-<script src="assets\js\header.js"></script>
+<script scr="assets/js/userProfile.js"></script>
 <!--AJAX-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+<!--JS FOR NEWSFEED-->
+<script src="assets/js/newsfeed.js"></script>
+<!--JS FOR HEADER-->
+<script src="assets/js/header.js"></script>
+<!--AJAX FOR COMMENT-->
+<!-- <script src="assets/js/comment.js"></script> -->
 </body>
 </html>
