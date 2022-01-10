@@ -27,7 +27,7 @@ include "template/header.php";
                         </a>
                     <?php
                     }
-                    //ĐÓNG KẾT NỐI
+                    //ĐÓNG KẾT NỐII
                     mysqli_close($conn);
                     ?>
                     <button class="btn btn-light btn-block btn-rounded bg-light" data-mdb-toggle="modal" data-mdb-target="#buttonModalUserPost">

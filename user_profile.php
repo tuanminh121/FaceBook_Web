@@ -152,7 +152,7 @@ if (mysqli_num_rows($result_ava) > 0) {
               ?>
                   <div class="col-lg-4 mb-3">
                     <a href="<?php echo $row_img['images'] ?>" target="_blank">
-                      <img src="<?php echo $row_img['images'] ?>" alt="" onclick="clickImg('<?php echo $row_img['images'] ?>')" class="w-100 shadow-1-strong rounded" style="height: 100px;"/>
+                      <img src="<?php echo $row_img['images'] ?>" alt="" onclick="clickImg('<?php echo $row_img['images'] ?>')" class="w-100 shadow-1-strong rounded" style="height: 100px;" />
                     </a>
                   </div>
               <?php
@@ -360,11 +360,20 @@ if (mysqli_num_rows($result_ava) > 0) {
                     <form id="comment-form" action="src/userProfile/add_comment.php" method="post" autocomplete="off">
                       <div class="col-md-12 comment-input-form">
                         <a class="icon" href="user_profile.php">
-                          <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
+                          <?php
+                          $sql_comment_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
+                          $result_comment_ava = mysqli_query($conn, $sql_comment_ava);
+                          if (mysqli_num_rows($result_comment_ava) > 0) {
+                            $row_comment_ava = mysqli_fetch_assoc($result_comment_ava)
+                          ?>
+                            <img class="user-img" src="<?php echo ($row_comment_ava['UserAva']); ?>" alt="">
+                          <?php
+                          }
+                          ?>
                         </a>
                         <input class="ID" type="text" value="<?php echo $row_news['PostID']; ?>" name="PostID">
-                        <input class="ID" type="text" value="2" name="UserID">
-                        <!--Người đăng nhậpp-->
+                        <input class="ID" type="text" value="<?php echo $UserID; ?>" name="UserID">
+                        <!--Người đăng nhập-->
                         <div class="comment-input">
                           <input id="comment-input" name="txt-comment" type="text" placeholder=" Viết bình luận" class="form-control">
                         </div>
@@ -387,17 +396,10 @@ if (mysqli_num_rows($result_ava) > 0) {
                       while ($row_comment = mysqli_fetch_assoc($result_comment)) {
                         if ($row_comment['UserID'] == $UserID) {
                     ?>
+                          <!--COMMENT OF USER LOGIN-->
                           <li class="comment-item myDIV">
                             <a class="icon" href="user_profile.php">
-                              <?php
-                              //TRUY VẤN COMMENT, COMMENT_USER
-                              $queryAvatar = "SELECT * from user_profile WHERE UserID =" . $row_comment['UserID'];
-                              $resultAvatar = mysqli_query($conn, $queryAvatar);
-                              if (mysqli_num_rows($resultAvatar) > 0) {
-                                $rowAvatar = mysqli_fetch_assoc($resultAvatar);
-                              }
-                              ?>
-                              <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
+                              <img class="user-img" src="<?php echo ($row_comment['UserAva']); ?>" alt="">
                             </a>
                             <div class="commentator-name">
                               <a href="user_profile.php" class="user-name text-decoration-none link-dark">
@@ -407,38 +409,34 @@ if (mysqli_num_rows($result_ava) > 0) {
                                 <?php echo $row_comment['CommentContent']; ?>
                               </p>
                             </div>
-                            <!--EDIT COMMENTT-->
+                            <!--EDIT COMMENT-->
                             <div id="edit-comment" class="hide">
-                              <!-- sửa comment -->
                               <div class="option-comment option-icon collapsible">
                                 <span id="btn-edit" class="material-icons-outlined option-comment option-icon" style="font-size:15px">
                                   edit
                                 </span>
                               </div>
-                              <!-- form sửa comment -->
-                              <form class="content" id="form-edit-comment" action="src/userProfile/update_comment.php" method="post">
+                              <form class="content" id="form-edit-comment" action="src/process_update_comment.php" method="post">
                                 <input class="ID" type="text" value="<?php echo $row_comment['UserID']; ?>" name="CommentUserID">
-                                <input class="ID" type="text" value="2" name="UserID">
-                                <!--Người đăng nhậpp-->
+                                <input class="ID" type="text" value="<?php echo $UserID; ?>" name="UserID">
+                                <!--Người đăng nhập-->
                                 <input class="ID" type="text" value="<?php echo $row_comment['CommentID']; ?>" name="CommentID">
                                 <textarea id="input-edit-comment" name="txt-edit" id="" cols="30" rows="4"><?php echo $row_comment['CommentContent']; ?></textarea>
                                 <button id="btn-edit-comment" name="btn-edit" type="submit">Lưu</button>
                               </form>
-                              <!-- form sửa comment -->
-
-                              <!-- xóa comment -->
+                              
                               <a href="src/userProfile/delete_comment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
-                        &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=2" class="link-dark">
-                                <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
-                                  delete_forever
-                                </span>
-                              </a>
-                              <!-- xóa comment -->
-                            </div> <!-- đóng edit comment
+                        &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=<?php echo $UserID; ?>" class="link-dark">
+                                  <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
+                                    delete_forever
+                                  </span>
+                                </a>
+                            </div>
                           </li>
                         <?php
                         } else {
                         ?>
+                          <!--COMMENT OF USER FRIEND-->
                           <li class="comment-item myDIV">
                             <a class="icon" href="user_profile.php">
                               <?php
@@ -451,7 +449,6 @@ if (mysqli_num_rows($result_ava) > 0) {
                               ?>
                               <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
                             </a>
-
                             <div class="commentator-name">
                               <a href="user_profile.php" class="user-name text-decoration-none link-dark">
                                 <b><?php echo $row_comment['UserName']; ?></b>
@@ -461,15 +458,16 @@ if (mysqli_num_rows($result_ava) > 0) {
                               </p>
                             </div>
                             <!- EDIT COMMENTT-->
-                            <div id="edit-comment" class="hide">
-                              <a href="src/userProfile/delete_comment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
-                        &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=2" class="link-dark">
-                                <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
-                                  delete_forever
-                                </span>
-                              </a>
-                            </div>
+                              <div id="edit-comment" class="hide">
+                                <a href="src/userProfile/delete_comment.php?CommentID=<?php echo $row_comment['CommentID']; ?>
+                        &&CommentUserID=<?php echo $row_comment['UserID'] ?>&&UserID=<?php echo $UserID; ?>" class="link-dark">
+                                  <span class="hide material-icons-outlined option-comment option-icon" style="font-size:15px">
+                                    delete_forever
+                                  </span>
+                                </a>
+                              </div>
                           </li>
+
                     <?php
                         }
                       }
