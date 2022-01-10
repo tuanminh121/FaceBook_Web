@@ -360,6 +360,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                     <form id="comment-form" action="src/userProfile/add_comment.php" method="post" autocomplete="off">
                       <div class="col-md-12 comment-input-form">
                         <a class="icon" href="user_profile.php">
+<<<<<<< HEAD
                           <?php
                           $sql_comment_ava = "SELECT CONCAT(UserFirstName, ' ', UserLastName) as UserName, UserAva FROM user_profile WHERE UserID = $UserID";
                           $result_comment_ava = mysqli_query($conn, $sql_comment_ava);
@@ -374,6 +375,13 @@ if (mysqli_num_rows($result_ava) > 0) {
                         <input class="ID" type="text" value="<?php echo $row_news['PostID']; ?>" name="PostID">
                         <input class="ID" type="text" value="<?php echo $UserID; ?>" name="UserID">
                         <!--Người đăng nhập-->
+=======
+                          <img class="user-img" src="<?php echo $row_ava['UserAva']?>" alt="">
+                        </a>
+                        <input class="ID" type="text" value="<?php echo $row_news['PostID']; ?>" name="PostID">
+                        <input class="ID" type="text" value="<?php echo $UserID;?>" name="UserID">
+                        <!--Người đăng nhậpp-->
+>>>>>>> d5951176617bcdf3f29ec8fd017e0c33b3a186a5
                         <div class="comment-input">
                           <input id="comment-input" name="txt-comment" type="text" placeholder=" Viết bình luận" class="form-control">
                         </div>
@@ -419,7 +427,11 @@ if (mysqli_num_rows($result_ava) > 0) {
                               <form class="content" id="form-edit-comment" action="src/process_update_comment.php" method="post">
                                 <input class="ID" type="text" value="<?php echo $row_comment['UserID']; ?>" name="CommentUserID">
                                 <input class="ID" type="text" value="<?php echo $UserID; ?>" name="UserID">
+<<<<<<< HEAD
                                 <!--Người đăng nhập-->
+=======
+                                <!--Người đăng nhậpp-->
+>>>>>>> d5951176617bcdf3f29ec8fd017e0c33b3a186a5
                                 <input class="ID" type="text" value="<?php echo $row_comment['CommentID']; ?>" name="CommentID">
                                 <textarea id="input-edit-comment" name="txt-edit" id="" cols="30" rows="4"><?php echo $row_comment['CommentContent']; ?></textarea>
                                 <button id="btn-edit-comment" name="btn-edit" type="submit">Lưu</button>
