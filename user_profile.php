@@ -360,10 +360,10 @@ if (mysqli_num_rows($result_ava) > 0) {
                     <form id="comment-form" action="src/userProfile/add_comment.php" method="post" autocomplete="off">
                       <div class="col-md-12 comment-input-form">
                         <a class="icon" href="user_profile.php">
-                          <img class="user-img" src="<?php echo $row_ava['UserAva'] ?>" alt="">
+                          <img class="user-img" src="<?php echo $row_ava['UserAva']?>" alt="">
                         </a>
                         <input class="ID" type="text" value="<?php echo $row_news['PostID']; ?>" name="PostID">
-                        <input class="ID" type="text" value="2" name="UserID">
+                        <input class="ID" type="text" value="<?php echo $UserID;?>" name="UserID">
                         <!--Người đăng nhậpp-->
                         <div class="comment-input">
                           <input id="comment-input" name="txt-comment" type="text" placeholder=" Viết bình luận" class="form-control">
@@ -418,7 +418,7 @@ if (mysqli_num_rows($result_ava) > 0) {
                               <!-- form sửa comment -->
                               <form class="content" id="form-edit-comment" action="src/userProfile/update_comment.php" method="post">
                                 <input class="ID" type="text" value="<?php echo $row_comment['UserID']; ?>" name="CommentUserID">
-                                <input class="ID" type="text" value="2" name="UserID">
+                                <input class="ID" type="text" value="<?php echo $UserID; ?>" name="UserID">
                                 <!--Người đăng nhậpp-->
                                 <input class="ID" type="text" value="<?php echo $row_comment['CommentID']; ?>" name="CommentID">
                                 <textarea id="input-edit-comment" name="txt-edit" id="" cols="30" rows="4"><?php echo $row_comment['CommentContent']; ?></textarea>
